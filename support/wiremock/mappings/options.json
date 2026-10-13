@@ -1,0 +1,37 @@
+{
+  "mappings": [
+    {
+      "priority": 1,
+      "request": {
+        "method": "OPTIONS",
+        "urlPathTemplate": "/characters/{characterId}/miningoperation"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, content-type",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH"
+        }
+      }
+    },
+    {
+      "priority": 1,
+      "request": {
+        "method": "OPTIONS",
+        "urlPattern": ".*"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Max-Age": "1800",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, x-app-signature, xapp-authentication-check, xapp-name, xapp-platform, xapp-signature, xapp-version",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH"
+        }
+      }
+    }
+  ]
+}

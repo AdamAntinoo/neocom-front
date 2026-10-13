@@ -1,0 +1,7 @@
+// Shared row layout for panels. Panel color frames live in panel-styles.scss.
+
+.neocom-panel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

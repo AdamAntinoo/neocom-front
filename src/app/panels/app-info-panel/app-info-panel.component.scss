@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  flex-grow: 4;
+  margin-right: 2px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.app-name-panel,
+.app-version {
+  font-family: 'Elemental', sans-serif;
+}
+
+.app-name-panel {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  padding: 8px;
+}
+
+.app-name {
+  font-size: 30px;
+  color: white;
+  text-shadow: 0 0 6px white;
+}
+
+.app-version-position {
+  margin-top: 4px;
+  margin-left: 8px;
+}
+
+.app-version {
+  font-size: 16px;
+  color: yellow;
+}
+
+.app-copyright {
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  margin-left: auto;
+  align-self: center;
+  color: white;
+}

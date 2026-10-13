@@ -1,13 +1,44 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>NeocomFront</title>
-    <base href="/" />
+    <title>NeoCom.Infinity</title>
+    <base href="/app" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="preload"
+      href="/assets/fonts/ProximaNovaAltBlack.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <!-- F O N T A W E S O M E 4 . 7 . 0 -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .message-loading {
+        font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+          "Segoe UI Emoji", "Segoe UI Symbol";
+        color: black;
+        text-align: center;
+        margin-top: 40vh;
+      }
+    </style>
   </head>
+
   <body>
-    <app-root></app-root>
+    <app-root>
+      <div class="message-loading">
+        LOADING NEOCOM APPLICATION...
+      </div>
+    </app-root>
   </body>
 </html>

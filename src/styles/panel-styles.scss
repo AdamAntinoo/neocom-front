@@ -1,0 +1,605 @@
+@import "./_scss_variables.scss";
+// - PANEL DEFINITION
+$panel-padding: 2px; // --- PANEL VARIABLES
+$panel-background-color: #080808;
+$panel-border-color: #404040;
+$panel-opacity: 0.8;
+$panel-corner-height: 6px;
+$panel-corner-width: 6px;
+$panel-repositioning: -1px;
+$change-time: 0.5s;
+// - PANEL MARGIN VARIABLES
+$panel-default-font: 'Din-1451';
+$panel-margin: 2px;
+$panel-extramargin: 5px;
+$panel-border-color: #404040;
+$panel-border-thickness: 1px;
+$panel-default-opacity: 0.8;
+$panel-hover-opacity: 1.0;
+$panel-corner-marker-size: 6px;
+$panel-corner-marker-thickness: 1px;
+$panel-corner-marker-displacement: -1px;
+// - PANEL COLORS
+$panel-background-hover-green: #0B3D03;
+$panel-background-hover-blue: #0B3D03;
+//  A L L   P A N E L S
+.panel-inset {
+    padding: $panel-padding;
+}
+
+.panel-red,
+.panel-pink,
+.panel-orange,
+.panel-yellow,
+.panel-lime,
+.panel-green,
+.panel-lightblue,
+.panel-blue,
+.panel-violet,
+.panel-white {
+    background-color: $panel-background-color;
+    border-color: $panel-border-color;
+    border-style: solid;
+    border-width: $panel-border-thickness $panel-border-thickness $panel-border-thickness $panel-border-thickness;
+    height: auto;
+    line-height: $neocom-line-height;
+    opacity: $panel-default-opacity;
+    position: relative;
+    transition: opacity 1s;
+}
+
+// R E D
+.panel-red> :first-child:after,
+.panel-red> :first-child:before,
+.panel-red:after,
+.panel-red:before {
+    border: $panel-corner-marker-thickness $panel-red solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-red:hover {
+    background-color: $panel-red-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-red-expanded {
+    background-color: $panel-red-10;
+}
+
+.panel-red-selected {
+    border-left: 3px solid $panel-red;
+}
+
+.panel-red:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-red:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-red> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-red> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// P I N K
+.panel-pink> :first-child:after,
+.panel-pink> :first-child:before,
+.panel-pink:after,
+.panel-pink:before {
+    border: $panel-corner-marker-thickness $panel-pink solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-pink:hover {
+    background-color: $panel-pink-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-pink-expanded {
+    background-color: $panel-pink-10;
+}
+
+.panel-pink-selected {
+    border-left: 3px solid $panel-pink;
+}
+
+.panel-pink:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-pink:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-pink> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-pink> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// O R A N G E
+.panel-orange> :first-child:after,
+.panel-orange> :first-child:before,
+.panel-orange:after,
+.panel-orange:before {
+    border: $panel-corner-marker-thickness $panel-orange solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-orange:hover {
+    background-color: $panel-orange-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-orange-expanded {
+    background-color: $panel-orange-10;
+}
+
+.panel-orange-selected {
+    border-left: 3px solid $panel-orange;
+}
+
+.panel-orange:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-orange:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-orange> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-orange> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// Y E L L O W
+.panel-yellow> :first-child:after,
+.panel-yellow> :first-child:before,
+.panel-yellow:after,
+.panel-yellow:before {
+    border: $panel-corner-marker-thickness $panel-yellow solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-yellow:hover {
+    background-color: $panel-yellow-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-yellow-expanded {
+    background-color: $panel-yellow-10;
+}
+
+.panel-yellow-selected {
+    border-left: 3px solid $panel-yellow;
+}
+
+.panel-yellow:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-yellow:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-yellow> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-yellow> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// L I M E
+.panel-lime> :first-child:after,
+.panel-lime> :first-child:before,
+.panel-lime:after,
+.panel-lime:before {
+    border: $panel-corner-marker-thickness $panel-lime solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-lime:hover {
+    background-color: $panel-lime-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-lime-expanded {
+    background-color: $panel-lime-10;
+}
+
+.panel-lime-selected {
+    border-left: 3px solid $panel-lime;
+}
+
+.panel-lime:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-lime:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-lime> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-lime> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// G R E E N
+.panel-green> :first-child:after,
+.panel-green> :first-child:before,
+.panel-green:after,
+.panel-green:before {
+    border: $panel-corner-marker-thickness $panel-green solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-green:hover {
+    background-color: $panel-green-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-green-expanded {
+    background-color: $panel-green-10;
+}
+
+.panel-green-selected {
+    border-left: 3px solid $panel-green;
+}
+
+.selected-green {
+    transition: none;
+    background-color: $panel-green-20;
+    border-right: 3px solid $panel-green;
+}
+
+.panel-green:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-green:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-green> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-green> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// L I G H T B L U E
+.panel-lightblue> :first-child:after,
+.panel-lightblue> :first-child:before,
+.panel-lightblue:after,
+.panel-lightblue:before {
+    border: $panel-corner-marker-thickness $panel-lightblue solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-lightblue:hover {
+    background-color: $panel-lightblue-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-lightblue-expanded {
+    background-color: $panel-lightblue-10;
+}
+
+.panel-lightblue-selected {
+    border-left: 3px solid $panel-lightblue;
+}
+
+.panel-lightblue:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-lightblue:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-lightblue> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-lightblue> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// B L U E
+.panel-blue> :first-child:after,
+.panel-blue> :first-child:before,
+.panel-blue:after,
+.panel-blue:before {
+    border: $panel-corner-marker-thickness $panel-blue solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-blue:hover {
+    background-color: $panel-blue-20;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-blue-expanded {
+    background-color: $panel-blue-10;
+}
+
+.panel-blue-selected {
+    background-color: $panel-blue-30;
+    opacity: $panel-hover-opacity;
+}
+
+.panel-blue:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-blue:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-blue> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-blue> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// V I O L E T
+.panel-violet> :first-child:after,
+.panel-violet> :first-child:before,
+.panel-violet:after,
+.panel-violet:before {
+    border: $panel-corner-marker-thickness $panel-violet solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-violet:hover {
+    background-color: $panel-violet-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-violet-expanded {
+    background-color: $panel-violet-10;
+}
+
+.panel-violet-selected {
+    border-left: 3px solid $panel-violet;
+}
+
+.panel-violet:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-violet:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-violet> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-violet> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// W H I T E
+.panel-white> :first-child:after,
+.panel-white> :first-child:before,
+.panel-white:after,
+.panel-white:before {
+    border: $panel-corner-marker-thickness $panel-white solid;
+    content: ' ';
+    height: $panel-corner-marker-size;
+    position: absolute;
+    width: $panel-corner-marker-size;
+}
+
+.panel-white:hover {
+    background-color: $panel-white-10;
+    opacity: $panel-hover-opacity;
+    transition: background-color $change-time;
+}
+
+.panel-white-expanded {
+    background-color: $panel-white-10;
+}
+
+.panel-white-selected {
+    transition: none;
+    background-color: $panel-white-40;
+    border-right: 5px solid $panel-white;
+}
+
+.panel-white-selected:hover {
+    background-color: $panel-white-40;
+    border-right: 5px solid $panel-white;
+    transition: none;
+}
+
+.panel-white:before {
+    border-width: $panel-corner-marker-thickness 0 0 $panel-corner-marker-thickness;
+    left: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-white:after {
+    border-width: $panel-corner-marker-thickness $panel-corner-marker-thickness 0 0;
+    right: $panel-corner-marker-displacement;
+    top: $panel-corner-marker-displacement;
+}
+
+.panel-white> :first-child:before {
+    border-width: 0 $panel-corner-marker-thickness $panel-corner-marker-thickness 0;
+    bottom: $panel-corner-marker-displacement;
+    right: $panel-corner-marker-displacement;
+}
+
+.panel-white> :first-child:after {
+    border-width: 0 0 $panel-corner-marker-thickness $panel-corner-marker-thickness;
+    bottom: $panel-corner-marker-displacement;
+    left: $panel-corner-marker-displacement;
+}
+
+// D R A G G A B L E
+.panel-red-draggable {
+    background-color: $panel-red-90;
+}
+
+.panel-pink-draggable {
+    background-color: $panel-pink-90;
+}
+
+.panel-orange-draggable {
+    background-color: $panel-orange-90;
+}
+
+.panel-yellow-draggable {
+    background-color: $panel-yellow-90;
+}
+
+.panel-lime-draggable {
+    background-color: $panel-lime-90;
+}
+
+.panel-green-draggable {
+    background-color: $panel-green-90;
+}
+
+.panel-lightblue-draggable {
+    background-color: $panel-lightblue-90;
+}
+
+.panel-blue-draggable {
+    background-color: $panel-blue-90;
+}
+
+.panel-violet-draggable {
+    background-color: $panel-violet-90;
+}
+
+.panel-white-draggable {
+    background-color: $panel-white-90;
+}

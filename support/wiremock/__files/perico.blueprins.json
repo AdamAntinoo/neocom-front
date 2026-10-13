@@ -1,0 +1,170 @@
+[
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1004406235971,
+    "typeLink": "/api/v3/neocom/universe/types/785",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1005458604009,
+    "typeLink": "/api/v3/neocom/universe/types/31741",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1005458706867,
+    "typeLink": "/api/v3/neocom/universe/types/31118",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": 100,
+    "original": false,
+    "id": 1005458732399,
+    "typeLink": "/api/v3/neocom/universe/types/31395",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1007781976194,
+    "typeLink": "/api/v3/neocom/universe/types/11613",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1007793489881,
+    "typeLink": "/api/v3/neocom/universe/types/22543",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1007955093774,
+    "typeLink": "/api/v3/neocom/universe/types/31717",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1007955096389,
+    "typeLink": "/api/v3/neocom/universe/types/31359",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "AssetSafety",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "runs": -1,
+    "original": true,
+    "id": 1007955263515,
+    "typeLink": "/api/v3/neocom/universe/types/2332",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 18,
+    "runs": -1,
+    "original": true,
+    "id": 1008088504177,
+    "typeLink": "/api/v3/neocom/universe/types/31154",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 18,
+    "runs": -1,
+    "original": true,
+    "id": 1008144844465,
+    "typeLink": "/api/v3/neocom/universe/types/31178",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  },
+  {
+    "jsonClass": "BlueprintDto",
+    "materialEfficiency": 10,
+    "timeEfficiency": 18,
+    "runs": -1,
+    "original": true,
+    "id": 1008144850038,
+    "typeLink": "/api/v3/neocom/universe/types/31106",
+    "storageLocation": {
+      "jsonClass": "StorageLocationDto",
+      "locationType": "Hangar",
+      "locationLink": "/esi/v1/universe/spacelocation/60006907"
+    }
+  }
+]

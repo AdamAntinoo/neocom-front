@@ -1,0 +1,7 @@
+<div cy-section-name="server-info" class="server-info-panel">
+  @for (font of fonts; track font.id) {
+    <p [class]="'font-sample ' + font.className" [attr.cy-field-value]="font.id">
+      {{ font.label }} — NeoCom 0123456789
+    </p>
+  }
+</div>
