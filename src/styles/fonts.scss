@@ -1,0 +1,175 @@
+// Application faces are self-hosted in public/assets/fonts and declared here.
+// Licensed faces such as Proxima Nova have no public runtime service.
+// The shipped Proxima file is the Alt Black cut; the regular, thin, semibold,
+// and bold files named by the older stylesheet are not in the asset folder.
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/Light/OpenSans-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/LightItalic/OpenSans-LightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/Regular/OpenSans-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/Italic/OpenSans-Italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/Semibold/OpenSans-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/SemiboldItalic/OpenSans-SemiboldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/Bold/OpenSans-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/BoldItalic/OpenSans-BoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/ExtraBold/OpenSans-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/ExtraBoldItalic/OpenSans-ExtraBoldItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-weight: 300;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/CondensedLight/OpenSans-CondensedLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-weight: 300;
+  font-style: italic;
+  src: url('/assets/fonts/Open-Sans/CondensedLightItalic/OpenSans-CondensedLightItalic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
+  font-style: normal;
+  src: url('/assets/fonts/Open-Sans/CondensedBold/OpenSans-CondensedBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/assets/fonts/ProximaNovaAltBlack.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Proxima Nova Black';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/assets/fonts/ProximaNovaAltBlack.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Elemental';
+  font-weight: 400;
+  font-style: normal;
+  src: url('/assets/fonts/ElementalEnd.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Elemental';
+  font-weight: 400;
+  font-style: italic;
+  src: url('/assets/fonts/ElementalEnditalic.ttf') format('truetype');
+}
+
+.opensans-ff {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.opensans-condensed-ff {
+  font-family: 'Open Sans Condensed', 'Open Sans', sans-serif;
+}
+
+.proxima-ff {
+  font-family: 'Proxima Nova', sans-serif;
+}
+
+.proxima-black-ff {
+  font-family: 'Proxima Nova Black', sans-serif;
+}
+
+.elemental-ff {
+  font-family: 'Elemental', sans-serif;
+}
+
+.contrax-ff {
+  font-family: 'Conthrax', sans-serif;
+}
+
+.tesla-ff {
+  font-family: 'Tesla', sans-serif;
+}
+
+.mons-olympia-ff {
+  font-family: 'Mons Olympia', sans-serif;
+}
+
+.imaki-ff {
+  font-family: 'Imaki', sans-serif;
+}
+
+.din-1451-ff {
+  font-family: 'Din-1451', sans-serif;
+}
+
+.zekton-ff {
+  font-family: 'Zekton', sans-serif;
+}
+
+.prototype-ff {
+  font-family: 'Prototype', sans-serif;
+}
+
+.expanse-ff {
+  font-family: 'TheExpanse', sans-serif;
+}

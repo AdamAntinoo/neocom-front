@@ -1,0 +1,105 @@
+{
+  "mappings": [
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/api/v1/public/server/status"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "server": "tranquility",
+          "players": 26172,
+          "backendVersion": "0.20.0",
+          "SDEVersion": "20201231-APP",
+          "start_time": "2021-02-23T11:04:11.000Z",
+          "startAgo": "3 hours, 28 minutes and 33 seconds ago",
+          "nextDowntime": "Downtime in 19 hours, 27 minutes and 15 seconds"
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, x-app-signature, xapp-authentication-check, xapp-name, xapp-platform, xapp-signature, xapp-version",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/api/v1/neocom/pilots/{pilotId}"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "pilotId": 93813310,
+          "name": "Perico Tuerto",
+          "description": "",
+          "corporation": {
+            "rel": "corporation",
+            "href": "http://localhost:5220/api/v1/public/corporations/98661092"
+          },
+          "birthday": "2013-09-09T19:40:09.000Z",
+          "gender": "male",
+          "securityStatus": 0.03513719,
+          "url4Icon": "https://image.eveonline.com/Character/93813310_256.jpg",
+          "raceData": {
+            "allianceId": 500003,
+            "description": "The Amarr Empire is the largest and oldest of the four empires. Ruled by a mighty Empress, this vast theocratic society is supported by a broad foundation of slave labor. Amarr citizens tend to be highly educated and fervent individuals, and as a culture Amarr adheres to the basic tenet that what others call slavery is in fact one step on a indentured person's spiritual path toward fully embracing their faith. Despite several setbacks in recent history, the Empire remains arguably the most stable and militarily powerful nation-state in New Eden.",
+            "name": "Amarr",
+            "raceId": 4
+          },
+          "ancestryData": {
+            "bloodlineId": 6,
+            "description": "The Amarr Empire imposes strict trading rules with other races, all but encouraging smuggling operations to flourish. The wily Ni-Kunni are experts when it comes to exploiting black market opportunities, and have spent generations perfecting their smuggling methods.",
+            "iconId": 1645,
+            "id": 5,
+            "name": "Border Runners",
+            "shortDescription": "Wily smugglers, bound by no border."
+          },
+          "bloodlineData": {
+            "bloodlineId": 6,
+            "charisma": 8,
+            "corporationId": 1000072,
+            "description": "With the exception of the Khanid, the Ni-Kunni were assimilated into Amarr society far more easily than the majority of Amarrian conquests. Conquered more than 1000 years ago by the Amarr Empire, they are not generally considered “enslaved” anymore. Most Ni-Kunni are tradesmen and artisans - occupations traditionally eschewed by true Amarrians, but still considered a vital part of their society.",
+            "intelligence": 5,
+            "memory": 6,
+            "name": "Ni-Kunni",
+            "perception": 7,
+            "raceId": 4,
+            "shipTypeId": 596,
+            "willpower": 4
+          },
+          "totalSkillpoints": 8404419,
+          "walletBalance": 2.76586637596E9,
+          "currentShipName": "Zach Zender's Velator",
+          "currentShipTypeName": "Velator",
+          "lastKnownLocation": {
+            "jsonClass": "Station",
+            "locationId": 60010408,
+            "regionId": 10000030,
+            "regionName": "Heimatar",
+            "constellationId": 20000368,
+            "constellationName": "Huvilma",
+            "solarSystemId": 30002516,
+            "solarSystemName": "Lulm",
+            "stationId": 60010408,
+            "stationName": "Lulm V - Moon 10 - Poteque Pharmaceuticals Biotech Production"
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, x-app-signature, xapp-authentication-check, xapp-name, xapp-platform, xapp-signature, xapp-version",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "cache-control": "public"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  flex: 1;
+  min-height: 4rem;
+}
+
+.server-info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem;
+}
+
+.font-sample {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.3;
+}

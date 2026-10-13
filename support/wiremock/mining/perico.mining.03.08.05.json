@@ -1,0 +1,56 @@
+[
+  {
+    "date": "2024-02-23",
+    "quantity": 210,
+    "solar_system_id": 30003541,
+    "type_id": 17453
+  },
+  {
+    "date": "2024-02-23",
+    "quantity": 34243,
+    "solar_system_id": 30003538,
+    "type_id": 17464
+  },
+  {
+    "date": "2024-02-23",
+    "quantity": 3073,
+    "solar_system_id": 30003538,
+    "type_id": 1224
+  },
+  {
+    "date": "2024-02-23",
+    "quantity": 10288,
+    "solar_system_id": 30003538,
+    "type_id": 17459
+  },
+  {
+    "date": "2024-03-08",
+    "quantity": 882,
+    "solar_system_id": 30003541,
+    "type_id": 17449
+  },
+  {
+    "date": "2024-03-08",
+    "quantity": 5908,
+    "solar_system_id": 30003541,
+    "type_id": 17459
+  },
+  {
+    "date": "2024-03-08",
+    "quantity": 1168,
+    "solar_system_id": 30003541,
+    "type_id": 17452
+  },
+  {
+    "date": "2024-03-08",
+    "quantity": 5996,
+    "solar_system_id": 30003541,
+    "type_id": 17460
+  },
+  {
+    "date": "2024-03-08",
+    "quantity": 756,
+    "solar_system_id": 30003541,
+    "type_id": 1226
+  }
+]

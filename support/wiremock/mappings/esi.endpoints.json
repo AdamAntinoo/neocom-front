@@ -1,0 +1,61 @@
+{
+  "mappings": [
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/esi/v1/universe/spacelocation/{locationId}"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "space.location.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, content-type",
+          "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/esi/v1/universe/types/{typeId}"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "esi.type.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, content-type",
+          "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/esi/v1/fuzzworks/marketData/{typeId}/{system}"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "market.data.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, content-type",
+          "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+          "cache-control": "public"
+        }
+      }
+    }
+  ]
+}
