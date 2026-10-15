@@ -5,4 +5,4 @@ Feature: Application shell
 
   Scenario: Home page is reachable
     When I open the application home page
-    Then the document title contains "NeocomFront"
+    Then the application shell is visible

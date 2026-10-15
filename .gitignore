@@ -49,3 +49,6 @@ Thumbs.db
 /cypress/videos
 /cypress/screenshots
 /cypress/downloads
+
+
+graphify-out/
