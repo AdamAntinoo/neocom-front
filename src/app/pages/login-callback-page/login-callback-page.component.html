@@ -1,0 +1,11 @@
+<app-info-panel id="appinfo-panel" class="neocom-panel"></app-info-panel>
+<div cy-section-name="login-progress" id="loginvalidationprogress-panel" class="neocom-panel">
+  <span cy-field-value="progress-label" class="progress-label">Waiting for code authentication...</span>
+  <span cy-field-value="progress-code" class="progress-code">{{ codeLabel }}</span>
+</div>
+@if (exception) {
+  <div cy-section-name="exception" id="loginvalidationexception-panel" class="neocom-panel">
+    <span cy-field-value="exceptionTitle" class="exception-label">Exception: {{ exception.title }}</span>
+    <span cy-field-value="exceptionMessage" class="exception-message">{{ exception.message }}</span>
+  </div>
+}

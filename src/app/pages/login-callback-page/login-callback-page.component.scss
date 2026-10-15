@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #10141b;
+  color: #e8eef7;
+  font-family: "Open Sans", sans-serif;
+}
+
+.neocom-panel {
+  margin: 1rem;
+}
+
+.progress-label,
+.exception-label {
+  display: block;
+}
+
+.progress-code,
+.exception-message {
+  display: block;
+  margin-top: 0.5rem;
+}

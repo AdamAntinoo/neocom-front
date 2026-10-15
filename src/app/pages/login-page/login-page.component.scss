@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: #10141b;
+  color: #e8eef7;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.neocom-panel {
+  margin: 1rem;
+}
+
+.panel {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-message {
+  font-family: Elemental, 'Open Sans', sans-serif;
+  font-size: 1.25rem;
+}
+
+.validation-message {
+  letter-spacing: 0.04em;
+}
+
+.eve-login-request img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  margin: 2rem 1rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  opacity: 0.85;
+}

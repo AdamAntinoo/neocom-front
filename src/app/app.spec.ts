@@ -1,10 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { of } from 'rxjs';
 import { PilotService } from './modules/services/pilot.service';
 import { App } from './app';
 import { routes } from './app.routes';
+import { NEOCOM_ACCESS, deleteCookie, writeCookie } from './security/cookie.util';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -31,6 +32,7 @@ describe('App', () => {
 
 describe('Application start route', () => {
   beforeEach(() => {
+    deleteCookie(NEOCOM_ACCESS);
     TestBed.configureTestingModule({
       providers: [
         provideRouter(routes),
@@ -39,7 +41,17 @@ describe('Application start route', () => {
     });
   });
 
-  it('should land on the dashboard home page', async () => {
+  afterEach(() => {
+    deleteCookie(NEOCOM_ACCESS);
+  });
+
+  it('should redirect to login when the access cookie is missing', async () => {
+    const harness = await RouterTestingHarness.create('/');
+    expect(harness.routeNativeElement?.querySelector('[cy-name="EVE-login-button"]')).toBeTruthy();
+  });
+
+  it('should land on the dashboard home page when the access cookie is present', async () => {
+    writeCookie(NEOCOM_ACCESS, 'token|Perico Tuerto|93813310');
     const harness = await RouterTestingHarness.create('/');
     expect(harness.routeNativeElement?.querySelector('[cy-section-name="header"]')).toBeTruthy();
     expect(harness.routeNativeElement?.querySelector('app-info-panel')).toBeTruthy();
