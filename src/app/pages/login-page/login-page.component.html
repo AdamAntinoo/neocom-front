@@ -1,0 +1,14 @@
+<app-info-panel id="appinfo-panel" class="neocom-panel"></app-info-panel>
+<div class="panel" cy-section-name="login">
+  <div cy-field-value="title-message" class="login-message">NeoCom / SSO EVE Online</div>
+  @if (validating) {
+    <div cy-field-value="validation-message" class="validation-message">
+      VALIDANDO AUTENTICACION DEL PILOTO...
+    </div>
+  } @else {
+    <a cy-name="EVE-login-button" class="eve-login-request" [href]="loginHref">
+      <img src="assets/media/eve-sso-login-white-large.png" alt="Log in with EVE Online" />
+    </a>
+  }
+</div>
+<footer class="footer">{{ copyright }}</footer>

@@ -12,14 +12,34 @@ Cypress catalog attributes mark pages, panels, and fields so acceptance tests an
 
 Pages live in `src/app/pages`. Panels live in `src/app/panels`.
 
+## Login page
+
+`LoginPageComponent` (`login-page`) is the SSO login page.
+
+| URL | Behaviour |
+| --- | --- |
+| `/login` | Renders the login page. Guarded routes redirect here when `neocom_access` is missing. |
+
+| Region | Catalog tag | What it shows |
+| --- | --- | --- |
+| Application header | `app-info-panel` (`#appinfo-panel`) | Name, version, and copyright |
+| Login | `cy-section-name="login"` | Title `NeoCom / SSO EVE Online`, validation message or EVE button |
+| Footer | `.footer` | Copyright from environment |
+
+| Catalog tag | Content |
+| --- | --- |
+| `cy-field-value="title-message"` | `NeoCom / SSO EVE Online` |
+| `cy-field-value="validation-message"` | `VALIDANDO AUTENTICACION DEL PILOTO...` (while checking session) |
+| `cy-name="EVE-login-button"` | EVE SSO image button; href is `getLoginLink()` |
+
 ## Start page
 
-`DashboardHomePageComponent` (`dashboard-home-page`) is the application start page.
+`DashboardHomePageComponent` (`dashboard-home-page`) is the application start page. It requires `neocom_access` (auth guard).
 
 | URL | Behaviour |
 | --- | --- |
 | `/` | Redirects to `/dashboard` |
-| `/dashboard` | Renders the dashboard home page |
+| `/dashboard` | Renders the dashboard home page when authenticated; otherwise redirects to `/login` |
 
 | Region | `cy-section-name` | Hosted components |
 | --- | --- | --- |
@@ -33,6 +53,27 @@ Exception fields, present on the exception region:
 | --- | --- |
 | `exceptionTitle` | `exceptionTitle` |
 | `exceptionMessage` | `exceptionMessage` |
+
+## Login callback page
+
+`LoginCallbackPageComponent` (`login-callback-page`) is the page EVE SSO calls when login is complete. It is required to finish the login.
+
+| URL | Behaviour |
+| --- | --- |
+| `/login-callback` | Renders the callback page. Query `code` and `state` come from the SSO redirect. |
+
+| Region | `cy-section-name` | What it shows |
+| --- | --- | --- |
+| Application header | `app-info` on `app-info-panel` (`#appinfo-panel`) | Name, version, and copyright |
+| Progress | `login-progress` (`#loginvalidationprogress-panel`) | `Waiting for code authentication...` and the authorization code, or `-AWAITING-CODE-` |
+| Exception | `exception` (`#loginvalidationexception-panel`) | Shown when `code` is missing or `state` does not match the `neocom_sso_state` cookie |
+
+| `cy-field-value` | Content |
+| --- | --- |
+| `progress-label` | `Waiting for code authentication...` |
+| `progress-code` | The `code` query value, or `-AWAITING-CODE-` |
+| `exceptionTitle` | `EXCEPTION` |
+| `exceptionMessage` | Missing `code`, or a `state` that does not match the cookie |
 
 ## Panels
 
