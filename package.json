@@ -11,6 +11,7 @@
     "build": "NG_BUILD_SASS_EMBEDDED=0 ng build",
     "watch": "NG_BUILD_SASS_EMBEDDED=0 ng build --watch --configuration development",
     "test": "NG_BUILD_SASS_EMBEDDED=0 ng test",
+    "test:pilot": "node --test test/pilot-character.test.mjs",
     "e2e": "cypress run",
     "e2e:open": "cypress open"
   },
@@ -30,6 +31,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.3.0",
     "http-proxy-middleware": "^3.0.7",
+    "neocom-domain": "^0.29.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -53,6 +55,10 @@
   },
   "allowScripts": {
     "cypress@16.1.1": true,
-    "esbuild@0.28.2": true
+    "esbuild@0.28.2": true,
+    "@parcel/watcher@2.6.0": true,
+    "fsevents@2.3.3": true,
+    "lmdb@3.5.6": true,
+    "msgpackr-extract@3.0.4": true
   }
 }

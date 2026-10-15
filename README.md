@@ -48,7 +48,7 @@ Other profiles: `dev` (wiremock alias), `local` (split backend/nest hosts), `pro
 
 ### 1. Day-to-day Angular (`ng serve` + proxy)
 
-1. Start **WireMock** on port 8080 (mocks backend HTTP — front `dev` does not use `neocom-back`).
+1. Start **WireMock** on port 8080 with stub root `support/wiremock` (mocks backend HTTP — front `dev` does not use `neocom-back`).
 2. Start the Angular app:
 
 ```bash
@@ -79,6 +79,7 @@ Default listen port: **3000** (`PORT` / `config/backends.json`).
 
 ```bash
 npm test          # Vitest unit tests
+npm run test:pilot # Pilot fixture: WireMock character 93813310, no live backend
 npm run e2e       # Cypress + Cucumber (app should be running, or configure CI to start it)
 npm run e2e:open  # interactive Cypress
 ```

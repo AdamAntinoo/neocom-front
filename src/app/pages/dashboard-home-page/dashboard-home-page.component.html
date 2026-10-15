@@ -1,6 +1,6 @@
 <div cy-section-name="header" class="row section">
-    <app-info-panel id="appinfo-panel" class="panel neocom-panel app-name-panel"></app-info-panel>
-    <server-info-panel id="server-info-panel" class="panel neocom-panel server-info-panel"></server-info-panel>
+    <app-info-panel id="appinfo-panel" class="neocom-panel"></app-info-panel>
+    <server-info-panel id="server-info-panel" class="neocom-panel"></server-info-panel>
 </div>
 @if (exception) {
     <div cy-section-name="exception" class="section row">
@@ -20,8 +20,8 @@
     </div>
 } @else {
     <div cy-section-name="pilot-dashboard" class="column section">
-        <div class="row">
-            <v1-pilot-panel class="panel" [identifier]="getPilotId()"></v1-pilot-panel>
-        </div>
+        <!-- <div class="row"> -->
+            <v1-pilot-panel class="panel" [identifier]="getPilotId()"> this is the content of the pilot-dashboard section</v1-pilot-panel>
+        <!-- </div> -->
     </div>
 }

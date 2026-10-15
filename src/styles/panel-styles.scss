@@ -1,7 +1,6 @@
-@import "./_scss_variables.scss";
+@use './scss_variables' as *;
 // - PANEL DEFINITION
 $panel-padding: 2px; // --- PANEL VARIABLES
-$panel-background-color: #080808;
 $panel-border-color: #404040;
 $panel-opacity: 0.8;
 $panel-corner-height: 6px;

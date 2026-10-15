@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/characters/93813310"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "character-93813310.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { of } from 'rxjs';
+import { PilotService } from '../../modules/services/pilot.service';
 import { DashboardHomePageComponent } from './dashboard-home-page.component';
 
 describe('DashboardHomePageComponent', () => {
@@ -8,6 +10,12 @@ describe('DashboardHomePageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [DashboardHomePageComponent],
+      providers: [
+        {
+          provide: PilotService,
+          useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) },
+        },
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardHomePageComponent);
