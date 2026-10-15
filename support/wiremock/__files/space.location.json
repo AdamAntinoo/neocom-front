@@ -1,0 +1,10 @@
+{
+  "jsonClass": "SpaceLocationDto",
+  "refenceType": "Region",
+  "regionId": 10000002,
+  "regionName": "The Forge",
+  "constellationId": 20000020,
+  "constellationName": "Kimotoro",
+  "solarSystemId": 30000142,
+  "solarSystemName": "Jita"
+}

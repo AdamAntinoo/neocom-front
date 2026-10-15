@@ -1,0 +1,29 @@
+# Front CI — production compile (L2 INFRA-030 Node pin, INFRA-033 build, INFRA-035 no live back, INFRA-038 in-repo workflow).
+# The job is the remote workflow in neocom-meta. This file only decides when it runs.
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - feature/**
+      - feat/**
+      - fix/**
+      - release/**
+  pull_request:
+    branches:
+      - main
+      - feature/**
+      - feat/**
+      - fix/**
+      - release/**
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile:
+    uses: AdamAntinoo/neocom-meta/.github/workflows/front-build.yml@feature/cicd
+    with:
+      node-version: 24.21.0

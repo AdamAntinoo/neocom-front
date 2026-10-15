@@ -1,0 +1,38 @@
+{
+  "mappings": [
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/api/v1/neocom/validateAuthenticationState"
+      },
+      "response": {
+        "status": 200,
+        "jsonBody": {
+          "state": "VALID",
+          "jwtToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJFU0kgT0F1dGgyIEF1dGhlbnRpY2F0aW9uIiwiY29ycG9yYXRpb25JZCI6MTQyNzY2MTU3MywiYWNjb3VudE5hbWUiOiJBZGFtIEFudGlub28iLCJpc3MiOiJOZW9Db20uSW5maW5pdHkuQmFja2VuZCIsInVuaXF1ZUlkIjoidHJhbnF1aWxpdHkvOTIwMDIwNjciLCJwaWxvdElkIjo5MjAwMjA2N30.6JgBvtHyhvD8aY8-I4075tb433mYMpn9sNeYCkIO28LbhqVR4CZ-x1t_sk4IOLLtzSN07bF4c7ZceWw_ta4Brw",
+          "credential": {
+            "jsonClass": "Credential",
+            "uniqueId": "tranquility/92002067",
+            "accountId": 92002067,
+            "accountName": "Adam Antinoo",
+            "dataSource": "tranquility",
+            "corporationId": 1427661573,
+            "assetsCount": 100,
+            "walletBalance": 654987.0,
+            "miningResourcesEstimatedValue": 345234.0,
+            "raceName": "Minmatar"
+          }
+        },
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "OPTIONS, GET",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Origin, Authorization, Accept, Accept-Encoding, X-Auth-Token, x-app-signature, xapp-authentication-check, xapp-name, xapp-platform, xapp-signature, xapp-version",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT, PATCH",
+          "cache-control": "public"
+        }
+      }
+    }
+  ]
+}

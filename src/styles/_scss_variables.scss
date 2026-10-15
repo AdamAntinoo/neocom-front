@@ -1,0 +1,82 @@
+//  PROJECT:     NeoCom.WS (NEOC.WS)
+//  AUTHORS:     Adam Antinoo - adamantinoo.git@gmail.com
+//  COPYRIGHT:   (c) 2017-2018 by Dimensinfin Industries, all rights reserved.
+//  ENVIRONMENT: Angular 4
+//  DESCRIPTION: Angular source code to run on a web server almost the same code as on the Android platform.
+//               The project has 3 clear parts. One is the Java libraries that are common for all platforms,
+//               the second is the java microservices that compose the web application backend made with
+//               SpringBoot technology and finally the web ui code made in typescript within the Angular
+//               framework.
+// --- APPLICATION FONT VARIABLES
+$neocom-line-height: 1.0;
+//--- APPLICATION COLOR TABLES
+// - APPLICATION COLORS
+$app-red-70: #FF6666; // Red 70%
+$app-red-30: #990000; // Red 30%
+$app-pale-red-color: $app-red-30;
+// - PANEL COLORS
+$panel-red: #FF0000; // Red 50%
+$panel-red-90: #FFCCCC; // Red 90%
+$panel-red-10: #330000; // Red 10%
+$panel-pink: #ff00ff; // Red 50%
+$panel-pink-90: #FFCCFF; // Red 90%
+$panel-pink-10: #660033; // Red 10%
+$panel-orange: #FF3300;
+$panel-orange-90: #FFD6CC;
+$panel-orange-20: #661400;
+$panel-orange-10: #300A00;
+$panel-yellow: #FFFF00;
+$panel-yellow-90: #ffff99;
+$panel-yellow-20: #666600;
+$panel-yellow-10: #333300;
+$panel-lime: #99FF33; // Lime 50%
+$panel-lime-90: #E6FFCC; // Lime 80%
+$panel-lime-10: #1A3300; // Lime 10%
+$panel-green: #009900; // Lime 50%
+$panel-green-90: #B3FFB3;
+$panel-green-20: #006600;
+$panel-green-10: #003300;
+$panel-lightblue: #00ffcc; // Lime 50%
+$panel-lightblue-90: #ccfff5; // Lime 80%
+$panel-lightblue-10: #003329; // Lime 10%
+$panel-blue: #0066CC;
+$panel-blue-90: #CCE6FF;
+$panel-blue-30:#0059b3;
+$panel-blue-20: #003366;
+$panel-blue-10: #001A33;
+$panel-violet: #cc33ff; // Lime 50%
+$panel-violet-90: #f2ccff; // Lime 80%
+$panel-violet-10: #4D004D; // Lime 10%
+$panel-white: #FFFFFF; // White 100%
+$panel-white-90: #E6E6E6; // White 90%
+$panel-white-40: #666666; // White 40%
+$panel-white-20: #333333; // White 20%
+$panel-white-10: #1A1A1A; // White 10%
+$panel-darkgrey: #808080; // White 50%
+$panel-darkgrey-90: #cccccc; // Lime 80%
+$panel-darkgrey-10: #1a1a1a; // Lime 10%
+// - BACKGROUND COLORS
+$panel-background-color: #080808;
+$background-tint-red: #250000;
+$background-tint-orange: #301000;
+$background-tint-yellow: #303000;
+$background-tint-blue: #080825;
+$background-tint-green: #052406;
+$background-tint-white: #252525;
+// - NAMES COLOURS
+$expandable-name-color: white;
+$selectable-name-color: orange;
+$selected-text-size: 16px;
+// - TEXT VARIABLES
+$bold-weight: 800;
+$semibold-weight: 600;
+$regular-weight: 400;
+$thin-weight: 200;
+$classname-color: #3D3DE6;
+$classname-size: 11px;
+$classname-bold: 500;
+$default-text-size: 14px;
+$selected-text-size: 16px;
+$label-size: 8px;
+//--- ADDITIONAL COLORS
+$light-orange-85: #FFE6B3;

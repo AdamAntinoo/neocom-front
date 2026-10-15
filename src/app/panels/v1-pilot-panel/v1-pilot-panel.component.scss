@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  flex: 1;
+  min-height: 4rem;
+  border: 1px solid rgba(232, 238, 247, 0.25);
+}
+
+.pilot {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem;
+}
+
+.label {
+  display: inline-block;
+  min-width: 7rem;
+  opacity: 0.7;
+}

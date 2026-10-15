@@ -1,0 +1,7 @@
+{
+  "jsonClass": "MarketData",
+  "buyPrice": 14,
+  "buyOrderCount": 7,
+  "sellPrice": 18.9,
+  "sellOrderCount": 8
+}
