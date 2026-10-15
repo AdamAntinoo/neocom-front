@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
+import { of } from 'rxjs';
+import { PilotService } from './modules/services/pilot.service';
 import { App } from './app';
 import { routes } from './app.routes';
 
@@ -8,7 +10,10 @@ describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideRouter(routes)],
+      providers: [
+        provideRouter(routes),
+        { provide: PilotService, useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) } },
+      ],
     }).compileComponents();
   });
 
@@ -27,7 +32,10 @@ describe('App', () => {
 describe('Application start route', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideRouter(routes)],
+      providers: [
+        provideRouter(routes),
+        { provide: PilotService, useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) } },
+      ],
     });
   });
 

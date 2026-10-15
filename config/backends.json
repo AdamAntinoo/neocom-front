@@ -11,7 +11,8 @@
       "routes": [
         { "path": "/api", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
         { "path": "/nin/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
-        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" }
+        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
+        { "path": "/v1/pilots", "target": "http://127.0.0.1:3000", "label": "nest", "envKey": "NEST_URL" }
       ]
     },
     "dev": {
@@ -20,7 +21,8 @@
       "routes": [
         { "path": "/api", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
         { "path": "/nin/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
-        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" }
+        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "wiremock", "envKey": "WIREMOCK_URL" },
+        { "path": "/v1/pilots", "target": "http://127.0.0.1:3000", "label": "nest", "envKey": "NEST_URL" }
       ]
     },
     "local": {
@@ -29,7 +31,8 @@
       "routes": [
         { "path": "/api", "target": "http://localhost:8090", "label": "backend", "envKey": "BACKEND_URL" },
         { "path": "/nin/v1", "target": "http://localhost:3001", "label": "nest", "envKey": "NEST_URL" },
-        { "path": "/esi/v1", "target": "http://localhost:3001", "label": "nest", "envKey": "NEST_URL" }
+        { "path": "/esi/v1", "target": "http://localhost:3001", "label": "nest", "envKey": "NEST_URL" },
+        { "path": "/v1/pilots", "target": "http://127.0.0.1:3000", "label": "nest", "envKey": "NEST_URL" }
       ]
     },
     "production": {
@@ -38,7 +41,8 @@
       "routes": [
         { "path": "/api", "target": "http://localhost:8080", "label": "backend", "envKey": "BACKEND_URL" },
         { "path": "/nin/v1", "target": "http://localhost:8080", "label": "nest", "envKey": "NEST_URL" },
-        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "nest", "envKey": "NEST_URL" }
+        { "path": "/esi/v1", "target": "http://localhost:8080", "label": "nest", "envKey": "NEST_URL" },
+        { "path": "/v1/pilots", "target": "http://127.0.0.1:3000", "label": "nest", "envKey": "NEST_URL" }
       ]
     }
   }

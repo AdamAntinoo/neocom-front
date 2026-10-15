@@ -1,1 +1,19 @@
-<div cy-section-name="pilot"></div>
+<div cy-section-name="pilot" class="pilot">
+  @if (loadError(); as message) {
+    <span cy-field-value="pilot-error">{{ message }}</span>
+  } @else if (pilot(); as dto) {
+    <div class="field"><span class="label">Pilot</span> <span cy-field-value="pilot-id">{{ dto.pilotId }}</span></div>
+    <div class="field"><span class="label">Name</span> <span cy-field-value="pilot-name">{{ dto.name }}</span></div>
+    <div class="field"><span class="label">Birthday</span> <span cy-field-value="pilot-birthday">{{ dto.birthday }}</span></div>
+    <div class="field"><span class="label">Gender</span> <span cy-field-value="pilot-gender">{{ dto.gender }}</span></div>
+    <div class="field"><span class="label">Security</span> <span cy-field-value="pilot-security">{{ dto.securityStatus }}</span></div>
+    <div class="field"><span class="label">Corporation</span> <span cy-field-value="pilot-corporation">{{ dto.corporation?.name }} [{{ dto.corporation?.ticker }}]</span></div>
+    <div class="field"><span class="label">Alliance</span> <span cy-field-value="pilot-alliance">{{ dto.corporation?.alliance?.name }}</span></div>
+    <div class="field"><span class="label">Race</span> <span cy-field-value="pilot-race">{{ dto.raceData?.name }}</span></div>
+    <div class="field"><span class="label">Bloodline</span> <span cy-field-value="pilot-bloodline">{{ dto.bloodlineData?.name }}</span></div>
+    <div class="field"><span class="label">Ancestry</span> <span cy-field-value="pilot-ancestry">{{ dto.ancestryData?.name }}</span></div>
+    @if (dto.description) {
+      <div class="field"><span class="label">Description</span> <span cy-field-value="pilot-description">{{ dto.description }}</span></div>
+    }
+  }
+</div>

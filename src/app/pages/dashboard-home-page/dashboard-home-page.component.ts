@@ -21,7 +21,7 @@ import { V1PilotPanelComponent } from '../../panels/v1-pilot-panel/v1-pilot-pane
 export class DashboardHomePageComponent {
   protected exception: { title: string; message: string } | null = null;
 
-  protected getPilotId(): number | undefined {
-    return undefined;
+  protected getPilotId(): number {
+    return 93813310;
   }
 }
