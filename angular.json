@@ -24,6 +24,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "baseHref": "/app/",
             "assets": [
               {
                 "glob": "**/*",
@@ -72,6 +73,7 @@
           "options": {
             "host": "127.0.0.1",
             "port": 6001,
+            "servePath": "/app/",
             "proxyConfig": "proxy.conf.js"
           },
           "configurations": {

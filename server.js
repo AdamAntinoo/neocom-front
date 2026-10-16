@@ -78,9 +78,14 @@ const staticOptions = {
   },
 };
 
-app.use(express.static(staticDir, staticOptions));
+// Angular baseHref is /app/ — serve the build under that path (SSO callback too).
+app.use('/app', express.static(staticDir, staticOptions));
 
-app.get(/^(?!\/api(?:\/|$)|\/nin\/v1(?:\/|$)|\/esi\/v1(?:\/|$)).*/, (req, res, next) => {
+app.get('/app', (_req, res) => {
+  res.redirect(302, '/app/');
+});
+
+app.get(/^\/app(?:\/.*)?$/, (req, res, next) => {
   if (path.extname(req.path)) {
     next();
     return;
@@ -95,6 +100,10 @@ app.get(/^(?!\/api(?:\/|$)|\/nin\/v1(?:\/|$)|\/esi\/v1(?:\/|$)).*/, (req, res, n
     return;
   }
   res.sendFile(indexHtml);
+});
+
+app.get('/', (_req, res) => {
+  res.redirect(302, '/app/');
 });
 
 const YELLOW = '\x1b[33m\x1b[1m';
@@ -114,7 +123,7 @@ app.listen(cfg.port, () => {
   }
   console.log(`URL:     ${GREEN}http://localhost:${cfg.port}/${RESET}`);
 
-  const bannerPath = path.join(__dirname, '.app-banner.txt');
+  const bannerPath = path.join(__dirname, 'banner.txt');
   if (fs.existsSync(bannerPath)) {
     console.log(fs.readFileSync(bannerPath, 'utf8'));
   }
