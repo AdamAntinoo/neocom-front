@@ -5,7 +5,7 @@ import { createEsbuildPlugin } from '@badeball/cypress-cucumber-preprocessor/esb
 
 export default defineConfig({
   e2e: {
-    baseUrl: 'http://localhost:4200',
+    baseUrl: 'http://localhost:6001',
     specPattern: 'cypress/e2e/features/**/*.feature',
     supportFile: 'cypress/support/e2e.ts',
     async setupNodeEvents(on, config) {
