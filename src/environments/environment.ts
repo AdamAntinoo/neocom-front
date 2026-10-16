@@ -3,7 +3,7 @@ import { EVE_SSO_SCOPES } from './eve-sso-scopes';
 export const environment = {
   production: true,
   appName: 'neocom-front',
-  appVersion: '0.0.0',
+  appVersion: '0.1.0',
   copyright: '© 2019,2024 Dimensinfin Industries',
   /** Same-origin relative base — browser calls /api, /nin/v1, /esi/v1 (proxied). */
   apiBaseUrl: '',

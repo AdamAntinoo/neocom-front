@@ -123,7 +123,7 @@ app.listen(cfg.port, () => {
   }
   console.log(`URL:     ${GREEN}http://localhost:${cfg.port}/${RESET}`);
 
-  const bannerPath = path.join(__dirname, 'banner.txt');
+  const bannerPath = path.join(__dirname, '.app-banner.txt');
   if (fs.existsSync(bannerPath)) {
     console.log(fs.readFileSync(bannerPath, 'utf8'));
   }

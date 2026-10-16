@@ -1,6 +1,6 @@
 {
   "name": "neocom-front",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh ng serve",
@@ -14,7 +14,8 @@
     "test:pilot": "node --test test/pilot-character.test.mjs",
     "e2e": "cypress run",
     "e2e:open": "cypress open",
-    "banner": "bash scripts/with-neocom-node.sh node scripts/generate-banner.mjs"
+    "banner": "bash scripts/with-neocom-node.sh node scripts/generate-banner.mjs",
+    "version:sync": "bash scripts/with-neocom-node.sh node scripts/sync-version.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
