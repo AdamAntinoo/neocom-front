@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap, provideRouter } from '@angular/router';
@@ -91,4 +92,17 @@ describe('LoginCallbackPageComponent', () => {
       'The authorization code could not be exchanged.',
     );
   });
+
+  it('should show a backend-unavailable message when the proxy returns 502', () => {
+    const fixture = setup({ code: 'auth-code', state: 'expected-state' }, 'expected-state', {
+      exchangeCode: () =>
+        throwError(() => new HttpErrorResponse({ status: 502, statusText: 'Bad Gateway' })),
+    });
+    fixture.detectChanges();
+    const root = fixture.nativeElement as HTMLElement;
+    expect(root.querySelector('[cy-field-value="exceptionMessage"]')?.textContent).toContain(
+      'The backend is not available',
+    );
+  });
 });
+

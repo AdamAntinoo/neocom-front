@@ -13,7 +13,8 @@
     "test": "NG_BUILD_SASS_EMBEDDED=0 ng test",
     "test:pilot": "node --test test/pilot-character.test.mjs",
     "e2e": "cypress run",
-    "e2e:open": "cypress open"
+    "e2e:open": "cypress open",
+    "banner": "bash scripts/with-neocom-node.sh node scripts/generate-banner.mjs"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
@@ -43,6 +44,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "cypress": "^16.1.1",
     "esbuild": "^0.28.2",
+    "figlet": "^1.12.0",
     "jsdom": "^30.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",
