@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { AppPanelComponent } from '../../../../innovative-core/components/app-panel/app-panel.component';
 import { ProcessedBlueprint } from '../../../domain/processed-blueprint';
 import { ViewerPanelComponent } from '../../../../shared/viewer-panel/viewer-panel.component';
 import { AVAILABLE_BLUEPRINTS_VARIANT } from '../../../../renders/v1-blueprint-render/v1-blueprint-render.component';
+import { NodeListAdapterService } from '../../../../services/node-list-adapter.service';
+import type { Subscription } from 'rxjs';
 
 /**
- * Manufacture available-blueprints panel: sets variant, downloads nodes, hosts viewer (NODE-005).
+ * Manufacture available-blueprints panel: adapter cache → HTTP → SSE merge (FASSE-001…006).
  */
 @Component({
   selector: 'available-blueprints-panel',
@@ -13,25 +15,70 @@ import { AVAILABLE_BLUEPRINTS_VARIANT } from '../../../../renders/v1-blueprint-r
   templateUrl: './available-blueprints-panel.component.html',
   styleUrl: './available-blueprints-panel.component.scss',
 })
-export class AvailableBlueprintsPanelComponent extends AppPanelComponent implements OnInit {
+export class AvailableBlueprintsPanelComponent extends AppPanelComponent implements OnInit, OnDestroy {
+  private readonly adapter = inject(NodeListAdapterService);
+  readonly pilotId = input(93813310);
+
+  private sseSub: Subscription | null = null;
+
   ngOnInit(): void {
     this.setVariant(AVAILABLE_BLUEPRINTS_VARIANT);
     this.startDownloading();
-    // Placeholder sample until front-async-sse wires the adapter.
-    const sample = [
-      new ProcessedBlueprint({
-        blueprintId: 1001,
-        name: 'Sample Blueprint',
-        ready: true,
-        manufactureIndex: 1.25,
+    const id = this.pilotId();
+
+    // Cache-first paint, then HTTP if miss; always open SSE for enrichment.
+    const cached = this.adapter.readCache(id);
+    if (cached) {
+      this.completeDowload(cached);
+    }
+
+    this.storeSubscription(
+      this.adapter.loadList(id).subscribe({
+        next: (nodes) => this.completeDowload(nodes),
+        error: () => {
+          if (!cached) {
+            this.completeDowload([]);
+          }
+        },
       }),
-      new ProcessedBlueprint({
-        blueprintId: 1002,
-        name: 'Delayed Blueprint',
-        ready: false,
-        manufactureIndex: null,
-      }),
-    ];
-    this.completeDowload(sample);
+    );
+
+    this.sseSub = this.adapter.openEnrichment(id).subscribe({
+      next: ({ node }) => this.mergeEnrichedRow(node.blueprintId, node),
+    });
+  }
+
+  override ngOnDestroy(): void {
+    this.sseSub?.unsubscribe();
+    super.ngOnDestroy();
+  }
+
+  /**
+   * In-place row refresh: replace node in dataModelRoot and rebuild flat list (FASSE-005).
+   */
+  private mergeEnrichedRow(
+    blueprintId: number,
+    dto: {
+      blueprintId: number;
+      name: string;
+      ready: boolean;
+      manufactureIndex: number | null;
+    },
+  ): void {
+    const updated = new ProcessedBlueprint({
+      blueprintId: dto.blueprintId,
+      name: dto.name,
+      ready: dto.ready,
+      manufactureIndex: dto.manufactureIndex,
+    });
+    const roots = this.dataModelRoot as ProcessedBlueprint[];
+    const idx = roots.findIndex((n) => n.getBlueprintId() === blueprintId);
+    if (idx >= 0) {
+      roots[idx] = updated;
+    } else {
+      roots.push(updated);
+    }
+    this.dataModelRoot = [...roots];
+    this.notifyDataChanged();
   }
 }
