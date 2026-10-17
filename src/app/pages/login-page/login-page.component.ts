@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
-import { AppInfoPanelComponent } from '../../panels/app-info-panel/app-info-panel.component';
+import { HeaderModule } from '../../modules/header/header.module';
 import { SessionService } from '../../security/session.service';
 import { BackgroundOauthEnabledComponent } from '../OauthEnabled.component';
 
@@ -10,7 +10,7 @@ import { BackgroundOauthEnabledComponent } from '../OauthEnabled.component';
  */
 @Component({
   selector: 'login-page',
-  imports: [AppInfoPanelComponent],
+  imports: [HeaderModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
 })

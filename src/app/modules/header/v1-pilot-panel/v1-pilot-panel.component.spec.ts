@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { PilotService } from '../../modules/services/pilot.service';
-import type { PilotV1 } from '../../modules/services/pilot-v1';
+import { PilotService } from '../../services/pilot.service';
+import type { PilotV1 } from '../../services/pilot-v1';
 import { V1PilotPanelComponent } from './v1-pilot-panel.component';
 
 const pericoTuerto: PilotV1 = {

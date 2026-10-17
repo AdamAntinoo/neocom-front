@@ -20,10 +20,15 @@ execFileSync('npm', ['pkg', 'set', `version=${version}`], { cwd: root, stdio: 'i
 function replaceInFile(relativePath, pattern, replacement) {
   const filePath = path.join(root, relativePath);
   const before = readFileSync(filePath, 'utf8');
-  const after = before.replace(pattern, replacement);
-  if (after === before) {
+  if (!pattern.test(before)) {
     console.error(`No match in ${relativePath} for ${pattern}`);
     process.exit(1);
+  }
+  pattern.lastIndex = 0;
+  const after = before.replace(pattern, replacement);
+  if (after === before) {
+    console.log(`Unchanged ${relativePath} (already at target)`);
+    return;
   }
   writeFileSync(filePath, after, 'utf8');
   console.log(`Updated ${relativePath}`);

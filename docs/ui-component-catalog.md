@@ -81,9 +81,9 @@ Exception fields, present on the exception region:
 
 | Component | Selector | Path | Catalog tag |
 | --- | --- | --- | --- |
-| `AppInfoPanelComponent` | `app-info-panel` | `src/app/panels/app-info-panel` | `cy-section-name="app-info"` |
-| `ServerInfoPanelComponent` | `server-info-panel` | `src/app/panels/server-info-panel` | `cy-section-name="server-info"` |
-| `V1PilotPanelComponent` | `v1-pilot-panel` | `src/app/panels/v1-pilot-panel` | `cy-section-name="pilot"` |
+| `AppInfoPanelComponent` | `app-info-panel` | `src/app/modules/header/app-info-panel` | `cy-section-name="app-info"` |
+| `ServerInfoPanelComponent` | `server-info-panel` | `src/app/modules/header/server-info-panel` | `cy-section-name="server-info"` |
+| `V1PilotPanelComponent` | `v1-pilot-panel` | `src/app/modules/header/v1-pilot-panel` | `cy-section-name="pilot"` |
 
 Application identity fields on `app-info-panel`:
 

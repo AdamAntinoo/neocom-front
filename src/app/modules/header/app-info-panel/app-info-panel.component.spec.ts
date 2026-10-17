@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { AppInfoPanelComponent } from './app-info-panel.component';
 
 describe('AppInfoPanelComponent', () => {

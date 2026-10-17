@@ -1,8 +1,8 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, of, switchMap, tap } from 'rxjs';
-import { PilotService } from '../../modules/services/pilot.service';
-import type { PilotV1 } from '../../modules/services/pilot-v1';
+import { PilotService } from '../../services/pilot.service';
+import type { PilotV1 } from '../../services/pilot-v1';
 
 @Component({
   selector: 'v1-pilot-panel',
