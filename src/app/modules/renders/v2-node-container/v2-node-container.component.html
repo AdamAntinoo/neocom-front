@@ -1,0 +1,12 @@
+<div
+  class="neocom-panel"
+  [class.not-ready]="!isReady()"
+  (mouseenter)="mouseEnter()"
+  (click)="onClick()"
+>
+  @if (getRenderType(); as type) {
+    <ng-container *ngComponentOutlet="type; inputs: renderInputs()" />
+  } @else {
+    <span class="unknown-render">Unknown jsonClass: {{ node?.getJsonClass() }}</span>
+  }
+</div>
