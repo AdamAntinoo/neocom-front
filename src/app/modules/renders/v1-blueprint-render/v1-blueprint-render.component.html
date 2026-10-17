@@ -1,0 +1,11 @@
+@if (isDetailed()) {
+  <div cy-section-name="blueprint-detailed" class="blueprint-detailed">
+    <span cy-field-value="blueprint-name">{{ getName() }}</span>
+    <span cy-field-value="blueprint-id">{{ getBlueprintId() }}</span>
+    <span cy-field-value="manufacture-index">{{ getManufactureIndexLabel() }}</span>
+  </div>
+} @else {
+  <div cy-section-name="blueprint-short" class="blueprint-short">
+    <span cy-field-value="blueprint-name">{{ getName() }}</span>
+  </div>
+}

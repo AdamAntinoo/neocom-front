@@ -1,0 +1,10 @@
+:host {
+  display: block;
+}
+
+.blueprint-detailed,
+.blueprint-short {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+}

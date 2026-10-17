@@ -1,3 +1,8 @@
 <div cy-section-name="available-blueprints" class="panel-white">
-  <p>Available blueprints (structure placeholder)</p>
+  <neocom-viewer-panel
+    [nodes2render]="getNodes2Render()"
+    [variant]="getVariant()"
+    [downloader]="this"
+    [selectOnHover]="false"
+  />
 </div>
