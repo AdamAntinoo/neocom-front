@@ -10,6 +10,8 @@ export const environment = {
   ninBaseUrl: '/nin/v1',
   esiBaseUrl: '/esi/v1',
   apiPrefix: '/api',
+  /** Authenticated SSE base (INFRA-054 / FASSE-009). Same-origin, proxied to Nest. */
+  sseBasePath: '/v1',
   loginLinkData: {
     authorizeHost: 'https://login.eveonline.com/v2/oauth/authorize/',
     responseType: 'code',

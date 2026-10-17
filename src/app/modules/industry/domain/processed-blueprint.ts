@@ -2,13 +2,17 @@ import { NeoComDelayed } from '../../innovative-core/domain/NeoComDelayed';
 
 /** Processed blueprint node for manufacture list renders (NODE-005, NODE-017). */
 export class ProcessedBlueprint extends NeoComDelayed {
-  public blueprintId = 0;
-  public name = '-';
-  public manufactureIndex: number | null = null;
+  public blueprintId: number;
+  public name: string;
+  public manufactureIndex: number | null;
 
   constructor(values: object = {}) {
     super(values);
     this.jsonClass = 'ProcessedBlueprint';
+    const v = values as Partial<ProcessedBlueprint>;
+    this.blueprintId = v.blueprintId ?? 0;
+    this.name = v.name ?? '-';
+    this.manufactureIndex = v.manufactureIndex ?? null;
   }
 
   getName(): string {
