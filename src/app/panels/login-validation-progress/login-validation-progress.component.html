@@ -1,0 +1,10 @@
+<div
+  cy-section-name="login-progress"
+  id="loginvalidationprogress-panel"
+  class="neocom-panel panel-blue"
+>
+  <span cy-field-value="progress-label" class="progress-label">{{ message() }}</span>
+  @if (code()) {
+    <span cy-field-value="progress-code" class="progress-code">{{ code() }}</span>
+  }
+</div>

@@ -1,0 +1,10 @@
+<div
+  cy-section-name="exception"
+  id="loginvalidationexception-panel"
+  class="neocom-panel panel-white"
+>
+  <span cy-field-value="exceptionTitle" class="exception-label">Exception: {{ title() }}</span>
+  @if (message()) {
+    <span cy-field-value="exceptionMessage" class="exception-message">{{ message() }}</span>
+  }
+</div>

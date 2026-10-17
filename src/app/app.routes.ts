@@ -9,4 +9,9 @@ export const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'login-callback', component: LoginCallbackPageComponent },
   { path: 'dashboard', component: DashboardHomePageComponent, canActivate: [authGuard] },
+  {
+    path: 'industry',
+    loadChildren: () =>
+      import('./modules/industry/industry.module').then((m) => m.IndustryModule),
+  },
 ];

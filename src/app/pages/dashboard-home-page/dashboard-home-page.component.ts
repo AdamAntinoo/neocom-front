@@ -1,7 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AppInfoPanelComponent } from '../../panels/app-info-panel/app-info-panel.component';
-import { ServerInfoPanelComponent } from '../../panels/server-info-panel/server-info-panel.component';
-import { V1PilotPanelComponent } from '../../panels/v1-pilot-panel/v1-pilot-panel.component';
+import { HeaderModule } from '../../modules/header/header.module';
 import { SessionService } from '../../security/session.service';
 
 /**
@@ -15,7 +13,7 @@ import { SessionService } from '../../security/session.service';
  */
 @Component({
   selector: 'dashboard-home-page',
-  imports: [AppInfoPanelComponent, ServerInfoPanelComponent, V1PilotPanelComponent],
+  imports: [HeaderModule],
   templateUrl: './dashboard-home-page.component.html',
   styleUrl: './dashboard-home-page.component.scss',
 })
