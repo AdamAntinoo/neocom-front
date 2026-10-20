@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { HeaderModule } from '../../modules/header/header.module';
+import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
 import { SessionService } from '../../security/session.service';
 import { BackgroundOauthEnabledComponent } from '../OauthEnabled.component';
 
@@ -13,10 +14,12 @@ import { BackgroundOauthEnabledComponent } from '../OauthEnabled.component';
   imports: [HeaderModule],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss',
+  host: { class: 'neo-page' },
 })
 export class LoginPageComponent extends BackgroundOauthEnabledComponent implements OnInit {
   private readonly router = inject(Router);
 
+  protected readonly Variant = NeoComVariant;
   protected validating = true;
   protected loginHref = '';
   protected readonly copyright = environment.copyright;

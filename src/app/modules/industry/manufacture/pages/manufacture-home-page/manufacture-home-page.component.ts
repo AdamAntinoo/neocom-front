@@ -7,5 +7,6 @@ import { AvailableBlueprintsPanelComponent } from '../../panels/available-bluepr
   imports: [HeaderModule, AvailableBlueprintsPanelComponent],
   templateUrl: './manufacture-home-page.component.html',
   styleUrl: './manufacture-home-page.component.scss',
+  host: { class: 'neo-page' },
 })
 export class ManufactureHomePageComponent {}

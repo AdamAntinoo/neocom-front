@@ -31,6 +31,10 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
+# macOS Finder / sync conflict copies ("Name 2.ext") — never commit
+* 2.*
+* 2
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

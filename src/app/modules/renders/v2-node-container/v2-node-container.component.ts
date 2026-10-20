@@ -3,6 +3,7 @@ import { Component, Input, Type } from '@angular/core';
 import { BackgroundEnabledComponent } from '../../innovative-core/components/background-enabled/background-enabled.component';
 import { NeoCom } from '../../innovative-core/domain/NeoCom';
 import { NeoComDelayed } from '../../innovative-core/domain/NeoComDelayed';
+import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { lookupRender } from '../render-registry';
 import '../v1-blueprint-render/v1-blueprint-render.component';
@@ -16,7 +17,7 @@ import '../v1-blueprint-render/v1-blueprint-render.component';
 export class V2NodeContainerComponent extends BackgroundEnabledComponent {
   @Input() container!: IViewer;
   @Input() node!: NeoCom;
-  @Input() variant = '-DEFAULT-';
+  @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
   @Input() index = 1;
   @Input() selectOnHover = false;
 

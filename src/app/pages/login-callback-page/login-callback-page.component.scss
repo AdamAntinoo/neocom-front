@@ -1,10 +1,11 @@
+@use 'palette' as *;
+
+// Geometry (.section / .row / .column) comes from global styles/geometry.scss.
 :host {
-  display: block;
   min-height: 100vh;
-  box-sizing: border-box;
-  background: #10141b;
-  color: #e8eef7;
-  font-family: "Open Sans", sans-serif;
+  background: var(--neo-color-page-background, #{$page-background});
+  color: var(--neo-color-page-foreground, #{$page-foreground});
+  font-family: 'Open Sans', sans-serif;
 }
 
 .neocom-panel {

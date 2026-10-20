@@ -1,0 +1,145 @@
+<section class="section strip">
+  <article data-specimen="v1-public-pilot" class="neocom-panel panel-white specimen">
+    <div class="row pad">
+      <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
+      <div class="column">
+        <div class="row name-line">
+          <span class="elemental-ff name">Perico Tuerto</span>
+          <span class="elemental-ff name">[93813310]</span>
+        </div>
+        <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
+        <div class="opensans-ff meta">MALE</div>
+      </div>
+    </div>
+  </article>
+
+  <article data-specimen="v2-pilot" class="neocom-panel panel-white specimen">
+    <div class="row pad">
+      <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
+      <div class="column">
+        <div class="row name-line">
+          <span class="elemental-ff name">Perico Tuerto</span>
+          <span class="elemental-ff name">[#93813310]</span>
+        </div>
+        <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
+        <div class="row">
+          <span class="opensans-ff meta">MALE</span>
+          <span class="opensans-ff meta right">8,404,419</span>
+        </div>
+        <div class="opensans-ff isk right">2.77B ISK</div>
+        <div class="opensans-ff meta right">Zach Zender's Velator</div>
+      </div>
+    </div>
+  </article>
+
+  <article data-specimen="v1-blueprint" class="neocom-panel panel-blue specimen blueprint">
+    <div class="row pad">
+      <img class="type-lg" alt="" src="https://images.evetech.net/types/31717/bp?size=64" />
+      <div class="column">
+        <div class="opensans-condensed-ff strip-label">BLUEPRINT</div>
+        <div class="opensans-ff value">Small EM Shield Reinforcer I Blueprint</div>
+        <div class="opensans-condensed-ff strip-label">PRODUCTO</div>
+        <div class="row">
+          <div class="column">
+            <div class="opensans-condensed-ff strip-label">OUTPUT</div>
+            <div class="opensans-ff value">Small EM Shield Reinforcer I</div>
+            <div class="row metric">
+              <span class="opensans-condensed-ff strip-label">COSTE FABRICACION</span>
+              <span class="opensans-ff value">9,037 ISK</span>
+            </div>
+            <div class="row metric">
+              <span class="opensans-condensed-ff strip-label">PRECIO VENTA</span>
+              <span class="opensans-ff value">19,980 ISK</span>
+            </div>
+          </div>
+          <img class="type-sm" alt="" src="https://images.evetech.net/types/31716/icon?size=32" />
+        </div>
+        <div class="row metric">
+          <span class="opensans-condensed-ff strip-label">INDICE</span>
+          <span class="index">199</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article data-specimen="v1-blueprint-short" class="neocom-panel panel-blue specimen">
+    <div class="pad">
+      <v1-blueprint-render [node]="blueprint"></v1-blueprint-render>
+    </div>
+  </article>
+
+  <article data-specimen="v1-blueprint-detailed" class="neocom-panel panel-blue specimen">
+    <div class="pad">
+      <v1-blueprint-render [node]="blueprint" [variant]="detailed"></v1-blueprint-render>
+    </div>
+  </article>
+
+  <article data-specimen="v1-bomresource" class="neocom-panel panel-red specimen resource">
+    <div class="row pad align">
+      <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
+      <div class="column">
+        <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
+        <div class="opensans-ff value">Fried Interface Circuit</div>
+      </div>
+      <div class="column qty">
+        <div class="opensans-condensed-ff strip-label">QUANTITY</div>
+        <div class="opensans-ff value right">3</div>
+      </div>
+      <div class="column price">
+        <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
+        <div class="opensans-ff isk right">2296 ISK</div>
+      </div>
+    </div>
+  </article>
+
+  <article data-specimen="v1-bomresource-action" class="neocom-panel panel-red specimen resource">
+    <div class="row pad align">
+      <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
+      <div class="column">
+        <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
+        <div class="opensans-ff value">Fried Interface Circuit</div>
+      </div>
+      <div class="column qty">
+        <div class="opensans-condensed-ff strip-label">QUANTITY</div>
+        <div class="opensans-ff value right">3</div>
+      </div>
+      <div class="column price">
+        <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
+        <div class="opensans-ff isk right">2296 ISK</div>
+      </div>
+      <div class="action">BUY</div>
+    </div>
+  </article>
+
+  <article data-specimen="v1-bomgroup" class="specimen group">
+    <div class="row group-head">
+      <span class="opensans-ff value">Salvaged Materials</span>
+      <span class="opensans-ff isk">10,123.6 ISK</span>
+    </div>
+    <div class="neocom-panel panel-red">
+      <div class="row pad align">
+        <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
+        <div class="column">
+          <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
+          <div class="opensans-ff value">Fried Interface Circuit</div>
+        </div>
+        <div class="column qty">
+          <div class="opensans-condensed-ff strip-label">QUANTITY</div>
+          <div class="opensans-ff value right">3</div>
+        </div>
+        <div class="column price">
+          <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
+          <div class="opensans-ff isk right">2296 ISK</div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <div data-specimen="v1-application-info-render" class="specimen app">
+    <v1-application-info-render [node]="appInfo"></v1-application-info-render>
+  </div>
+
+  <div data-specimen="v1-server-status-render" class="specimen server">
+    <v1-server-status-render [node]="serverStatus"></v1-server-status-render>
+  </div>
+</section>

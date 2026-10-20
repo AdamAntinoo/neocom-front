@@ -1,3 +1,5 @@
+@use 'palette' as *;
+
 :host {
   display: block;
   flex-grow: 4;
@@ -24,8 +26,8 @@
 
 .app-name {
   font-size: 30px;
-  color: white;
-  text-shadow: 0 0 6px white;
+  color: var(--neo-color-panel-white, #{$panel-white});
+  text-shadow: 0 0 6px var(--neo-color-panel-white, #{$panel-white});
 }
 
 .app-version-position {
@@ -35,13 +37,13 @@
 
 .app-version {
   font-size: 16px;
-  color: yellow;
+  color: var(--neo-color-panel-yellow, #{$panel-yellow});
 }
 
 .app-copyright {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 10px;
   margin-left: auto;
   align-self: center;
-  color: white;
+  color: var(--neo-color-panel-white, #{$panel-white});
 }

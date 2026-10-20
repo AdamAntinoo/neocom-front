@@ -1,14 +1,9 @@
+@use 'palette' as *;
+
+// Geometry (.section / .row / .column) comes from global styles/geometry.scss.
 :host {
-  display: block;
-}
-
-.row {
-  display: flex;
-  gap: 1rem;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  min-height: 100vh;
+  background: var(--neo-color-page-background, #{$page-background});
+  color: var(--neo-color-page-foreground, #{$page-foreground});
+  font-family: 'Open Sans', sans-serif;
 }

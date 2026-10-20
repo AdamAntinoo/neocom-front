@@ -54,8 +54,8 @@ describe('Application start route', () => {
     writeCookie(NEOCOM_ACCESS, 'token|Perico Tuerto|93813310');
     const harness = await RouterTestingHarness.create('/');
     expect(harness.routeNativeElement?.querySelector('[cy-section-name="header"]')).toBeTruthy();
-    expect(harness.routeNativeElement?.querySelector('app-info-panel')).toBeTruthy();
-    expect(harness.routeNativeElement?.querySelector('server-info-panel')).toBeTruthy();
+    expect(harness.routeNativeElement?.querySelector('#appinfo-panel')).toBeTruthy();
+    expect(harness.routeNativeElement?.querySelector('#server-info-panel')).toBeTruthy();
     expect(harness.routeNativeElement?.querySelector('[cy-section-name="pilot-dashboard"]')).toBeTruthy();
   });
 });

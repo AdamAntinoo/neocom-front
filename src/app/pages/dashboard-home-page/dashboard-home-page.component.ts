@@ -5,17 +5,18 @@ import { SessionService } from '../../security/session.service';
 /**
  * Application start page.
  *
- * ROW 1 — application header and current server status.
+ * ROW 1 — `<app-page-header />` (`-APP-` variant; internals hidden from this page).
  * ROW 2 — current pilot.
  *
  * Sections and fields are marked with cy catalog attributes. The registry is
- * docs/ui-component-catalog.md.
+ * docs/cy-tags-and-styles.md (see also docs/ui-component-catalog.md).
  */
 @Component({
   selector: 'dashboard-home-page',
   imports: [HeaderModule],
   templateUrl: './dashboard-home-page.component.html',
   styleUrl: './dashboard-home-page.component.scss',
+  host: { class: 'neo-page' },
 })
 export class DashboardHomePageComponent {
   private readonly session = inject(SessionService);

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { AppPanelComponent } from '../../../../innovative-core/components/app-panel/app-panel.component';
 import { ProcessedBlueprint } from '../../../domain/processed-blueprint';
 import { ViewerPanelComponent } from '../../../../shared/viewer-panel/viewer-panel.component';
-import { AVAILABLE_BLUEPRINTS_VARIANT } from '../../../../renders/v1-blueprint-render/v1-blueprint-render.component';
+import { NeoComVariant } from '../../../../innovative-core/domain/NeoComVariant';
 import { NodeListAdapterService } from '../../../../services/node-list-adapter.service';
 import type { Subscription } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class AvailableBlueprintsPanelComponent extends AppPanelComponent impleme
   private sseSub: Subscription | null = null;
 
   ngOnInit(): void {
-    this.setVariant(AVAILABLE_BLUEPRINTS_VARIANT);
+    this.setVariant(NeoComVariant.AVAILABLE_BLUEPRINTS);
     this.startDownloading();
     const id = this.pilotId();
 

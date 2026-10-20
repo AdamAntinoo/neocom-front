@@ -1,0 +1,157 @@
+@use 'sass:map';
+
+/// NeoCom project color palette.
+/// Edit this map to change colours project-wide. Values are also exposed as
+/// CSS custom properties `--neo-color-<name>` on `:root` (see `_theme.scss`).
+///
+/// Naming:
+/// - `panel-*` — panel accent / hover / selected / draggable tints (legacy NeoCom)
+/// - `app-*` — application accents
+/// - `page-*` — page shell surfaces
+/// - `text-*` — common text colours used outside panels
+$neo-colors: (
+  // Application accents
+  'app-red-70': #ff6666,
+  'app-red-30': #990000,
+  'app-pale-red': #990000,
+  // Panel accents and tints (keep existing NeoCom hex values)
+  'panel-red': #ff0000,
+  'panel-red-90': #ffcccc,
+  'panel-red-10': #330000,
+  'panel-pink': #ff00ff,
+  'panel-pink-90': #ffccff,
+  'panel-pink-10': #660033,
+  'panel-orange': #ff3300,
+  'panel-orange-90': #ffd6cc,
+  'panel-orange-20': #661400,
+  'panel-orange-10': #300a00,
+  'panel-yellow': #ffff00,
+  'panel-yellow-90': #ffff99,
+  'panel-yellow-20': #666600,
+  'panel-yellow-10': #333300,
+  'panel-lime': #99ff33,
+  'panel-lime-90': #e6ffcc,
+  'panel-lime-10': #1a3300,
+  'panel-green': #009900,
+  'panel-green-90': #b3ffb3,
+  'panel-green-20': #006600,
+  'panel-green-10': #003300,
+  'panel-lightblue': #00ffcc,
+  'panel-lightblue-90': #ccfff5,
+  'panel-lightblue-10': #003329,
+  'panel-blue': #0066cc,
+  'panel-blue-90': #cce6ff,
+  'panel-blue-30': #0059b3,
+  'panel-blue-20': #003366,
+  'panel-blue-10': #001a33,
+  'panel-violet': #cc33ff,
+  'panel-violet-90': #f2ccff,
+  'panel-violet-10': #4d004d,
+  'panel-white': #ffffff,
+  'panel-white-90': #e6e6e6,
+  'panel-white-40': #666666,
+  'panel-white-20': #333333,
+  'panel-white-10': #1a1a1a,
+  'panel-darkgrey': #808080,
+  'panel-darkgrey-90': #cccccc,
+  'panel-darkgrey-10': #1a1a1a,
+  'panel-border': #404040,
+  'panel-background': #080808,
+  'panel-hover-green': #0b3d03,
+  'panel-hover-blue': #0b3d03,
+  // Background tints
+  'background-tint-red': #250000,
+  'background-tint-orange': #301000,
+  'background-tint-yellow': #303000,
+  'background-tint-blue': #080825,
+  'background-tint-green': #052406,
+  'background-tint-white': #252525,
+  // Page shell
+  'page-background': #10141b,
+  'page-foreground': #e8eef7,
+  // Text
+  'text-expandable-name': #ffffff,
+  'text-selectable-name': #ffa500,
+  'text-classname': #3d3de6,
+  'text-light-orange-85': #ffe6b3,
+);
+
+/// Resolve a palette colour by key (Sass).
+@function color($name) {
+  $value: map.get($neo-colors, $name);
+  @if $value == null {
+    @error 'Unknown NeoCom palette key: #{$name}';
+  }
+  @return $value;
+}
+
+/// CSS custom property reference for runtime theming.
+@function color-var($name) {
+  @return var(--neo-color-#{$name});
+}
+
+// --- Sass aliases (legacy names used by panels and components) ---
+$app-red-70: color('app-red-70');
+$app-red-30: color('app-red-30');
+$app-pale-red-color: color('app-pale-red');
+
+$panel-red: color('panel-red');
+$panel-red-90: color('panel-red-90');
+$panel-red-10: color('panel-red-10');
+$panel-pink: color('panel-pink');
+$panel-pink-90: color('panel-pink-90');
+$panel-pink-10: color('panel-pink-10');
+$panel-orange: color('panel-orange');
+$panel-orange-90: color('panel-orange-90');
+$panel-orange-20: color('panel-orange-20');
+$panel-orange-10: color('panel-orange-10');
+$panel-yellow: color('panel-yellow');
+$panel-yellow-90: color('panel-yellow-90');
+$panel-yellow-20: color('panel-yellow-20');
+$panel-yellow-10: color('panel-yellow-10');
+$panel-lime: color('panel-lime');
+$panel-lime-90: color('panel-lime-90');
+$panel-lime-10: color('panel-lime-10');
+$panel-green: color('panel-green');
+$panel-green-90: color('panel-green-90');
+$panel-green-20: color('panel-green-20');
+$panel-green-10: color('panel-green-10');
+$panel-lightblue: color('panel-lightblue');
+$panel-lightblue-90: color('panel-lightblue-90');
+$panel-lightblue-10: color('panel-lightblue-10');
+$panel-blue: color('panel-blue');
+$panel-blue-90: color('panel-blue-90');
+$panel-blue-30: color('panel-blue-30');
+$panel-blue-20: color('panel-blue-20');
+$panel-blue-10: color('panel-blue-10');
+$panel-violet: color('panel-violet');
+$panel-violet-90: color('panel-violet-90');
+$panel-violet-10: color('panel-violet-10');
+$panel-white: color('panel-white');
+$panel-white-90: color('panel-white-90');
+$panel-white-40: color('panel-white-40');
+$panel-white-20: color('panel-white-20');
+$panel-white-10: color('panel-white-10');
+$panel-darkgrey: color('panel-darkgrey');
+$panel-darkgrey-90: color('panel-darkgrey-90');
+$panel-darkgrey-10: color('panel-darkgrey-10');
+
+$panel-background-color: color('panel-background');
+$panel-border-color: color('panel-border');
+$panel-background-hover-green: color('panel-hover-green');
+$panel-background-hover-blue: color('panel-hover-blue');
+
+$background-tint-red: color('background-tint-red');
+$background-tint-orange: color('background-tint-orange');
+$background-tint-yellow: color('background-tint-yellow');
+$background-tint-blue: color('background-tint-blue');
+$background-tint-green: color('background-tint-green');
+$background-tint-white: color('background-tint-white');
+
+$expandable-name-color: color('text-expandable-name');
+$selectable-name-color: color('text-selectable-name');
+$classname-color: color('text-classname');
+$light-orange-85: color('text-light-orange-85');
+
+$page-background: color('page-background');
+$page-foreground: color('page-foreground');

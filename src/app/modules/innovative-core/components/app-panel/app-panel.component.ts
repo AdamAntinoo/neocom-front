@@ -3,6 +3,7 @@ import { BackgroundEnabledComponent } from '../background-enabled/background-ena
 import type { ICollaboration } from '../../domain/interfaces/ICollaboration.interface';
 import type { ISelectable } from '../../domain/interfaces/ISelectable.interface';
 import type { IViewer } from '../../domain/interfaces/IViewer.interface';
+import { NeoComVariant } from '../../domain/NeoComVariant';
 import { SingleSelectionManager } from '../../domain/SingleSelectionManager';
 
 /**
@@ -13,19 +14,19 @@ import { SingleSelectionManager } from '../../domain/SingleSelectionManager';
   template: '',
 })
 export class AppPanelComponent extends BackgroundEnabledComponent implements IViewer {
-  readonly variantInput = input('-DEFAULT-', { alias: 'variant' });
+  readonly variantInput = input<NeoComVariant | string>(NeoComVariant.DEFAULT, { alias: 'variant' });
 
   protected downloading = true;
   protected dataModelRoot: ICollaboration[] = [];
   private renderNodeList: ICollaboration[] = [];
-  protected variant = '-DEFAULT-';
+  protected variant: NeoComVariant | string = NeoComVariant.DEFAULT;
   protected selectionManager = new SingleSelectionManager();
 
   getVariant(): string {
     return this.variant || this.variantInput();
   }
 
-  setVariant(variant: string): void {
+  setVariant(variant: NeoComVariant | string): void {
     this.variant = variant;
   }
 
