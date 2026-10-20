@@ -3,6 +3,7 @@ import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../modules/services/auth.service';
 import { HeaderModule } from '../../modules/header/header.module';
+import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
 import { LoginValidationExceptionComponent } from '../../panels/login-validation-exception/login-validation-exception.component';
 import { LoginValidationProgressComponent } from '../../panels/login-validation-progress/login-validation-progress.component';
 import { NEOCOM_SSO_STATE, readCookie } from '../../security/cookie.util';
@@ -19,12 +20,15 @@ import { SessionService } from '../../security/session.service';
   imports: [HeaderModule, LoginValidationProgressComponent, LoginValidationExceptionComponent],
   templateUrl: './login-callback-page.component.html',
   styleUrl: './login-callback-page.component.scss',
+  host: { class: 'neo-page' },
 })
 export class LoginCallbackPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly auth = inject(AuthService);
   private readonly session = inject(SessionService);
+
+  protected readonly Variant = NeoComVariant;
 
   protected readonly code = signal<string | null>(null);
   protected readonly exception = signal<{ title: string; message: string } | null>(null);

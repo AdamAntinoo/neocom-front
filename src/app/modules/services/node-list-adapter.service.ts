@@ -26,7 +26,7 @@ export class NodeListAdapterService {
   private readonly storageKeyPrefix = 'neocom.nodelist.';
 
   cacheKey(pilotId: number): string {
-    return `pilot:${pilotId}:manufacture-blueprints`;
+    return `pilot:${pilotId}:industry-blueprints`;
   }
 
   /** Immediate cache hit (session memory, then optional localStorage). */
@@ -70,7 +70,7 @@ export class NodeListAdapterService {
     if (cached) {
       return of(cached);
     }
-    const url = `${environment.apiBaseUrl}/v1/pilots/${pilotId}/manufacture/blueprints`;
+    const url = `${environment.apiBaseUrl}/v1/pilots/${pilotId}/industry/blueprints`;
     return new Observable<ProcessedBlueprint[]>((sub) => {
       const httpSub = this.http.get<BlueprintDto[]>(url).subscribe({
         next: (dtos) => {
@@ -87,7 +87,7 @@ export class NodeListAdapterService {
 
   openEnrichment(pilotId: number): Observable<{ nodeId: string; node: BlueprintDto }> {
     const base = environment.sseBasePath || `${environment.apiBaseUrl}/v1`;
-    const url = `${base}/pilots/${pilotId}/manufacture/blueprints/events`;
+    const url = `${base}/pilots/${pilotId}/industry/blueprints/events`;
     return new Observable((subscriber) => {
       const sub = this.sse.open(url).subscribe({
         next: (evt) => {

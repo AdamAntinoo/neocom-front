@@ -1,0 +1,140 @@
+:host {
+  color: var(--neo-color-page-foreground);
+  background: var(--neo-color-page-background);
+}
+
+.strip {
+  align-items: flex-start;
+  gap: 28px;
+  padding: 28px;
+}
+
+.specimen {
+  pointer-events: none;
+  width: max-content;
+  max-width: 520px;
+}
+
+.app {
+  width: 860px;
+  max-width: none;
+
+  ::ng-deep .row {
+    width: auto;
+    flex: 1 1 auto;
+  }
+}
+
+.pad {
+  padding: 8px;
+  gap: 8px;
+}
+
+.align {
+  align-items: center;
+}
+
+.portrait {
+  width: 64px;
+  height: 64px;
+  flex: none;
+}
+
+.type-lg {
+  width: 64px;
+  height: 64px;
+  flex: none;
+}
+
+.type-sm {
+  width: 32px;
+  height: 32px;
+  flex: none;
+}
+
+.name-line {
+  gap: 8px;
+  width: auto;
+}
+
+.name {
+  color: var(--neo-color-panel-white);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.strip-label {
+  color: var(--neo-color-panel-lightblue);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.value {
+  font-size: 13px;
+}
+
+.isk {
+  color: var(--neo-color-panel-yellow);
+  font-size: 13px;
+}
+
+.index {
+  color: var(--neo-color-panel-lime);
+  font-family: 'Elemental', sans-serif;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.blueprint {
+  width: 420px;
+}
+
+.metric {
+  align-items: baseline;
+  gap: 8px;
+  width: auto;
+}
+
+.resource,
+.group {
+  width: 460px;
+}
+
+.qty {
+  width: 72px;
+  flex: none;
+}
+
+.price {
+  width: 110px;
+  flex: none;
+}
+
+.action {
+  flex: none;
+  border: 1px solid var(--neo-color-panel-yellow);
+  color: var(--neo-color-panel-yellow);
+  font-family: 'Open Sans Condensed', 'Open Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+}
+
+.group-head {
+  justify-content: space-between;
+  padding: 0 4px 4px;
+}
+
+.server {
+  width: 320px;
+}

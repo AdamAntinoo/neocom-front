@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use 'palette' as palette;
+
+/// Emit the project palette as CSS custom properties once at the global entry.
+:root {
+  @each $name, $value in palette.$neo-colors {
+    --neo-color-#{$name}: #{$value};
+  }
+
+  --neo-line-height: 1;
+  --neo-panel-padding: 2px;
+  --neo-panel-border-thickness: 1px;
+  --neo-panel-default-opacity: 0.8;
+  --neo-panel-hover-opacity: 1;
+  --neo-panel-corner-size: 6px;
+  --neo-panel-change-time: 0.5s;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: var(--neo-color-page-background);
+  color: var(--neo-color-page-foreground);
+}

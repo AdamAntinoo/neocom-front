@@ -1,7 +1,10 @@
-// Shared row layout for panels. Panel color frames live in panel-styles.scss.
+// Shared panel layout helpers. Page geometry: geometry.scss. Panel colours: panel-styles.
 
 .neocom-panel {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  box-sizing: border-box;
+  margin: 0;
+  // Panels keep their own border/opacity from .panel-* classes.
 }

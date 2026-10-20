@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProcessedBlueprint } from '../../industry/domain/processed-blueprint';
 import { NeoCom } from '../../innovative-core/domain/NeoCom';
+import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
-
-const AVAILABLE = '-AVAILABLE-BLUEPRINTS-';
-
 
 @Component({
   selector: 'v1-blueprint-render',
@@ -15,7 +13,7 @@ const AVAILABLE = '-AVAILABLE-BLUEPRINTS-';
 export class V1BlueprintRenderComponent implements OnInit {
   @Input() container!: IViewer;
   @Input() node!: NeoCom;
-  @Input() variant = '-DEFAULT-';
+  @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
 
   static registered = false;
 
@@ -37,7 +35,7 @@ export class V1BlueprintRenderComponent implements OnInit {
   }
 
   isDetailed(): boolean {
-    return this.variant === AVAILABLE;
+    return this.variant === NeoComVariant.AVAILABLE_BLUEPRINTS;
   }
 
   getName(): string {
@@ -60,4 +58,5 @@ export class V1BlueprintRenderComponent implements OnInit {
 // Eager registration so the registry is ready before first paint.
 V1BlueprintRenderComponent.ensureRegistered();
 
-export { AVAILABLE as AVAILABLE_BLUEPRINTS_VARIANT };
+/** @deprecated Use {@link NeoComVariant.AVAILABLE_BLUEPRINTS} */
+export const AVAILABLE_BLUEPRINTS_VARIANT = NeoComVariant.AVAILABLE_BLUEPRINTS;

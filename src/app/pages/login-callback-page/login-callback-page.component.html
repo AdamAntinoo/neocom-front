@@ -1,4 +1,4 @@
-<app-info-panel id="appinfo-panel" class="neocom-panel"></app-info-panel>
+<app-page-header [variant]="Variant.AUTH" />
 <login-validation-progress [message]="'Waiting for code authentication...'" [code]="codeLabel()" />
 @if (exception(); as ex) {
   <login-validation-exception [title]="ex.title" [message]="ex.message" />

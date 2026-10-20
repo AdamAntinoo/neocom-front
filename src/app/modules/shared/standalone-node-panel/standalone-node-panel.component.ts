@@ -1,8 +1,11 @@
 import { NgComponentOutlet } from '@angular/common';
 import { Component, Input, OnChanges, Type } from '@angular/core';
-import { NeoCom } from '../../innovative-core/domain/NeoCom';
+import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import { lookupRender } from '../../renders/render-registry';
 import '../../renders/v1-blueprint-render/v1-blueprint-render.component';
+
+/** Minimal node shape for registry lookup (front NeoCom or published neocom-domain models). */
+export type StandaloneRenderableNode = { getJsonClass(): string };
 
 /**
  * Single node + variant; registry lookup; no viewer list (NODE-007, NODE-012).
@@ -14,8 +17,8 @@ import '../../renders/v1-blueprint-render/v1-blueprint-render.component';
   styleUrl: './standalone-node-panel.component.scss',
 })
 export class StandaloneNodePanelComponent implements OnChanges {
-  @Input() node: NeoCom | null = null;
-  @Input() variant = '-DEFAULT-';
+  @Input() node: StandaloneRenderableNode | null = null;
+  @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
 
   renderType: Type<unknown> | null = null;
 
