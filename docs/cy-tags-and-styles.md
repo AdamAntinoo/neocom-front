@@ -10,16 +10,49 @@ Related: colour palette lives in `src/styles/_palette.scss`; geometry in `src/st
 
 | Attribute | Purpose |
 | --- | --- |
+| `cy-type` | **New:** Identifies the hierarchical element type (page, panel, section, element) for counting and filtering in tests |
 | `cy-section-name` | Names a layout region, panel shell, or render block |
 | `cy-field-value` | Names the displayed value for a field |
 | `cy-field-label` | Names a field caption (label text) |
 | `cy-name` | Names an interactive control (button, link) |
 
-Selectors in tests: `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-name="…"]`.
+Selectors in tests: `[cy-type="…"]`, `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-name="…"]`.
 
 ---
 
-## 2. `cy-section-name` register
+## 2. `cy-type` register (Element hierarchy)
+
+| Value | Purpose | Example | Counts |
+| --- | --- | --- | --- |
+| `page` | Top-level page host (e.g. login, dashboard, industry) | `<div cy-type="page">` | Single per route |
+| `panel` | Self-contained panel or render component | `<neocom-viewer-panel cy-type="panel">`, `<v1-blueprint-render cy-type="panel">` | Multiple per page; used for `cy('panel').count()` in tests |
+| `section` | Horizontal/vertical section within a page or panel | `<div class="section" cy-type="section">` | Multiple; organize layout |
+| `element` | Individual interactive or data element (button, field, row) | `<button cy-type="element">`, `<div class="blueprint-row" cy-type="element">` | Many; used for `cy('[cy-type="element"]').should('have.length', N)` assertions |
+
+**Cypress counting patterns:**
+
+```typescript
+// Count panels on the current page
+cy('[cy-type="page"] [cy-type="panel"]').should('have.length', 2);
+
+// Count elements inside a named section
+cy('[cy-section-name="available-blueprints"] [cy-type="element"]').should('have.length.greaterThan', 0);
+
+// Count all elements in a panel
+cy('[cy-type="panel"]').within(() => {
+  cy('[cy-type="element"]').should('have.length', 5);
+});
+```
+
+**Usage guideline:**
+
+- `cy-type` is **always** added to the **host element** of a page, panel, section, or element.
+- Use alongside `cy-section-name` for named sections: `<div cy-section-name="available-blueprints" cy-type="section">`.
+- Prefer `cy-type` for counting; prefer `cy-section-name` for identifying specific regions.
+
+---
+
+## 3. `cy-section-name` register
 
 | Value | Description | Where defined |
 | --- | --- | --- |
@@ -40,7 +73,7 @@ Selectors in tests: `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-na
 
 ---
 
-## 3. `cy-field-value` register
+## 5. `cy-field-value` register
 
 | Value | Description | Typical host section |
 | --- | --- | --- |
@@ -77,7 +110,7 @@ Selectors in tests: `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-na
 
 ---
 
-## 4. `cy-field-label` register
+## 6. `cy-field-label` register
 
 | Value | Description | Where |
 | --- | --- | --- |
@@ -86,7 +119,7 @@ Selectors in tests: `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-na
 
 ---
 
-## 5. `cy-name` register
+## 7. `cy-name` register
 
 | Value | Description | Where |
 | --- | --- | --- |
@@ -94,7 +127,7 @@ Selectors in tests: `[cy-section-name="…"]`, `[cy-field-value="…"]`, `[cy-na
 
 ---
 
-## 6. Global styles (`src/styles/`)
+## 8. Global styles (`src/styles/`)
 
 Loaded from `src/styles.scss` via `@use` (Sass modules). `angular.json` sets `includePaths: ["src/styles"]` so components can `@use 'palette'`.
 
@@ -131,7 +164,7 @@ Pattern: `--neo-color-<palette-key>` from `$neo-colors` (e.g. `--neo-color-panel
 
 ---
 
-## 7. Styles outside global styles (component / local)
+## 9. Styles outside global styles (component / local)
 
 These SCSS files are **not** in `src/styles/`; they style a single component or page. Prefer `@use 'palette'` for colours and rely on global geometry/panel classes when possible.
 
@@ -177,7 +210,7 @@ Not defined in global geometry/panel sheets (or only partially):
 
 ---
 
-## 8. Host / geometry wiring in use
+## 10. Host / geometry wiring in use
 
 Pages that set `host: { class: 'neo-page' }`:
 
@@ -191,7 +224,7 @@ Templates combine global geometry with panel colours, e.g. `class="row section p
 
 ---
 
-## 9. Variants (`NeoComVariant` enum)
+## 11. Variants (`NeoComVariant` enum)
 
 Not Cypress tags. All variants are registered in `src/app/modules/innovative-core/domain/NeoComVariant.ts`. Use the enum constants — do not invent string literals.
 

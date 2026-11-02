@@ -4,7 +4,10 @@ import { environment } from '../../../environments/environment';
 import { HeaderModule } from '../../modules/header/header.module';
 import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
 import { SessionService } from '../../security/session.service';
-import { BackgroundOauthEnabledComponent } from '../OauthEnabled.component';
+import {
+  BackgroundOauthEnabledComponent,
+  loopbackHostCorrectionUrl,
+} from '../OauthEnabled.component';
 
 /**
  * LOGIN-007 — NeoCom / SSO EVE Online login page (infinity v1-start-page layout).
@@ -29,6 +32,12 @@ export class LoginPageComponent extends BackgroundOauthEnabledComponent implemen
   }
 
   ngOnInit(): void {
+    // Cookie host must match EVE redirect_uri host (localhost ≠ 127.0.0.1).
+    const corrected = loopbackHostCorrectionUrl(environment.loginLinkData.redirectUri);
+    if (corrected != null) {
+      window.location.replace(corrected);
+      return;
+    }
     if (this.session.hasAccess()) {
       const returnUrl = this.session.getReturnUrl() ?? '/dashboard';
       void this.router.navigateByUrl(returnUrl);

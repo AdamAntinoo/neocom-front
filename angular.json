@@ -72,7 +72,7 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "host": "127.0.0.1",
+            "host": "localhost",
             "port": 6001,
             "servePath": "/app/",
             "proxyConfig": "proxy.conf.js"

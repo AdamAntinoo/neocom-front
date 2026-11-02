@@ -1,0 +1,15 @@
+<div class="row pad" cy-render="v1-public-pilot" [attr.data-neocom-variant]="variant">
+  <img class="portrait" alt="" [src]="getPilotIcon()" />
+  <div class="column">
+    <div class="row name-line">
+      <span cy-field-label="pilotName" class="label invisible">NOMBRE</span>
+      <span cy-field-value="pilotName" class="name">{{ getName() }}</span>
+      <span cy-field-label="pilotIdentifier" class="label invisible">IDENTIFICADOR</span>
+      <span cy-field-value="pilotIdentifier" class="name">[{{ getPilotId() }}]</span>
+    </div>
+    <div cy-field-label="pilotAncestry" class="label invisible">RAZA/ANCESTROS</div>
+    <div cy-field-value="pilotAncestry" class="meta">{{ getAncestryLine() }}</div>
+    <div cy-field-label="pilotGender" class="label invisible">GENERO</div>
+    <div cy-field-value="pilotGender" class="meta">{{ getGenderDisplay() }}</div>
+  </div>
+</div>
