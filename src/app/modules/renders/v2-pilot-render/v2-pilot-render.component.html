@@ -1,0 +1,23 @@
+<div class="row pad" cy-render="v2-pilot" [attr.data-neocom-variant]="variant">
+  <img class="portrait" alt="" [src]="getPilotIcon()" />
+  <div class="column">
+    <div class="row name-line">
+      <span cy-field-label="pilotName" class="label invisible">NOMBRE</span>
+      <span cy-field-value="pilotName" class="name">{{ getName() }}</span>
+      <span cy-field-label="pilotIdentifier" class="label invisible">IDENTIFICADOR</span>
+      <span cy-field-value="pilotIdentifier" class="name">[#{{ getPilotId() }}]</span>
+    </div>
+    <div cy-field-label="pilotAncestry" class="label invisible">RAZA/ANCESTROS</div>
+    <div cy-field-value="pilotAncestry" class="meta">{{ getAncestryLine() }}</div>
+    <div class="row meta-line">
+      <span cy-field-label="pilotGender" class="label invisible">GENERO</span>
+      <span cy-field-value="pilotGender" class="meta">{{ getGenderDisplay() }}</span>
+      <span cy-field-label="totalSkillPoints" class="label invisible">SKILL POINTS</span>
+      <span cy-field-value="totalSkillPoints" class="meta right">{{ getTotalSkillpoints() | number: '1.0-0' }}</span>
+    </div>
+    <div cy-field-label="pilotWalletBalance" class="label invisible">BALANCE</div>
+    <div cy-field-value="pilotWalletBalance" class="meta right isk">{{ getWalletLabel() }}</div>
+    <div cy-field-label="currentShip" class="label invisible">SHIP</div>
+    <div cy-field-value="currentShip" class="meta right">{{ getCurrentShipName() }}</div>
+  </div>
+</div>

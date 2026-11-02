@@ -14,5 +14,8 @@ describe('NeoComVariant', () => {
     expect(NeoComVariant.AUTH).toBe('-AUTH-');
     expect(NeoComVariant.HEADER).toBe('-HEADER-');
     expect(NeoComVariant.AVAILABLE_BLUEPRINTS).toBe('-AVAILABLE-BLUEPRINTS-');
+    expect(NeoComVariant.PILOT_PUBLIC).toBe('-PILOT-PUBLIC-VARIANT-');
+    expect(NeoComVariant.PILOT).toBe('-PILOT-VARIANT-');
+    expect(NeoComVariant.PILOT_LIST).toBe('-PILOT-LIST-VARIANT-');
   });
 });

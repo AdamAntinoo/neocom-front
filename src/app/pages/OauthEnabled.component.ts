@@ -28,6 +28,7 @@ export class OAuthEnabledComponent {
       response_type: data.responseType,
       client_id: data.clientId,
       state: this.lastState,
+      // Must match the EVE-registered redirect URI exactly (hostname included).
       redirect_uri: data.redirectUri,
       scope: data.scope,
     });
@@ -50,4 +51,35 @@ function createSsoState(): string {
     binary += String.fromCharCode(byte);
   }
   return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+/**
+ * SSO state cookie is host-bound. If the app is opened on 127.0.0.1 while
+ * redirect_uri uses localhost (or the reverse), return the same path on the
+ * redirect_uri host so login can continue with a matching cookie.
+ */
+export function loopbackHostCorrectionUrl(
+  configuredRedirectUri: string,
+  currentHref: string = typeof window !== 'undefined' ? window.location.href : '',
+): string | null {
+  if (!currentHref) {
+    return null;
+  }
+  try {
+    const configured = new URL(configuredRedirectUri);
+    const current = new URL(currentHref);
+    const loopbackPair =
+      (configured.hostname === 'localhost' || configured.hostname === '127.0.0.1') &&
+      (current.hostname === 'localhost' || current.hostname === '127.0.0.1');
+    if (!loopbackPair || configured.hostname === current.hostname) {
+      return null;
+    }
+    current.hostname = configured.hostname;
+    if (configured.port) {
+      current.port = configured.port;
+    }
+    return current.toString();
+  } catch {
+    return null;
+  }
 }

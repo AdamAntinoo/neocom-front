@@ -12,6 +12,12 @@ export enum NeoComVariant {
   AUTH = '-AUTH-',
   HEADER = '-HEADER-',
   AVAILABLE_BLUEPRINTS = '-AVAILABLE-BLUEPRINTS-',
+  /** Public pilot panel / render (PANEL-006). */
+  PILOT_PUBLIC = '-PILOT-PUBLIC-VARIANT-',
+  /** Private pilot panel complementing public data (PANEL-007). */
+  PILOT = '-PILOT-VARIANT-',
+  /** Pilot listing row; partial fields (PANEL-008). */
+  PILOT_LIST = '-PILOT-LIST-VARIANT-',
 }
 
 /** All registered variant values (for validation / catalogs). */

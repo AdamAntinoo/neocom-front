@@ -1,0 +1,63 @@
+:host {
+  display: block;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.pad {
+  padding: 8px;
+  gap: 8px;
+}
+
+.portrait {
+  width: 64px;
+  height: 64px;
+  flex: none;
+}
+
+.name-line {
+  gap: 8px;
+  width: auto;
+  align-items: baseline;
+}
+
+.meta-line {
+  gap: 12px;
+  width: 100%;
+  align-items: baseline;
+}
+
+.name {
+  color: var(--neo-color-panel-white, #fff);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.right {
+  margin-left: auto;
+  text-align: right;
+}
+
+.isk {
+  font-variant-numeric: tabular-nums;
+}
+
+.label.invisible {
+  display: none;
+}

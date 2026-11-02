@@ -43,6 +43,16 @@ export class LoginCallbackPageComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    // Safety net: state cookie may live on the sibling loopback host (localhost ↔ 127.0.0.1).
+    if (readCookie(NEOCOM_SSO_STATE) == null) {
+      const sibling = swapLoopbackHost(window.location.href);
+      if (sibling != null && !sessionStorage.getItem('neocom_sso_host_swap')) {
+        sessionStorage.setItem('neocom_sso_host_swap', '1');
+        window.location.replace(sibling);
+        return;
+      }
+    }
+    sessionStorage.removeItem('neocom_sso_host_swap');
     this.route.queryParamMap.subscribe((params) => {
       const code = params.get('code');
       this.code.set(code);
@@ -96,6 +106,24 @@ export class LoginCallbackPageComponent implements OnInit {
         message: 'The request state does not match. Caller not verified.',
       };
     }
+    return null;
+  }
+}
+
+/** Flip localhost ↔ 127.0.0.1 keeping path and query (SSO cookie recovery). */
+function swapLoopbackHost(href: string): string | null {
+  try {
+    const url = new URL(href);
+    if (url.hostname === 'localhost') {
+      url.hostname = '127.0.0.1';
+      return url.toString();
+    }
+    if (url.hostname === '127.0.0.1') {
+      url.hostname = 'localhost';
+      return url.toString();
+    }
+    return null;
+  } catch {
     return null;
   }
 }

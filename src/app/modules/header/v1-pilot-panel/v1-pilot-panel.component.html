@@ -1,19 +1,35 @@
-<div cy-section-name="pilot" class="pilot">
+<div
+  cy-section-name="pilot"
+  cy-element-name="pilot"
+  cy-element-type="panel"
+  [attr.data-neocom-variant]="variantCode()"
+  class="neocom-panel panel-white pilot"
+  [class.pilot-list-active]="listActive()"
+>
   @if (loadError(); as message) {
-    <span cy-field-value="pilot-error">{{ message }}</span>
-  } @else if (pilot(); as node) {
-    <div class="field"><span class="label">Pilot</span> <span cy-field-value="pilot-id">{{ node.getPilotId() }}</span></div>
-    <div class="field"><span class="label">Name</span> <span cy-field-value="pilot-name">{{ node.getName() }}</span></div>
-    <div class="field"><span class="label">Birthday</span> <span cy-field-value="pilot-birthday">{{ node.getBirthday() }}</span></div>
-    <div class="field"><span class="label">Gender</span> <span cy-field-value="pilot-gender">{{ node.getGender() }}</span></div>
-    <div class="field"><span class="label">Security</span> <span cy-field-value="pilot-security">{{ node.getSecurityStatus() }}</span></div>
-    <div class="field"><span class="label">Corporation</span> <span cy-field-value="pilot-corporation">{{ node.getCorporationName() }} [{{ node.getCorporationTicker() }}]</span></div>
-    <div class="field"><span class="label">Alliance</span> <span cy-field-value="pilot-alliance">{{ node.getAllianceName() }}</span></div>
-    <div class="field"><span class="label">Race</span> <span cy-field-value="pilot-race">{{ node.getRaceName() }}</span></div>
-    <div class="field"><span class="label">Bloodline</span> <span cy-field-value="pilot-bloodline">{{ node.getBloodlineName() }}</span></div>
-    <div class="field"><span class="label">Ancestry</span> <span cy-field-value="pilot-ancestry">{{ node.getAncestryName() }}</span></div>
-    @if (node.getDescription()) {
-      <div class="field"><span class="label">Description</span> <span cy-field-value="pilot-description">{{ node.getDescription() }}</span></div>
+    <div class="field">
+      <span cy-field-label="pilot-error" class="label">Error</span>
+      <span cy-field-value="pilot-error">{{ message }}</span>
+    </div>
+  } @else if (showList()) {
+    @if (pilot(); as node) {
+      <div class="field pilot-list-row">
+        <img class="portrait" alt="" [src]="node.getPilotIcon()" />
+        <div class="column">
+          <div class="field">
+            <span cy-field-label="pilotName" class="label">Name</span>
+            <span cy-field-value="pilotName">{{ node.getName() }}</span>
+          </div>
+          <div class="field">
+            <span cy-field-label="pilotIdentifier" class="label">Id</span>
+            <span cy-field-value="pilotIdentifier">{{ node.getPilotId() }}</span>
+          </div>
+        </div>
+      </div>
     }
+  } @else if (privateRecord(); as node) {
+    <v2-pilot-render [node]="node" [variant]="variantCode()"></v2-pilot-render>
+  } @else if (publicRecord(); as node) {
+    <v1-public-pilot-render [node]="node" [variant]="variantCode()"></v1-public-pilot-render>
   }
 </div>
