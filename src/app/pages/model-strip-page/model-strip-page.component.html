@@ -33,32 +33,8 @@
   </article>
 
   <article data-specimen="v1-blueprint" class="neocom-panel panel-blue specimen blueprint">
-    <div class="row pad">
-      <img class="type-lg" alt="" src="https://images.evetech.net/types/31717/bp?size=64" />
-      <div class="column">
-        <div class="opensans-condensed-ff strip-label">BLUEPRINT</div>
-        <div class="opensans-ff value">Small EM Shield Reinforcer I Blueprint</div>
-        <div class="opensans-condensed-ff strip-label">PRODUCTO</div>
-        <div class="row">
-          <div class="column">
-            <div class="opensans-condensed-ff strip-label">OUTPUT</div>
-            <div class="opensans-ff value">Small EM Shield Reinforcer I</div>
-            <div class="row metric">
-              <span class="opensans-condensed-ff strip-label">COSTE FABRICACION</span>
-              <span class="opensans-ff value">9,037 ISK</span>
-            </div>
-            <div class="row metric">
-              <span class="opensans-condensed-ff strip-label">PRECIO VENTA</span>
-              <span class="opensans-ff value">19,980 ISK</span>
-            </div>
-          </div>
-          <img class="type-sm" alt="" src="https://images.evetech.net/types/31716/icon?size=32" />
-        </div>
-        <div class="row metric">
-          <span class="opensans-condensed-ff strip-label">INDICE</span>
-          <span class="index">199</span>
-        </div>
-      </div>
+    <div class="pad">
+      <v1-blueprint-render [node]="blueprintV1"></v1-blueprint-render>
     </div>
   </article>
 

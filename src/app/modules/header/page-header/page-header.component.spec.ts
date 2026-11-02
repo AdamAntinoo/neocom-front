@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-import { ApplicationInfoV1, ServerStatusV1 } from 'neocom-domain';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
+import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
+import { ServerStatusV1Node } from '../../innovative-core/domain/nodes/server-status-v1.node';
 import { ApplicationInfoProvider } from '../providers/application-info.provider';
 import { ServerStatusProvider } from '../providers/server-status.provider';
 import { PageHeaderComponent } from './page-header.component';
@@ -17,7 +18,7 @@ describe('PageHeaderComponent', () => {
           provide: ApplicationInfoProvider,
           useValue: {
             getApplicationInfo: () =>
-              new ApplicationInfoV1({
+              new ApplicationInfoV1Node({
                 name: 'neocom-front',
                 version: '0.1.0',
                 copyright: '© test',
@@ -29,7 +30,7 @@ describe('PageHeaderComponent', () => {
           useValue: {
             getServerStatus: () =>
               of(
-                new ServerStatusV1({
+                new ServerStatusV1Node({
                   server: 'Tranquility',
                   players: 12,
                   backendVersion: '1',
@@ -45,7 +46,7 @@ describe('PageHeaderComponent', () => {
     fixture = TestBed.createComponent(PageHeaderComponent);
   });
 
-  it('should provide ApplicationInfoV1 and ServerStatusV1 to v1 renders for NeoComVariant.APP', () => {
+  it('should provide ApplicationInfo and ServerStatus NeoCom nodes for NeoComVariant.APP', () => {
     fixture.componentInstance.variant = NeoComVariant.APP;
     fixture.detectChanges();
     const root = fixture.nativeElement as HTMLElement;
@@ -58,7 +59,7 @@ describe('PageHeaderComponent', () => {
     expect(root.querySelector('[cy-field-value="server-name"]')?.textContent?.trim()).toBe('Tranquility');
   });
 
-  it('should provide only ApplicationInfoV1 for NeoComVariant.AUTH', () => {
+  it('should provide only ApplicationInfo for NeoComVariant.AUTH', () => {
     fixture.componentInstance.variant = NeoComVariant.AUTH;
     fixture.detectChanges();
     const root = fixture.nativeElement as HTMLElement;

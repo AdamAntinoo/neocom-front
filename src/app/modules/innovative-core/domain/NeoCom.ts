@@ -4,8 +4,13 @@ import type { INode } from './interfaces/INode.interface';
 import type { ISelectable } from './interfaces/ISelectable.interface';
 
 /**
- * Domain node — model side of the node / Part / render MVC trio (NODE-001, NODE-014).
- * Renders call node methods; they do not read raw source past those methods.
+ * Front render/node base — model side of the node / Part / render MVC trio (NODE-001, NODE-014).
+ * Lives only in neocom-front (not in neocom-domain).
+ *
+ * Published interchange models stay as `Record` + `jsonClass` in `neocom-domain`.
+ * For the viewer / registry path, wrap them in NeoCom subclasses under `./nodes/`
+ * (e.g. {@link BlueprintV1Node}) so collaborate2View / expand / select work.
+ * Renders call node methods; they do not read raw wire Records past those methods.
  */
 export class NeoCom implements INode, ICollaboration, IExpandable, ISelectable {
   public jsonClass = 'NeoCom';

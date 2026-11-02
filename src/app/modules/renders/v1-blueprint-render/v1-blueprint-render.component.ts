@@ -2,9 +2,14 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ProcessedBlueprint } from '../../industry/domain/processed-blueprint';
 import { NeoCom } from '../../innovative-core/domain/NeoCom';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
+import { BlueprintV1Node } from '../../innovative-core/domain/nodes/blueprint-v1.node';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
 
+/**
+ * Base identity card `v1-blueprint` for BlueprintV1Node (DOM-BP-003).
+ * Also paints ProcessedBlueprint* list variants (still to review on L1).
+ */
 @Component({
   selector: 'v1-blueprint-render',
   templateUrl: './v1-blueprint-render.component.html',
@@ -21,6 +26,7 @@ export class V1BlueprintRenderComponent implements OnInit {
     if (V1BlueprintRenderComponent.registered) {
       return;
     }
+    registerRender('BlueprintV1', V1BlueprintRenderComponent);
     registerRender('ProcessedBlueprint', V1BlueprintRenderComponent);
     registerRender('ProcessedBlueprintSummary', V1BlueprintRenderComponent);
     V1BlueprintRenderComponent.registered = true;
@@ -30,26 +36,69 @@ export class V1BlueprintRenderComponent implements OnInit {
     V1BlueprintRenderComponent.ensureRegistered();
   }
 
-  getNode(): ProcessedBlueprint {
-    return this.node as ProcessedBlueprint;
+  isBaseIdentity(): boolean {
+    return this.node?.getJsonClass?.() === 'BlueprintV1';
+  }
+
+  getBlueprintV1(): BlueprintV1Node | undefined {
+    return this.isBaseIdentity() && this.node instanceof BlueprintV1Node
+      ? this.node
+      : undefined;
+  }
+
+  getProcessed(): ProcessedBlueprint | undefined {
+    return this.isBaseIdentity() ? undefined : (this.node as ProcessedBlueprint);
   }
 
   isDetailed(): boolean {
-    return this.variant === NeoComVariant.AVAILABLE_BLUEPRINTS;
+    return !this.isBaseIdentity() && this.variant === NeoComVariant.AVAILABLE_BLUEPRINTS;
   }
 
   getName(): string {
-    return this.getNode()?.getName() ?? '-';
+    const base = this.getBlueprintV1();
+    if (base) {
+      return base.getBlueprintTypeName() || '-';
+    }
+    return this.getProcessed()?.getName() ?? '-';
   }
 
   getBlueprintId(): number {
-    return this.getNode()?.getBlueprintId() ?? 0;
+    const base = this.getBlueprintV1();
+    if (base) {
+      return base.getBlueprintId();
+    }
+    return this.getProcessed()?.getBlueprintId() ?? 0;
+  }
+
+  getBlueprintTypeIconURL(): string {
+    return this.getBlueprintV1()?.getBlueprintTypeIconURL() ?? '';
+  }
+
+  getOutputTypeName(): string {
+    return this.getBlueprintV1()?.getOutputTypeName() ?? '';
+  }
+
+  getOutputTypeIconURL(): string {
+    return this.getBlueprintV1()?.getOutputTypeIconURL() ?? '';
+  }
+
+  getRuns(): number {
+    return this.getBlueprintV1()?.getRuns() ?? 0;
+  }
+
+  getMaterialEfficiency(): number {
+    return this.getBlueprintV1()?.getMaterialEfficiency() ?? 0;
+  }
+
+  getTimeEfficiency(): number {
+    return this.getBlueprintV1()?.getTimeEfficiency() ?? 0;
   }
 
   getManufactureIndexLabel(): string {
-    const index = this.getNode()?.getManufactureIndex();
+    const processed = this.getProcessed();
+    const index = processed?.getManufactureIndex();
     if (index == null) {
-      return this.getNode()?.isReady() ? '—' : '…';
+      return processed?.isReady() ? '—' : '…';
     }
     return String(index);
   }

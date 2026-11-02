@@ -2,7 +2,7 @@ import { Component, inject, input, signal } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { PilotService } from '../../services/pilot.service';
-import type { PilotV1 } from '../../services/pilot-v1';
+import type { PilotV2Node, PublicPilotV1Node } from '../../innovative-core/domain/nodes';
 
 @Component({
   selector: 'v1-pilot-panel',
@@ -13,7 +13,7 @@ export class V1PilotPanelComponent {
   private readonly pilots = inject(PilotService);
   readonly identifier = input(93813310);
   readonly loadError = signal<string | undefined>(undefined);
-  /** PilotV1Dto returned by neocom-back. */
+  /** NeoCom pilot node built from neocom-back wire JSON. */
   readonly pilot = toSignal(
     toObservable(this.identifier).pipe(
       switchMap((pilotId) =>
@@ -21,7 +21,7 @@ export class V1PilotPanelComponent {
           tap(() => this.loadError.set(undefined)),
           catchError(() => {
             this.loadError.set('The pilot could not be loaded.');
-            return of(undefined as PilotV1 | undefined);
+            return of(undefined as PublicPilotV1Node | PilotV2Node | undefined);
           }),
         ),
       ),

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ServerStatusV1 } from 'neocom-domain';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
+import { ServerStatusV1Node } from '../../innovative-core/domain/nodes/server-status-v1.node';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
 
@@ -11,7 +11,7 @@ import { registerRender } from '../render-registry';
 })
 export class V1ServerStatusRenderComponent implements OnInit {
   @Input() container: IViewer | null = null;
-  @Input() node!: ServerStatusV1;
+  @Input() node!: ServerStatusV1Node;
   @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
 
   private static registered = false;
@@ -28,7 +28,7 @@ export class V1ServerStatusRenderComponent implements OnInit {
     V1ServerStatusRenderComponent.ensureRegistered();
   }
 
-  getNode(): ServerStatusV1 {
+  getNode(): ServerStatusV1Node {
     return this.node;
   }
 

@@ -1,4 +1,21 @@
-@if (isDetailed()) {
+@if (isBaseIdentity()) {
+  <div cy-section-name="blueprint-identity" cy-render="v1-blueprint" class="blueprint-identity">
+    <img class="type-lg" alt="" [src]="getBlueprintTypeIconURL()" />
+    <div class="column">
+      <span cy-field-value="blueprint-name" class="name">{{ getName() }}</span>
+      <span cy-field-value="blueprint-id" class="meta">#{{ getBlueprintId() }}</span>
+      <div class="row output">
+        <img class="type-sm" alt="" [src]="getOutputTypeIconURL()" />
+        <span cy-field-value="output-type-name">{{ getOutputTypeName() }}</span>
+      </div>
+      <div class="row metrics">
+        <span cy-field-value="runs">runs {{ getRuns() }}</span>
+        <span cy-field-value="material-efficiency">ME {{ getMaterialEfficiency() }}</span>
+        <span cy-field-value="time-efficiency">TE {{ getTimeEfficiency() }}</span>
+      </div>
+    </div>
+  </div>
+} @else if (isDetailed()) {
   <div cy-section-name="blueprint-detailed" class="blueprint-detailed">
     <span cy-field-value="blueprint-name">{{ getName() }}</span>
     <span cy-field-value="blueprint-id">{{ getBlueprintId() }}</span>

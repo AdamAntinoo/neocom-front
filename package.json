@@ -15,7 +15,8 @@
     "e2e": "cypress run",
     "e2e:open": "cypress open",
     "banner": "bash scripts/with-neocom-node.sh node scripts/generate-banner.mjs",
-    "version:sync": "bash scripts/with-neocom-node.sh node scripts/sync-version.mjs"
+    "version:sync": "bash scripts/with-neocom-node.sh node scripts/sync-version.mjs",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "private": true,
   "packageManager": "npm@11.19.0",

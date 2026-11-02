@@ -1,7 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { PublicPilotV1Node } from '../../modules/innovative-core/domain/nodes/public-pilot-v1.node';
 import { PilotService } from '../../modules/services/pilot.service';
 import { DashboardHomePageComponent } from './dashboard-home-page.component';
+
+const fixturePilot = new PublicPilotV1Node({
+  jsonClass: 'PublicPilotV1',
+  pilotId: 93813310,
+  name: 'Perico Tuerto',
+});
 
 describe('DashboardHomePageComponent', () => {
   let component: DashboardHomePageComponent;
@@ -13,7 +20,7 @@ describe('DashboardHomePageComponent', () => {
       providers: [
         {
           provide: PilotService,
-          useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) },
+          useValue: { getPilot: () => of(fixturePilot) },
         },
       ],
     }).compileComponents();
