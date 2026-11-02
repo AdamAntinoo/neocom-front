@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApplicationInfoV1 } from 'neocom-domain';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
+import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
 
@@ -11,7 +11,7 @@ import { registerRender } from '../render-registry';
 })
 export class V1ApplicationInfoRenderComponent implements OnInit {
   @Input() container: IViewer | null = null;
-  @Input() node!: ApplicationInfoV1;
+  @Input() node!: ApplicationInfoV1Node;
   @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
 
   private static registered = false;
@@ -28,7 +28,7 @@ export class V1ApplicationInfoRenderComponent implements OnInit {
     V1ApplicationInfoRenderComponent.ensureRegistered();
   }
 
-  getNode(): ApplicationInfoV1 {
+  getNode(): ApplicationInfoV1Node {
     return this.node;
   }
 

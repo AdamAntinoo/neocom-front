@@ -9,7 +9,8 @@ describe('render registry', () => {
     V1BlueprintRenderComponent.ensureRegistered();
   });
 
-  it('resolves ProcessedBlueprint without ngIf maps', () => {
+  it('resolves BlueprintV1 and ProcessedBlueprint without ngIf maps', () => {
+    expect(lookupRender('BlueprintV1')).toBe(V1BlueprintRenderComponent);
     expect(lookupRender('ProcessedBlueprint')).toBe(V1BlueprintRenderComponent);
     expect(lookupRender('ProcessedBlueprintSummary')).toBe(V1BlueprintRenderComponent);
   });

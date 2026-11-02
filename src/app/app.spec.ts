@@ -2,10 +2,17 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
 import { of } from 'rxjs';
+import { PublicPilotV1Node } from './modules/innovative-core/domain/nodes/public-pilot-v1.node';
 import { PilotService } from './modules/services/pilot.service';
 import { App } from './app';
 import { routes } from './app.routes';
 import { NEOCOM_ACCESS, deleteCookie, writeCookie } from './security/cookie.util';
+
+const fixturePilot = new PublicPilotV1Node({
+  jsonClass: 'PublicPilotV1',
+  pilotId: 93813310,
+  name: 'Perico Tuerto',
+});
 
 describe('App', () => {
   beforeEach(async () => {
@@ -13,7 +20,7 @@ describe('App', () => {
       imports: [App],
       providers: [
         provideRouter(routes),
-        { provide: PilotService, useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) } },
+        { provide: PilotService, useValue: { getPilot: () => of(fixturePilot) } },
       ],
     }).compileComponents();
   });
@@ -36,7 +43,7 @@ describe('Application start route', () => {
     TestBed.configureTestingModule({
       providers: [
         provideRouter(routes),
-        { provide: PilotService, useValue: { getPilot: () => of({ pilotId: 93813310, name: 'Perico Tuerto' }) } },
+        { provide: PilotService, useValue: { getPilot: () => of(fixturePilot) } },
       ],
     });
   });

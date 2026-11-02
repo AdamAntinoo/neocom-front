@@ -1,7 +1,8 @@
 import { Component, Input, OnChanges, OnDestroy, OnInit, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ApplicationInfoV1, ServerStatusV1 } from 'neocom-domain';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
+import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
+import { ServerStatusV1Node } from '../../innovative-core/domain/nodes/server-status-v1.node';
 import { StandaloneNodePanelComponent } from '../../shared/standalone-node-panel/standalone-node-panel.component';
 import '../../renders/v1-application-info-render/v1-application-info-render.component';
 import '../../renders/v1-server-status-render/v1-server-status-render.component';
@@ -12,7 +13,7 @@ import { ServerStatusProvider } from '../providers/server-status.provider';
 export type PageHeaderVariant = NeoComVariant.APP | NeoComVariant.AUTH;
 
 /**
- * Header controller: obtains ApplicationInfoV1 / ServerStatusV1 via providers
+ * Header controller: obtains NeoCom nodes (wrapping domain Records) via providers
  * and injects them into versioned renders (UI-HDR-007…009, UI-VER-*).
  */
 @Component({
@@ -25,14 +26,14 @@ export class PageHeaderComponent implements OnInit, OnChanges, OnDestroy {
   /** Exposed for templates — use {@link NeoComVariant} constants only. */
   protected readonly Variant = NeoComVariant;
 
-  /** `-AUTH-` — ApplicationInfoV1 only. `-APP-` — ApplicationInfoV1 + ServerStatusV1 (+ menu later). */
+  /** `-AUTH-` — ApplicationInfo only. `-APP-` — ApplicationInfo + ServerStatus (+ menu later). */
   @Input() variant: PageHeaderVariant = NeoComVariant.APP;
 
   private readonly applicationInfoProvider = inject(ApplicationInfoProvider);
   private readonly serverStatusProvider = inject(ServerStatusProvider);
 
-  protected applicationInfo: ApplicationInfoV1 | null = null;
-  protected serverStatus: ServerStatusV1 | null = null;
+  protected applicationInfo: ApplicationInfoV1Node | null = null;
+  protected serverStatus: ServerStatusV1Node | null = null;
 
   private serverSub?: Subscription;
 

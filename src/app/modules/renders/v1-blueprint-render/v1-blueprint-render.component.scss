@@ -2,6 +2,43 @@
   display: block;
 }
 
+.blueprint-identity {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .row {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .type-lg {
+    width: 64px;
+    height: 64px;
+  }
+
+  .type-sm {
+    width: 32px;
+    height: 32px;
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  .meta,
+  .metrics {
+    opacity: 0.85;
+  }
+}
+
 .blueprint-detailed,
 .blueprint-short {
   display: flex;

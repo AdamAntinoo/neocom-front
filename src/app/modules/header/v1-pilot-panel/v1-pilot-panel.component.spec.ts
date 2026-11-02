@@ -1,10 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
+import { PublicPilotV1Node } from '../../innovative-core/domain/nodes/public-pilot-v1.node';
 import { PilotService } from '../../services/pilot.service';
-import type { PilotV1 } from '../../services/pilot-v1';
 import { V1PilotPanelComponent } from './v1-pilot-panel.component';
 
-const pericoTuerto: PilotV1 = {
+const pericoTuerto = new PublicPilotV1Node({
+  jsonClass: 'PublicPilotV1',
   pilotId: 93813310,
   name: 'Perico Tuerto',
   birthday: '2013-09-09T19:40:09Z',
@@ -14,7 +15,7 @@ const pericoTuerto: PilotV1 = {
   raceData: { name: 'Caldari' },
   bloodlineData: { name: 'Deteis' },
   ancestryData: { name: 'Merchandisers' },
-};
+});
 
 describe('V1PilotPanelComponent', () => {
   let fixture: ComponentFixture<V1PilotPanelComponent>;
@@ -42,7 +43,7 @@ describe('V1PilotPanelComponent', () => {
     expect(fixture.nativeElement.querySelector('[cy-section-name="pilot"]')).toBeTruthy();
   });
 
-  it('should show the PilotV1Dto returned by the backend', () => {
+  it('should show the pilot NeoCom node from the backend wire', () => {
     const text = (name: string) =>
       fixture.nativeElement.querySelector(`[cy-field-value="${name}"]`).textContent;
     expect(text('pilot-name')).toBe('Perico Tuerto');
