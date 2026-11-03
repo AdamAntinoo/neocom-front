@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh ng serve",
     "start:dev": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh ng serve --configuration development",
+    "wiremock": "bash scripts/start-wiremock.sh",
     "start:node": "bash scripts/with-neocom-node.sh node server.js",
     "start:server": "bash scripts/with-neocom-node.sh node server.js",
     "start:prod": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh bash -c 'ng build && node server.js'",
