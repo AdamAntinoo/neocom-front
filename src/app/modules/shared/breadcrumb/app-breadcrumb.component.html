@@ -1,0 +1,13 @@
+<nav cy-section-name="breadcrumb" class="section row breadcrumb" aria-label="Breadcrumb">
+  @for (crumb of crumbs(); track crumb.label; let last = $last) {
+    @if (!last && crumb.route) {
+      <a class="crumb link" [routerLink]="crumb.route">{{ crumb.label }}</a>
+      <span class="sep" aria-hidden="true">›</span>
+    } @else if (!last) {
+      <span class="crumb">{{ crumb.label }}</span>
+      <span class="sep" aria-hidden="true">›</span>
+    } @else {
+      <span class="crumb current" aria-current="page">{{ crumb.label }}</span>
+    }
+  }
+</nav>

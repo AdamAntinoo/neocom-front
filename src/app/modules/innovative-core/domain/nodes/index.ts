@@ -2,6 +2,8 @@ export { ApplicationInfoV1Node } from './application-info-v1.node';
 export { BlueprintV1Node } from './blueprint-v1.node';
 export { PilotV2Node } from './pilot-v2.node';
 export { PublicCorporationV1Node } from './public-corporation-v1.node';
+export { FeatureV1Node } from './feature-v1.node';
+export type { FeatureV1Wire } from './feature-v1.node';
 export { PublicPilotV1Node } from './public-pilot-v1.node';
 export { ServerStatusV1Node } from './server-status-v1.node';
 

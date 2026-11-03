@@ -78,6 +78,16 @@ export class PublicPilotV1Node extends NeoCom {
     return this.wire.description ?? '';
   }
 
+  /** Corporation id from the selected Pilot link (UI-CORP-003). */
+  getCorporationId(): number {
+    const fromRecord = this.record.getCorporationId();
+    if (fromRecord > 0) {
+      return fromRecord;
+    }
+    const id = this.wire.corporation?.corporationId;
+    return id != null && Number.isFinite(id) && id > 0 ? id : 0;
+  }
+
   getCorporationName(): string {
     return this.wire.corporation?.name ?? '';
   }

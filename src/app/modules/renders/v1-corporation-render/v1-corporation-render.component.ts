@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import { PublicCorporationV1Node } from '../../innovative-core/domain/nodes/public-corporation-v1.node';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
+import { corporationLogoUrl } from '../../shared/eve-image-server';
 import { registerRender } from '../render-registry';
 
 /**
@@ -37,7 +38,7 @@ export class V1CorporationRenderComponent implements OnInit {
   }
 
   getCorporationIcon(): string {
-    return this.node?.getCorporationIcon() ?? 'https://images.evetech.net/corporations/1/logo?size=64';
+    return this.node?.getCorporationIcon() ?? corporationLogoUrl(null, 64);
   }
 
   getName(): string {

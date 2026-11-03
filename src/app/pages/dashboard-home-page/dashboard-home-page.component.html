@@ -1,20 +1,22 @@
 <app-page-header />
 @if (exception) {
-    <div cy-section-name="exception" class="section row">
-        <div>
-            <div class="field">
-                <span cy-field-label="exceptionTitle" class="label">EXCEPTION</span><br>
-            </div>
-            <div class="field">
-                <span cy-field-label="exceptionTitle" class="label">TITLE</span><br>
-                <span cy-field-value="exceptionTitle" class="exception-title">{{ exception.title }}</span>
-            </div>
-            <div class="field">
-                <span cy-field-label="exceptionMessage" class="label">MESSAGE</span><br>
-                <span cy-field-value="exceptionMessage" class="exception-message">{{ exception.message }}</span>
-            </div>
-        </div>
+  <div cy-section-name="exception" class="section row">
+    <div>
+      <div class="field">
+        <span cy-field-label="exceptionTitle" class="label">EXCEPTION</span><br />
+      </div>
+      <div class="field">
+        <span cy-field-label="exceptionTitle" class="label">TITLE</span><br />
+        <span cy-field-value="exceptionTitle" class="exception-title">{{ exception.title }}</span>
+      </div>
+      <div class="field">
+        <span cy-field-label="exceptionMessage" class="label">MESSAGE</span><br />
+        <span cy-field-value="exceptionMessage" class="exception-message">{{
+          exception.message
+        }}</span>
+      </div>
     </div>
+  </div>
 } @else {
     <div cy-section-name="pilot-dashboard" class="column section">
         <!-- <div class="row"> -->

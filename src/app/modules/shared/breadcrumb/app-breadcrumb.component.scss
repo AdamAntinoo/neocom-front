@@ -1,0 +1,25 @@
+.breadcrumb {
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+.crumb.link {
+  color: #ffa500;
+  text-decoration: none;
+}
+
+.crumb.link:hover {
+  text-decoration: underline;
+}
+
+.crumb.current {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.sep {
+  opacity: 0.5;
+}
