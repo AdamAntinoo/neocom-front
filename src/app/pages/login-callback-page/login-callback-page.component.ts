@@ -7,6 +7,7 @@ import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVarian
 import { LoginValidationExceptionComponent } from '../../panels/login-validation-exception/login-validation-exception.component';
 import { LoginValidationProgressComponent } from '../../panels/login-validation-progress/login-validation-progress.component';
 import { NEOCOM_SSO_STATE, readCookie } from '../../security/cookie.util';
+import { rememberStoredCharacter } from '../../security/stored-characters';
 import { SessionService } from '../../security/session.service';
 
 /**
@@ -61,10 +62,17 @@ export class LoginCallbackPageComponent implements OnInit {
       if (validationError == null && code != null && !this.exchangeStarted) {
         this.exchangeStarted = true;
         const state = params.get('state')!;
-        const returnUrl = this.session.getReturnUrl() ?? '/dashboard';
         this.auth.exchangeCode(code, state).subscribe({
           next: () => {
-            void this.router.navigateByUrl(returnUrl);
+            const access = this.session.getAccess();
+            if (access) {
+              rememberStoredCharacter({
+                characterId: access.characterId,
+                characterName: access.characterName,
+              });
+            }
+            // UI-CHAR-002 — character selection precedes Dashboard after SSO.
+            void this.router.navigateByUrl('/character-selection');
           },
           error: (err: unknown) => {
             this.exception.set(this.mapExchangeError(err));

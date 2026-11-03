@@ -39,8 +39,7 @@ export class LoginPageComponent extends BackgroundOauthEnabledComponent implemen
       return;
     }
     if (this.session.hasAccess()) {
-      const returnUrl = this.session.getReturnUrl() ?? '/dashboard';
-      void this.router.navigateByUrl(returnUrl);
+      void this.router.navigateByUrl('/character-selection');
       return;
     }
     this.loginHref = this.getLoginLink();

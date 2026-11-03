@@ -7,3 +7,10 @@
   color: var(--neo-color-page-foreground, #{$page-foreground});
   font-family: 'Open Sans', sans-serif;
 }
+
+.pilot-corporation-row {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.75rem;
+}

@@ -1,0 +1,19 @@
+.feature-list {
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem;
+}
+
+.feature-slot {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.feature-slot:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

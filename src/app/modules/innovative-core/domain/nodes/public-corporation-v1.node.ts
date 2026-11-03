@@ -1,3 +1,4 @@
+import { corporationLogoUrl } from '../../../shared/eve-image-server';
 import { NeoCom } from '../NeoCom';
 
 /** Enriched public corporation wire for HEADER render (EPIC-006 UI-CORP). */
@@ -81,7 +82,6 @@ export class PublicCorporationV1Node extends NeoCom {
   }
 
   getCorporationIcon(): string {
-    const id = this.getCorporationId() > 0 ? this.getCorporationId() : 1;
-    return `https://images.evetech.net/corporations/${id}/logo?size=64`;
+    return corporationLogoUrl(this.getCorporationId() > 0 ? this.getCorporationId() : null, 64);
   }
 }

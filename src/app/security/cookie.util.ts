@@ -5,6 +5,8 @@ export const COOKIE_MAX_AGE_20_MIN = 1200;
 export const NEOCOM_ACCESS = 'neocom_access';
 export const NEOCOM_RETURN = 'neocom_return';
 export const NEOCOM_SSO_STATE = 'neocom_sso_state';
+/** Pilot id for data operations (DASH-003); not a route parameter. */
+export const NEOCOM_PILOT_ID = 'neocom-pilot-id';
 
 export function readCookie(name: string): string | null {
   if (typeof document === 'undefined') {
