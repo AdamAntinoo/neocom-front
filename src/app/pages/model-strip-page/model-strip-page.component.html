@@ -1,6 +1,9 @@
 <section class="section strip">
   <div class="strip-item">
-    <article data-specimen="font-reference" class="specimen font-reference column">
+    <article data-specimen="font-reference" class="specimen font-reference column" [class.validated]="isValidated('font-reference')">
+      @if (isValidated('font-reference')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <span class="elemental-ff font-sample">Elemental — Aa Bb Cc 0123456789</span>
       <span class="opensans-ff font-sample">Open Sans — Aa Bb Cc 0123456789</span>
     </article>
@@ -13,7 +16,10 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-corporation-render" class="specimen corporation">
+    <article data-specimen="v1-corporation-render" class="specimen corporation" [class.validated]="isValidated('v1-corporation-render')">
+      @if (isValidated('v1-corporation-render')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-corporation-render
         [node]="corporationSpecimen"
         [variant]="corporationHeaderVariant"
@@ -28,7 +34,10 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-system" class="specimen system">
+    <article data-specimen="v1-system" class="specimen system" [class.validated]="isValidated('v1-system')">
+      @if (isValidated('v1-system')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-system-render
         [node]="systemSpecimen"
         [variant]="regionLookupVariant"
@@ -43,7 +52,10 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-region" class="specimen region">
+    <article data-specimen="v1-region" class="specimen region" [class.validated]="isValidated('v1-region')">
+      @if (isValidated('v1-region')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-region-render
         [node]="regionSpecimen"
         [variant]="regionLookupVariant"
@@ -65,10 +77,16 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="legacy-v1-feature-button" class="specimen feature-button">
-      <legacy-v1-feature-button [feature]="featureButton"></legacy-v1-feature-button>
+    <article data-specimen="v1-feature-button" class="specimen feature-button" [class.validated]="isValidated('v1-feature-button')">
+      @if (isValidated('v1-feature-button')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
+      <v1-feature-button [feature]="featureButton"></v1-feature-button>
     </article>
-    <span class="render-ref">legacy-v1-feature-button</span>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-feature-button</span>
+      <span class="style-ref">selected Feature button B · PAGEROUTE</span>
+    </div>
   </div>
 
   <div class="strip-item">
@@ -111,7 +129,10 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-blueprint" class="specimen blueprint">
+    <article data-specimen="v1-blueprint" class="specimen blueprint" [class.validated]="isValidated('v1-blueprint')">
+      @if (isValidated('v1-blueprint')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-blueprint-render [node]="blueprintV1"></v1-blueprint-render>
     </article>
     <div class="strip-meta column">
@@ -211,14 +232,28 @@
   </div>
 
   <div class="strip-item">
-    <div data-specimen="v1-application-info-render" class="specimen app">
+    <div
+      data-specimen="v1-application-info-render"
+      class="specimen app"
+      [class.validated]="isValidated('v1-application-info-render')"
+    >
+      @if (isValidated('v1-application-info-render')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-application-info-render [node]="appInfo"></v1-application-info-render>
     </div>
     <span class="render-ref">v1-application-info-render</span>
   </div>
 
   <div class="strip-item">
-    <div data-specimen="v1-server-status-render" class="specimen server">
+    <div
+      data-specimen="v1-server-status-render"
+      class="specimen server"
+      [class.validated]="isValidated('v1-server-status-render')"
+    >
+      @if (isValidated('v1-server-status-render')) {
+        <span class="validated-mark" aria-label="validated">✓</span>
+      }
       <v1-server-status-render [node]="serverStatus"></v1-server-status-render>
     </div>
     <div class="strip-meta column">

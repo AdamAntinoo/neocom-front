@@ -4,7 +4,7 @@ import { ProcessedBlueprint } from '../../../domain/processed-blueprint';
 import { ViewerPanelComponent } from '../../../../shared/viewer-panel/viewer-panel.component';
 import { NeoComVariant } from '../../../../innovative-core/domain/NeoComVariant';
 import { NodeListAdapterService } from '../../../../services/node-list-adapter.service';
-import type { Subscription } from 'rxjs';
+import { catchError, of, timeout, type Subscription } from 'rxjs';
 
 /**
  * Manufacture available-blueprints panel: adapter cache → HTTP → SSE merge (FASSE-001…006).
@@ -33,18 +33,20 @@ export class AvailableBlueprintsPanelComponent extends AppPanelComponent impleme
     }
 
     this.storeSubscription(
-      this.adapter.loadList(id).subscribe({
-        next: (nodes) => this.completeDowload(nodes),
-        error: () => {
-          if (!cached) {
-            this.completeDowload([]);
-          }
-        },
-      }),
+      this.adapter
+        .loadList(id)
+        .pipe(
+          timeout(15_000),
+          catchError(() => of(cached ?? [])),
+        )
+        .subscribe((nodes) => this.completeDowload(nodes)),
     );
 
     this.sseSub = this.adapter.openEnrichment(id).subscribe({
       next: ({ node }) => this.mergeEnrichedRow(node.blueprintId, node),
+      error: () => {
+        /* SSE optional */
+      },
     });
   }
 

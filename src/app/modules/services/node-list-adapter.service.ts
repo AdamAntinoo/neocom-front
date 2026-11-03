@@ -13,6 +13,20 @@ export type BlueprintDto = {
   manufactureIndex: number | null;
   marketCost?: number | null;
   manufactureCost?: number | null;
+  /** Optional location chain when back enriches the feed (IND-BP-117). */
+  location?: {
+    regionId?: number;
+    regionName?: string;
+    solarSystemId?: number;
+    solarSystemName?: string;
+  };
+  materialEfficiency?: number;
+  timeEfficiency?: number;
+  runs?: number;
+  maxRuns?: number;
+  blueprintTypeId?: number;
+  blueprintTypeName?: string;
+  blueprintTypeIconURL?: string;
 };
 
 /**
@@ -70,7 +84,8 @@ export class NodeListAdapterService {
     if (cached) {
       return of(cached);
     }
-    const url = `${environment.apiBaseUrl}/v1/pilots/${pilotId}/industry/blueprints`;
+    // Nest: GET /v1/pilots/:pilotId/manufacture/blueprints (BASSE / FASSE list)
+    const url = `${environment.apiBaseUrl}/v1/pilots/${pilotId}/manufacture/blueprints`;
     return new Observable<ProcessedBlueprint[]>((sub) => {
       const httpSub = this.http.get<BlueprintDto[]>(url).subscribe({
         next: (dtos) => {
@@ -87,7 +102,8 @@ export class NodeListAdapterService {
 
   openEnrichment(pilotId: number): Observable<{ nodeId: string; node: BlueprintDto }> {
     const base = environment.sseBasePath || `${environment.apiBaseUrl}/v1`;
-    const url = `${base}/pilots/${pilotId}/industry/blueprints/events`;
+    // Nest: GET /v1/pilots/:pilotId/manufacture/blueprints/events
+    const url = `${base}/pilots/${pilotId}/manufacture/blueprints/events`;
     return new Observable((subscriber) => {
       const sub = this.sse.open(url).subscribe({
         next: (evt) => {
@@ -130,6 +146,7 @@ function dtoToNode(dto: BlueprintDto): ProcessedBlueprint {
     name: dto.name,
     ready: dto.ready,
     manufactureIndex: dto.manufactureIndex,
+    location: dto.location,
   });
 }
 
@@ -140,6 +157,7 @@ function nodeToDto(node: ProcessedBlueprint): BlueprintDto {
     name: node.getName(),
     ready: node.isReady(),
     manufactureIndex: node.getManufactureIndex(),
+    location: node.getLocation(),
   };
 }
 
@@ -149,5 +167,6 @@ function cloneBlueprint(node: ProcessedBlueprint): ProcessedBlueprint {
     name: node.getName(),
     ready: node.isReady(),
     manufactureIndex: node.getManufactureIndex(),
+    location: node.getLocation(),
   });
 }

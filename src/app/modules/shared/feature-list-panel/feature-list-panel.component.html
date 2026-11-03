@@ -6,7 +6,7 @@
       [disabled]="!feature.isEnabled()"
       (click)="onSelect(feature.getRoute())"
     >
-      <legacy-v1-feature-button
+      <v1-feature-button
         [feature]="{
           label: feature.getLabel(),
           route: feature.getRoute(),

@@ -7,7 +7,7 @@ import { RegionLookupNode } from '../../modules/innovative-core/domain/nodes/reg
 import { ServerStatusV1Node } from '../../modules/innovative-core/domain/nodes/server-status-v1.node';
 import { SystemLookupNode } from '../../modules/innovative-core/domain/nodes/system-lookup.node';
 import { ProcessedBlueprintSummary } from '../../modules/industry/domain/processed-blueprint';
-import { LegacyV1FeatureButtonComponent } from '../../modules/renders/legacy-v1-feature-button/legacy-v1-feature-button.component';
+import { V1FeatureButtonComponent } from '../../modules/renders/legacy-v1-feature-button/legacy-v1-feature-button.component';
 import {
   FeatureSpecimen,
   LegacyV2FeatureRenderComponent,
@@ -20,15 +20,14 @@ import { V1ServerStatusRenderComponent } from '../../modules/renders/v1-server-s
 import { V1SystemRenderComponent } from '../../modules/renders/v1-system-render/v1-system-render.component';
 
 /**
- * Visual catalog for EPIC-004 model appearances.
- * Route `/model-strip` renders each model with the application panel styles
- * so those frames can be captured into the epic.
- * EPIC-010 Feature / Region candidates sit at the top for implementation selection.
+ * Visual catalog for EPIC-004 / EPIC-010 model appearances.
+ * Route `/model-strip` — no auth. New specimens go at the top (IND-BP-004).
+ * Validated ids: `docs/model-strip-validated.md` (IND-BP-002 / IND-BP-003).
  */
 @Component({
   selector: 'model-strip-page',
   imports: [
-    LegacyV1FeatureButtonComponent,
+    V1FeatureButtonComponent,
     LegacyV2FeatureRenderComponent,
     V1ApplicationInfoRenderComponent,
     V1BlueprintRenderComponent,
@@ -45,6 +44,22 @@ export class ModelStripPageComponent {
   protected readonly detailed = NeoComVariant.AVAILABLE_BLUEPRINTS;
   protected readonly regionLookupVariant = NeoComVariant.SOLAR_SYSTEM_LOOKUP;
   protected readonly corporationHeaderVariant = NeoComVariant.HEADER;
+
+  /** Specimens listed as validated in `docs/model-strip-validated.md`. */
+  protected readonly validated = new Set([
+    'font-reference',
+    'v1-system',
+    'v1-region',
+    'v1-blueprint',
+    'v1-corporation-render',
+    'v1-feature-button',
+    'v1-application-info-render',
+    'v1-server-status-render',
+  ]);
+
+  protected isValidated(id: string): boolean {
+    return this.validated.has(id);
+  }
 
   /**
    * EPIC-006 — Corporation HEADER card (`v1-corporation-render`).
@@ -75,23 +90,23 @@ export class ModelStripPageComponent {
     systemsCount: 3,
   });
 
-  /** EPIC-010 candidate A — infinity `v2-feature-render`. */
+  /** Candidate A (discarded) — kept on strip for comparison only (IND-BP-011 / 012). */
   protected readonly featureStrip: FeatureSpecimen = {
     label: 'Industry',
     enabled: true,
     active: false,
     interaction: 'PAGEROUTE',
-    route: '/industry/manufacture/blueprints',
+    route: '/industry/blueprints-by-location',
     imageRef: '/media/blueprints-feature.jpeg',
   };
 
-  /** EPIC-010 candidate B — infinity `v1-feature-button`. */
+  /** Selected Feature UI — `v1-feature-button` (IND-BP-012). */
   protected readonly featureButton: FeatureSpecimen = {
-    label: 'Blueprint Management',
+    label: 'Blueprint Availability',
     enabled: true,
     active: false,
     interaction: 'PAGEROUTE',
-    route: '/industry/manufacture/blueprints',
+    route: '/industry/blueprints-by-location',
     imageRef: '/media/blueprints-feature.jpeg',
   };
 

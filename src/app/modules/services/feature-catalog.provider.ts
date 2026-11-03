@@ -3,15 +3,15 @@ import { FeatureV1Node } from '../innovative-core/domain/nodes/feature-v1.node';
 
 /**
  * Supplies FeatureV1 nodes for dashboard / feature-dashboard listing panels (UI-DASH-004, 009, 014).
- * Parent context scopes the returned list (root vs Industry subfeatures).
+ * Industry children are created procedurally (IND-BP-020 / IND-BP-021).
  */
 @Injectable({ providedIn: 'root' })
 export class FeatureCatalogProvider {
   private readonly industryChildren: FeatureV1Node[] = [
     FeatureV1Node.from({
       featureId: 'blueprint-by-location',
-      label: 'Blueprints by location',
-      route: '/industry/manufacture/blueprints',
+      label: 'Blueprint Availability',
+      route: '/industry/blueprints-by-location',
       imageRef: '/media/blueprints-feature.jpeg',
     }),
     FeatureV1Node.from({
