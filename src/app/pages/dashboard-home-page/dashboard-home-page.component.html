@@ -18,9 +18,10 @@
     </div>
   </div>
 } @else {
-    <div cy-section-name="pilot-dashboard" class="column section">
-        <!-- <div class="row"> -->
-            <v1-pilot-panel class="panel" [identifier]="getPilotId()"> this is the content of the pilot-dashboard section</v1-pilot-panel>
-        <!-- </div> -->
-    </div>
+  <div cy-section-name="pilot-dashboard" class="row section pilot-corporation-row">
+    <v1-pilot-panel class="panel" [identifier]="getPilotId()" />
+    <v1-corporation-panel [corporationId]="corporationId()" />
+  </div>
+  <app-breadcrumb [crumbs]="crumbs" />
+  <feature-list-panel parentId="root" />
 }
