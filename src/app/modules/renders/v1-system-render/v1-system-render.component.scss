@@ -1,0 +1,42 @@
+.system-card {
+  width: max-content;
+  min-width: 160px;
+}
+
+.insets {
+  padding: 8px;
+  gap: 8px;
+  align-items: center;
+}
+
+.identity {
+  gap: 0;
+  min-width: 0;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.name-line {
+  gap: 12px;
+  align-items: baseline;
+  width: auto;
+}
+
+.system-name,
+.blueprints-count {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--neo-color-panel-white, #fff);
+}
+
+.system-name {
+  text-transform: uppercase;
+}
+
+.blueprints-count {
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}

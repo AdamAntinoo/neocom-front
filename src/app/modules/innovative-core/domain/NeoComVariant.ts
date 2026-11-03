@@ -18,6 +18,8 @@ export enum NeoComVariant {
   PILOT = '-PILOT-VARIANT-',
   /** Pilot listing row; partial fields (PANEL-008). */
   PILOT_LIST = '-PILOT-LIST-VARIANT-',
+  /** Region / solar-system lookup cards (`v1-region`, …). */
+  SOLAR_SYSTEM_LOOKUP = '-SOLAR-SYSTEM-LOOKUP-',
 }
 
 /** All registered variant values (for validation / catalogs). */

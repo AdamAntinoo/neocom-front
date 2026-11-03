@@ -2,6 +2,8 @@
 
 Source: OpenSpec `front-angular-structure` (STRUCT-001 … STRUCT-007).
 
+Page URL / folder map and Mermaid flow: [page-hierarchy.md](./page-hierarchy.md).
+
 ## Definitions
 
 | Term | Meaning |
@@ -29,6 +31,8 @@ Root router loads a section with `loadChildren`. The section registers routes wi
 | `login` | `login-page` | — |
 | `login-callback` | `login-callback-page` | — |
 | `dashboard` | `dashboard-home-page` | `authGuard` |
+| `model-strip` | `model-strip-page` | — (dev support) |
+| `color-table` | `color-table-page` | — (dev support) |
 | `` (empty) | redirect → `dashboard` | — |
 
 ## Sections in scope

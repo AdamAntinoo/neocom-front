@@ -7,7 +7,8 @@ import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.in
 import { registerRender } from '../render-registry';
 
 /**
- * Base identity card `v1-blueprint` for BlueprintV1Node (DOM-BP-003).
+ * Base identity card `v1-blueprint` for BlueprintV1Node (EPIC-010 §08 / DOM-BP-003).
+ * Layout: icon lg · BLUEPRINT NAME + Open Sans bold · ME/TE Elemental · runs/maxRuns if copy.
  * Also paints ProcessedBlueprint* list variants (still to review on L1).
  */
 @Component({
@@ -86,12 +87,29 @@ export class V1BlueprintRenderComponent implements OnInit {
     return this.getBlueprintV1()?.getRuns() ?? 0;
   }
 
+  getMaxRuns(): number {
+    return this.getBlueprintV1()?.getMaxRuns() ?? 0;
+  }
+
   getMaterialEfficiency(): number {
     return this.getBlueprintV1()?.getMaterialEfficiency() ?? 0;
   }
 
   getTimeEfficiency(): number {
     return this.getBlueprintV1()?.getTimeEfficiency() ?? 0;
+  }
+
+  /** Master / original (BPO): ESI unlimited runs (`runs < 0`). Copies show runs/maxRuns. */
+  isMaster(): boolean {
+    return this.getRuns() < 0;
+  }
+
+  getEfficiencyLabel(): string {
+    return `${this.getMaterialEfficiency()}/${this.getTimeEfficiency()}`;
+  }
+
+  getRunsLabel(): string {
+    return `${this.getRuns()}/${this.getMaxRuns()}`;
   }
 
   getManufactureIndexLabel(): string {

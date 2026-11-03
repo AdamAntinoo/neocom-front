@@ -1,0 +1,20 @@
+.feature-box:hover {
+  border-color: blue;
+}
+
+.neocom-icon {
+  width: 200px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+}
+
+.feature-label {
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 4px;
+}

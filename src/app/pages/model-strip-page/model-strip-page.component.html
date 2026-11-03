@@ -1,98 +1,147 @@
 <section class="section strip">
-  <article data-specimen="v1-public-pilot" class="neocom-panel panel-white specimen">
-    <div class="row pad">
-      <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
-      <div class="column">
-        <div class="row name-line">
-          <span class="elemental-ff name">Perico Tuerto</span>
-          <span class="elemental-ff name">[93813310]</span>
-        </div>
-        <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
-        <div class="opensans-ff meta">MALE</div>
-      </div>
+  <div class="strip-item">
+    <article data-specimen="font-reference" class="specimen font-reference column">
+      <span class="elemental-ff font-sample">Elemental — Aa Bb Cc 0123456789</span>
+      <span class="opensans-ff font-sample">Open Sans — Aa Bb Cc 0123456789</span>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">font reference</span>
+      <span class="style-ref"
+        >primary faces: Elemental + Open Sans · 14px sizing baseline</span
+      >
     </div>
-  </article>
+  </div>
 
-  <article data-specimen="v2-pilot" class="neocom-panel panel-white specimen">
-    <div class="row pad">
-      <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
-      <div class="column">
-        <div class="row name-line">
-          <span class="elemental-ff name">Perico Tuerto</span>
-          <span class="elemental-ff name">[#93813310]</span>
-        </div>
-        <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
-        <div class="row">
-          <span class="opensans-ff meta">MALE</span>
-          <span class="opensans-ff meta right">8,404,419</span>
-        </div>
-        <div class="opensans-ff isk right">2.77B ISK</div>
-        <div class="opensans-ff meta right">Zach Zender's Velator</div>
-      </div>
+  <div class="strip-item">
+    <article data-specimen="v1-corporation-render" class="specimen corporation">
+      <v1-corporation-render
+        [node]="corporationSpecimen"
+        [variant]="corporationHeaderVariant"
+      ></v1-corporation-render>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-corporation-render</span>
+      <span class="style-ref"
+        >pilot-like HEADER · logo 64 · name [ticker] · members · tax% · alliance · home path · panel-orange</span
+      >
     </div>
-  </article>
+  </div>
 
-  <article data-specimen="v1-blueprint" class="neocom-panel panel-blue specimen blueprint">
-    <div class="pad">
+  <div class="strip-item">
+    <article data-specimen="v1-system" class="specimen system">
+      <v1-system-render
+        [node]="systemSpecimen"
+        [variant]="regionLookupVariant"
+      ></v1-system-render>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-system-render</span>
+      <span class="style-ref"
+        >icon md 24px · label Open Sans 9px orange · name+count Elemental 14px · panel-orange</span
+      >
+    </div>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="v1-region" class="specimen region">
+      <v1-region-render
+        [node]="regionSpecimen"
+        [variant]="regionLookupVariant"
+      ></v1-region-render>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-region-render</span>
+      <span class="style-ref"
+        >icon md 24px · label Open Sans 9px orange · name+count Elemental 14px · panel-yellow</span
+      >
+    </div>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="legacy-v2-feature-render" class="specimen feature-strip">
+      <legacy-v2-feature-render [node]="featureStrip"></legacy-v2-feature-render>
+    </article>
+    <span class="render-ref">legacy-v2-feature-render</span>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="legacy-v1-feature-button" class="specimen feature-button">
+      <legacy-v1-feature-button [feature]="featureButton"></legacy-v1-feature-button>
+    </article>
+    <span class="render-ref">legacy-v1-feature-button</span>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="v1-public-pilot" class="neocom-panel panel-white specimen">
+      <div class="row pad">
+        <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
+        <div class="column">
+          <div class="row name-line">
+            <span class="elemental-ff name">Perico Tuerto</span>
+            <span class="elemental-ff name">[93813310]</span>
+          </div>
+          <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
+          <div class="opensans-ff meta">MALE</div>
+        </div>
+      </div>
+    </article>
+    <span class="render-ref">v1-public-pilot</span>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="v2-pilot" class="neocom-panel panel-white specimen">
+      <div class="row pad">
+        <img class="portrait" alt="" [src]="portrait" (error)="useDefaultPortrait()" />
+        <div class="column">
+          <div class="row name-line">
+            <span class="elemental-ff name">Perico Tuerto</span>
+            <span class="elemental-ff name">[#93813310]</span>
+          </div>
+          <div class="opensans-ff meta">Amarr - Border Runners - Ni-Kunni</div>
+          <div class="row">
+            <span class="opensans-ff meta">MALE</span>
+            <span class="opensans-ff meta right">8,404,419</span>
+          </div>
+          <div class="opensans-ff isk right">2.77B ISK</div>
+          <div class="opensans-ff meta right">Zach Zender's Velator</div>
+        </div>
+      </div>
+    </article>
+    <span class="render-ref">v2-pilot</span>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="v1-blueprint" class="specimen blueprint">
       <v1-blueprint-render [node]="blueprintV1"></v1-blueprint-render>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-blueprint-render</span>
+      <span class="style-ref"
+        >icon lg 32px · label Open Sans 9px orange · name Open Sans bold · ME/TE + runs Elemental</span
+      >
     </div>
-  </article>
+  </div>
 
-  <article data-specimen="v1-blueprint-short" class="neocom-panel panel-blue specimen">
-    <div class="pad">
-      <v1-blueprint-render [node]="blueprint"></v1-blueprint-render>
-    </div>
-  </article>
+  <div class="strip-item">
+    <article data-specimen="v1-blueprint-short" class="neocom-panel panel-blue specimen">
+      <div class="pad">
+        <v1-blueprint-render [node]="blueprint"></v1-blueprint-render>
+      </div>
+    </article>
+    <span class="render-ref">v1-blueprint-render</span>
+  </div>
 
-  <article data-specimen="v1-blueprint-detailed" class="neocom-panel panel-blue specimen">
-    <div class="pad">
-      <v1-blueprint-render [node]="blueprint" [variant]="detailed"></v1-blueprint-render>
-    </div>
-  </article>
+  <div class="strip-item">
+    <article data-specimen="v1-blueprint-detailed" class="neocom-panel panel-blue specimen">
+      <div class="pad">
+        <v1-blueprint-render [node]="blueprint" [variant]="detailed"></v1-blueprint-render>
+      </div>
+    </article>
+    <span class="render-ref">v1-blueprint-render</span>
+  </div>
 
-  <article data-specimen="v1-bomresource" class="neocom-panel panel-red specimen resource">
-    <div class="row pad align">
-      <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
-      <div class="column">
-        <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
-        <div class="opensans-ff value">Fried Interface Circuit</div>
-      </div>
-      <div class="column qty">
-        <div class="opensans-condensed-ff strip-label">QUANTITY</div>
-        <div class="opensans-ff value right">3</div>
-      </div>
-      <div class="column price">
-        <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
-        <div class="opensans-ff isk right">2296 ISK</div>
-      </div>
-    </div>
-  </article>
-
-  <article data-specimen="v1-bomresource-action" class="neocom-panel panel-red specimen resource">
-    <div class="row pad align">
-      <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
-      <div class="column">
-        <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
-        <div class="opensans-ff value">Fried Interface Circuit</div>
-      </div>
-      <div class="column qty">
-        <div class="opensans-condensed-ff strip-label">QUANTITY</div>
-        <div class="opensans-ff value right">3</div>
-      </div>
-      <div class="column price">
-        <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
-        <div class="opensans-ff isk right">2296 ISK</div>
-      </div>
-      <div class="action">BUY</div>
-    </div>
-  </article>
-
-  <article data-specimen="v1-bomgroup" class="specimen group">
-    <div class="row group-head">
-      <span class="opensans-ff value">Salvaged Materials</span>
-      <span class="opensans-ff isk">10,123.6 ISK</span>
-    </div>
-    <div class="neocom-panel panel-red">
+  <div class="strip-item">
+    <article data-specimen="v1-bomresource" class="neocom-panel panel-red specimen resource">
       <div class="row pad align">
         <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
         <div class="column">
@@ -108,14 +157,75 @@
           <div class="opensans-ff isk right">2296 ISK</div>
         </div>
       </div>
-    </div>
-  </article>
-
-  <div data-specimen="v1-application-info-render" class="specimen app">
-    <v1-application-info-render [node]="appInfo"></v1-application-info-render>
+    </article>
+    <span class="render-ref">v1-bomresource</span>
   </div>
 
-  <div data-specimen="v1-server-status-render" class="specimen server">
-    <v1-server-status-render [node]="serverStatus"></v1-server-status-render>
+  <div class="strip-item">
+    <article data-specimen="v1-bomresource-action" class="neocom-panel panel-red specimen resource">
+      <div class="row pad align">
+        <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
+        <div class="column">
+          <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
+          <div class="opensans-ff value">Fried Interface Circuit</div>
+        </div>
+        <div class="column qty">
+          <div class="opensans-condensed-ff strip-label">QUANTITY</div>
+          <div class="opensans-ff value right">3</div>
+        </div>
+        <div class="column price">
+          <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
+          <div class="opensans-ff isk right">2296 ISK</div>
+        </div>
+        <div class="action">BUY</div>
+      </div>
+    </article>
+    <span class="render-ref">v1-bomresource</span>
+  </div>
+
+  <div class="strip-item">
+    <article data-specimen="v1-bomgroup" class="specimen group">
+      <div class="row group-head">
+        <span class="opensans-ff value">Salvaged Materials</span>
+        <span class="opensans-ff isk">10,123.6 ISK</span>
+      </div>
+      <div class="neocom-panel panel-red">
+        <div class="row pad align">
+          <img class="type-sm" alt="" src="https://images.evetech.net/types/25601/icon?size=32" />
+          <div class="column">
+            <div class="opensans-condensed-ff strip-label">RESOURCE NAME</div>
+            <div class="opensans-ff value">Fried Interface Circuit</div>
+          </div>
+          <div class="column qty">
+            <div class="opensans-condensed-ff strip-label">QUANTITY</div>
+            <div class="opensans-ff value right">3</div>
+          </div>
+          <div class="column price">
+            <div class="opensans-condensed-ff strip-label">RESOURCE PRICE</div>
+            <div class="opensans-ff isk right">2296 ISK</div>
+          </div>
+        </div>
+      </div>
+    </article>
+    <span class="render-ref">v1-bomgroup</span>
+  </div>
+
+  <div class="strip-item">
+    <div data-specimen="v1-application-info-render" class="specimen app">
+      <v1-application-info-render [node]="appInfo"></v1-application-info-render>
+    </div>
+    <span class="render-ref">v1-application-info-render</span>
+  </div>
+
+  <div class="strip-item">
+    <div data-specimen="v1-server-status-render" class="specimen server">
+      <v1-server-status-render [node]="serverStatus"></v1-server-status-render>
+    </div>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-server-status-render</span>
+      <span class="style-ref"
+        >name+status Elemental 14px · CAPSULEERS=SDE+count · NEXT DT · Open Sans · label orange</span
+      >
+    </div>
   </div>
 </section>

@@ -1,0 +1,34 @@
+<div
+  cy-name="feature"
+  class="row feature"
+  [ngClass]="{ active: node.active, disabled: !node.enabled }"
+>
+  <div class="feature-width">
+    <span class="feature-label">{{ node.label }}</span>
+  </div>
+  <div class="corner-aligment">
+    <svg class="corner-border" viewBox="0 0 100 100">
+      <path d="M100,100 L0,100 L100,0 L100,100" fill="white" />
+    </svg>
+    <svg class="corner-clear" viewBox="0 0 100 100">
+      <path d="M100,100 L0,100 L100,0 L100,100" fill="#180A16" />
+    </svg>
+    @if (node.active) {
+      <svg class="corner-mark" viewBox="0 0 100 100">
+        <path d="M100,100 L0,100 L100,0 L100,100" fill="green" />
+      </svg>
+    }
+  </div>
+  @if (isMarkVisible()) {
+    <svg
+      class="corner-top"
+      viewBox="0 0 100 100"
+      [ngClass]="{
+        'blue-mark': node.interaction === 'DIALOG',
+        'blueviolet-mark': node.modifier === 'DROP'
+      }"
+    >
+      <path d="M0,0 L0,100 L100,0 L0,0" />
+    </svg>
+  }
+</div>

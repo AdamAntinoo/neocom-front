@@ -2,23 +2,40 @@ import { Component } from '@angular/core';
 import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
 import { ApplicationInfoV1Node } from '../../modules/innovative-core/domain/nodes/application-info-v1.node';
 import { BlueprintV1Node } from '../../modules/innovative-core/domain/nodes/blueprint-v1.node';
+import { PublicCorporationV1Node } from '../../modules/innovative-core/domain/nodes/public-corporation-v1.node';
+import { RegionLookupNode } from '../../modules/innovative-core/domain/nodes/region-lookup.node';
 import { ServerStatusV1Node } from '../../modules/innovative-core/domain/nodes/server-status-v1.node';
+import { SystemLookupNode } from '../../modules/innovative-core/domain/nodes/system-lookup.node';
 import { ProcessedBlueprintSummary } from '../../modules/industry/domain/processed-blueprint';
+import { LegacyV1FeatureButtonComponent } from '../../modules/renders/legacy-v1-feature-button/legacy-v1-feature-button.component';
+import {
+  FeatureSpecimen,
+  LegacyV2FeatureRenderComponent,
+} from '../../modules/renders/legacy-v2-feature-render/legacy-v2-feature-render.component';
 import { V1ApplicationInfoRenderComponent } from '../../modules/renders/v1-application-info-render/v1-application-info-render.component';
 import { V1BlueprintRenderComponent } from '../../modules/renders/v1-blueprint-render/v1-blueprint-render.component';
+import { V1CorporationRenderComponent } from '../../modules/renders/v1-corporation-render/v1-corporation-render.component';
+import { V1RegionRenderComponent } from '../../modules/renders/v1-region-render/v1-region-render.component';
 import { V1ServerStatusRenderComponent } from '../../modules/renders/v1-server-status-render/v1-server-status-render.component';
+import { V1SystemRenderComponent } from '../../modules/renders/v1-system-render/v1-system-render.component';
 
 /**
  * Visual catalog for EPIC-004 model appearances.
  * Route `/model-strip` renders each model with the application panel styles
  * so those frames can be captured into the epic.
+ * EPIC-010 Feature / Region candidates sit at the top for implementation selection.
  */
 @Component({
   selector: 'model-strip-page',
   imports: [
+    LegacyV1FeatureButtonComponent,
+    LegacyV2FeatureRenderComponent,
     V1ApplicationInfoRenderComponent,
     V1BlueprintRenderComponent,
+    V1CorporationRenderComponent,
+    V1RegionRenderComponent,
     V1ServerStatusRenderComponent,
+    V1SystemRenderComponent,
   ],
   templateUrl: './model-strip-page.component.html',
   styleUrl: './model-strip-page.component.scss',
@@ -26,6 +43,57 @@ import { V1ServerStatusRenderComponent } from '../../modules/renders/v1-server-s
 })
 export class ModelStripPageComponent {
   protected readonly detailed = NeoComVariant.AVAILABLE_BLUEPRINTS;
+  protected readonly regionLookupVariant = NeoComVariant.SOLAR_SYSTEM_LOOKUP;
+  protected readonly corporationHeaderVariant = NeoComVariant.HEADER;
+
+  /**
+   * EPIC-006 — Corporation HEADER card (`v1-corporation-render`).
+   * Enriched fixture: corp 98477920 + alliance Of Sound Mind + home location path.
+   */
+  protected readonly corporationSpecimen = new PublicCorporationV1Node({
+    corporationId: 98477920,
+    name: 'Nobody in Local',
+    ticker: 'SA.FE',
+    memberCount: 117,
+    taxRate: 0.01,
+    allianceId: 99000739,
+    allianceName: 'Of Sound Mind',
+    homeStationId: 60009940,
+    homeLocationPath:
+      'LSC4-P I - Quafe Company Warehouse >> LSC4-P >> 49A-BZ >> Syndicate',
+  });
+
+  /** EPIC-010 — System second-level hierarchy card (`v1-system`). */
+  protected readonly systemSpecimen = new SystemLookupNode({
+    name: 'Amarr',
+    blueprintsCount: 5,
+  });
+
+  /** EPIC-010 — Region first-level hierarchy card (`v1-region`). */
+  protected readonly regionSpecimen = new RegionLookupNode({
+    name: 'Domain',
+    systemsCount: 3,
+  });
+
+  /** EPIC-010 candidate A — infinity `v2-feature-render`. */
+  protected readonly featureStrip: FeatureSpecimen = {
+    label: 'Industry',
+    enabled: true,
+    active: false,
+    interaction: 'PAGEROUTE',
+    route: '/industry/manufacture/blueprints',
+    imageRef: '/media/blueprints-feature.jpeg',
+  };
+
+  /** EPIC-010 candidate B — infinity `v1-feature-button`. */
+  protected readonly featureButton: FeatureSpecimen = {
+    label: 'Blueprint Management',
+    enabled: true,
+    active: false,
+    interaction: 'PAGEROUTE',
+    route: '/industry/manufacture/blueprints',
+    imageRef: '/media/blueprints-feature.jpeg',
+  };
 
   protected portrait =
     'https://images.evetech.net/characters/93813310/portrait?size=64';

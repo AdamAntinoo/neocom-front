@@ -2,7 +2,7 @@
 
 Extracted from the current `neocom-front/src` implementation. Update this file when tags or shared style classes change.
 
-Related: colour palette lives in `src/styles/_palette.scss`; geometry in `src/styles/geometry.scss`; panel frames in `src/styles/panel-styles.scss`.
+Related: colour palette lives in `src/styles/_palette.scss`; geometry in `src/styles/geometry.scss`; panel frames in `src/styles/panel-styles.scss`; icon sizes in `src/styles/icons.scss`.
 
 ---
 
@@ -140,7 +140,27 @@ Loaded from `src/styles.scss` via `@use` (Sass modules). `angular.json` sets `in
 | `geometry.scss` | Page geometry (zero margin/padding/border/gap) | `.neo-page`, `.section`, `.column`, `.row`, modifiers |
 | `neocom.scss` | Shared panel flex helper | `.neocom-panel` |
 | `panel-styles.scss` | Panel colour frames | `.panel-red` … `.panel-white`, `*-expanded`, `*-selected`, `*-draggable`, `.panel-inset`, `.selected-green` |
+| `icons.scss` | Standard square icon sizes | `.neo-icon`, `.neo-icon-sm` (16), `.neo-icon-md` (24), `.neo-icon-lg` (32) |
 | `fonts.scss` | `@font-face` + face helper classes | `.opensans-ff`, `.elemental-ff`, `.proxima-ff`, … |
+
+### Primary faces (most common)
+
+| Face | Helper class | Typical use |
+| --- | --- | --- |
+| **Elemental** | `.elemental-ff` | Names, titles, numeric emphasis (pilot name, region name, counts) |
+| **Open Sans** | `.opensans-ff` | Body / meta; **all field labels** |
+
+Other faces in `fonts.scss` are specialty; prefer Elemental + Open Sans unless a render already specifies another face. Model-strip hosts a **14px** sample of both as the sizing baseline.
+
+### Field labels (always)
+
+| Property | Value |
+| --- | --- |
+| Face | **Open Sans** (`.opensans-ff` / `.label`) |
+| Size | **9px** |
+| Colour | **orange** — `var(--neo-color-panel-orange)` (`#ff3300`) |
+
+Global classes: `.label`, `.neo-label`, `.strip-label` in `fonts.scss`.
 
 ### Geometry classes (global)
 
