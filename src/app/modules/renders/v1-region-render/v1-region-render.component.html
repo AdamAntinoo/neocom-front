@@ -1,0 +1,22 @@
+@if (getVariant() === '-SOLAR-SYSTEM-LOOKUP-') {
+  <div class="panel-yellow region-card">
+    <div class="insets row">
+      <img
+        class="neo-icon neo-icon-md"
+        alt=""
+        src="/res-sde/drawable/systems.png"
+      />
+      <div class="column identity">
+        <span cy-field-label="regionName" class="opensans-ff label">REGION</span>
+        <div class="row name-line">
+          <span cy-field-value="regionName" class="elemental-ff region-name">{{
+            getName()
+          }}</span>
+          <span cy-field-value="systemCount" class="elemental-ff systems-count">{{
+            getSystemsCount()
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+}

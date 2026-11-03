@@ -17,5 +17,6 @@ describe('NeoComVariant', () => {
     expect(NeoComVariant.PILOT_PUBLIC).toBe('-PILOT-PUBLIC-VARIANT-');
     expect(NeoComVariant.PILOT).toBe('-PILOT-VARIANT-');
     expect(NeoComVariant.PILOT_LIST).toBe('-PILOT-LIST-VARIANT-');
+    expect(NeoComVariant.SOLAR_SYSTEM_LOOKUP).toBe('-SOLAR-SYSTEM-LOOKUP-');
   });
 });

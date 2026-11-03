@@ -1,4 +1,5 @@
 // Application faces are self-hosted in public/assets/fonts and declared here.
+// Primary (most common): Elemental (.elemental-ff) and Open Sans (.opensans-ff).
 // Licensed faces such as Proxima Nova have no public runtime service.
 // The shipped Proxima file is the Alt Black cut; the regular, thin, semibold,
 // and bold files named by the older stylesheet are not in the asset folder.
@@ -124,6 +125,18 @@
 
 .opensans-ff {
   font-family: 'Open Sans', sans-serif;
+}
+
+/// Field / caption labels — always Open Sans 9px orange (#ffa500).
+/// Do not use panel-red (#ff0000) or the red-leaning panel-orange accent (#ff3300).
+.label,
+.neo-label,
+.strip-label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 9px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  color: #ffa500;
 }
 
 .opensans-condensed-ff {

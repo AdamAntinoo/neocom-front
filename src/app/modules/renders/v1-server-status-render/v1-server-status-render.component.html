@@ -1,22 +1,17 @@
 <div id="server-info-panel" cy-section-name="server-info" class="neocom-panel panel-blue server-info-panel">
-  <div class="field">
-    <span cy-field-value="server-name" class="server-name">{{ getServerName() }}</span>
-    <span cy-field-value="server-online" class="server-online">{{ getOnlineLabel() }}</span>
+  <div class="row line name-line">
+    <span cy-field-value="server-name" class="elemental-ff server-name">{{ getServerName() }}</span>
+    <span cy-field-value="server-online" class="elemental-ff server-online">{{ getOnlineLabel() }}</span>
   </div>
-  <div class="field">
-    <span class="label">Capsuleers</span>
-    <span cy-field-value="players-count">{{ getPlayersCount() }}</span>
+  <div class="row line metric-line">
+    <span class="opensans-ff label">CAPSULEERS</span>
+    <span class="values">
+      <span cy-field-value="sde-version" class="opensans-ff value">{{ getSDEVersion() }}</span>
+      <span cy-field-value="players-count" class="opensans-ff value">{{ getPlayersCount() }}</span>
+    </span>
   </div>
-  <div class="field">
-    <span class="label">Backend</span>
-    <span cy-field-value="backend-version">{{ getBackendVersion() }}</span>
-  </div>
-  <div class="field">
-    <span class="label">SDE</span>
-    <span cy-field-value="sde-version">{{ getSDEVersion() }}</span>
-  </div>
-  <div class="field">
-    <span class="label">Next DT</span>
-    <span cy-field-value="next-downtime">{{ getNextDowntime() }}</span>
+  <div class="row line metric-line">
+    <span class="opensans-ff label">NEXT DT</span>
+    <span cy-field-value="next-downtime" class="opensans-ff value">{{ getNextDowntime() }}</span>
   </div>
 </div>

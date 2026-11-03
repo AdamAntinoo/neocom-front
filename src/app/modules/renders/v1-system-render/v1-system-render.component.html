@@ -1,0 +1,22 @@
+@if (getVariant() === '-SOLAR-SYSTEM-LOOKUP-') {
+  <div class="panel-orange system-card">
+    <div class="insets row">
+      <img
+        class="neo-icon neo-icon-md"
+        alt=""
+        src="/res-sde/drawable/systems.png"
+      />
+      <div class="column identity">
+        <span cy-field-label="systemName" class="opensans-ff label">SYSTEM</span>
+        <div class="row name-line">
+          <span cy-field-value="systemName" class="elemental-ff system-name">{{
+            getName()
+          }}</span>
+          <span cy-field-value="blueprintCount" class="elemental-ff blueprints-count">{{
+            getBlueprintsCount()
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+}

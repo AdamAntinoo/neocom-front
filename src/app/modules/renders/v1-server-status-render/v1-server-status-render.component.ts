@@ -47,11 +47,6 @@ export class V1ServerStatusRenderComponent implements OnInit {
   getPlayersCount(): number {
     return this.getNode()?.getPlayersCount() ?? 0;
   }
-
-  getBackendVersion(): string {
-    return this.getNode()?.getBackendVersion() ?? '—';
-  }
-
   getSDEVersion(): string {
     return this.getNode()?.getSDEVersion() ?? '—';
   }

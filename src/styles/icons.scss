@@ -1,0 +1,42 @@
+/// Standard NeoCom icon sizes (square). Use these classes on `<img class="neo-icon …">`
+/// instead of ad-hoc pixel values so renders stay consistent.
+///
+/// | Token | Size | Typical use |
+/// | --- | --- | --- |
+/// | `neo-icon-sm` | 16px | Inline / dense chrome |
+/// | `neo-icon-md` | 24px | Cards beside label+name stacks (e.g. Region) |
+/// | `neo-icon-lg` | 32px | Type / media tiles in list rows |
+///
+/// Region rule: icon ≤ sum of REGION label height + region name height
+/// (label 10px + name 16px → prefer `md` 24px, never larger than that stack).
+
+$neo-icon-sm: 16px;
+$neo-icon-md: 24px;
+$neo-icon-lg: 32px;
+
+:root {
+  --neo-icon-sm: #{$neo-icon-sm};
+  --neo-icon-md: #{$neo-icon-md};
+  --neo-icon-lg: #{$neo-icon-lg};
+}
+
+.neo-icon {
+  display: block;
+  flex: none;
+  object-fit: contain;
+}
+
+.neo-icon-sm {
+  width: var(--neo-icon-sm);
+  height: var(--neo-icon-sm);
+}
+
+.neo-icon-md {
+  width: var(--neo-icon-md);
+  height: var(--neo-icon-md);
+}
+
+.neo-icon-lg {
+  width: var(--neo-icon-lg);
+  height: var(--neo-icon-lg);
+}

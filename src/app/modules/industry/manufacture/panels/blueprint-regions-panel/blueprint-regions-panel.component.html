@@ -1,0 +1,7 @@
+<section cy-section-name="blueprint-regions" class="regions column">
+  @for (region of regions; track region.getName()) {
+    <article class="region-row">
+      <v1-region-render [node]="region" [variant]="lookupVariant"></v1-region-render>
+    </article>
+  }
+</section>

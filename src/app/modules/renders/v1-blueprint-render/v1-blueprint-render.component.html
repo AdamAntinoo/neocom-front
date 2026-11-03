@@ -1,19 +1,19 @@
 @if (isBaseIdentity()) {
-  <div cy-section-name="blueprint-identity" cy-render="v1-blueprint" class="blueprint-identity">
-    <img class="type-lg" alt="" [src]="getBlueprintTypeIconURL()" />
-    <div class="column">
-      <span cy-field-value="blueprint-name" class="name">{{ getName() }}</span>
-      <span cy-field-value="blueprint-id" class="meta">#{{ getBlueprintId() }}</span>
-      <div class="row output">
-        <img class="type-sm" alt="" [src]="getOutputTypeIconURL()" />
-        <span cy-field-value="output-type-name">{{ getOutputTypeName() }}</span>
-      </div>
-      <div class="row metrics">
-        <span cy-field-value="runs">runs {{ getRuns() }}</span>
-        <span cy-field-value="material-efficiency">ME {{ getMaterialEfficiency() }}</span>
-        <span cy-field-value="time-efficiency">TE {{ getTimeEfficiency() }}</span>
-      </div>
+  <div cy-section-name="blueprint-identity" cy-render="v1-blueprint" class="blueprint-identity row">
+    <img
+      class="neo-icon neo-icon-lg"
+      alt=""
+      cy-field-value="blueprint-type-icon"
+      [src]="getBlueprintTypeIconURL()"
+    />
+    <div class="column identity">
+      <span cy-field-label="blueprint-name" class="opensans-ff label">BLUEPRINT NAME</span>
+      <span cy-field-value="blueprint-name" class="opensans-ff blueprint-name">{{ getName() }}</span>
     </div>
+    <span cy-field-value="efficiency" class="elemental-ff metric">{{ getEfficiencyLabel() }}</span>
+    @if (!isMaster()) {
+      <span cy-field-value="runs" class="elemental-ff metric">{{ getRunsLabel() }}</span>
+    }
   </div>
 } @else if (isDetailed()) {
   <div cy-section-name="blueprint-detailed" class="blueprint-detailed">

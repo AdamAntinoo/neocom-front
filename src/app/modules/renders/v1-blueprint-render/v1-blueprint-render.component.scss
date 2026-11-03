@@ -3,39 +3,32 @@
 }
 
 .blueprint-identity {
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
+  gap: 12px;
+  align-items: center;
+  width: max-content;
 
-  .column {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+  .identity {
+    gap: 0;
+    min-width: 0;
   }
 
-  .row {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+  .label {
+    text-transform: uppercase;
   }
 
-  .type-lg {
-    width: 64px;
-    height: 64px;
+  .blueprint-name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.2;
+    color: var(--neo-color-panel-white, #fff);
   }
 
-  .type-sm {
-    width: 32px;
-    height: 32px;
-  }
-
-  .name {
-    font-weight: 600;
-  }
-
-  .meta,
-  .metrics {
-    opacity: 0.85;
+  .metric {
+    font-size: 14px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    color: var(--neo-color-panel-white, #fff);
+    white-space: nowrap;
   }
 }
 

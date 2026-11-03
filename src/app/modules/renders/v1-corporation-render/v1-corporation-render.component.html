@@ -1,0 +1,43 @@
+<div
+  cy-section-name="corporation"
+  cy-render="v1-corporation-render"
+  class="neocom-panel panel-orange corporation-card"
+  [attr.data-neocom-variant]="variant"
+>
+  <div class="row pad">
+    <img
+      cy-field-value="corporation-icon"
+      class="logo"
+      alt=""
+      [src]="getCorporationIcon()"
+    />
+    <div class="column">
+      <div class="row name-line">
+        <span cy-field-value="corporation-name" class="elemental-ff name">{{
+          getName()
+        }}</span>
+        <span cy-field-value="corporation-ticker" class="elemental-ff name">{{
+          getTickerDisplay()
+        }}</span>
+      </div>
+      <div cy-field-value="corporation-members" class="opensans-ff meta">
+        {{ getMemberCount() }} MEMBERS
+      </div>
+      @if (getTaxRatePercent()) {
+        <div cy-field-value="corporation-tax" class="opensans-ff meta">
+          TAX {{ getTaxRatePercent() }}
+        </div>
+      }
+      @if (hasAlliance()) {
+        <div cy-field-value="alliance-name" class="opensans-ff meta">
+          {{ getAllianceName() }}
+        </div>
+      }
+      @if (hasHomeLocation()) {
+        <div cy-field-value="home-location" class="opensans-ff meta home">
+          {{ getHomeLocationPath() }}
+        </div>
+      }
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.region-card {
+  width: max-content;
+  min-width: 160px;
+}
+
+.insets {
+  padding: 8px;
+  gap: 8px;
+  align-items: center;
+}
+
+.identity {
+  gap: 0;
+  min-width: 0;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.name-line {
+  gap: 12px;
+  align-items: baseline;
+  width: auto;
+}
+
+.region-name,
+.systems-count {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--neo-color-panel-white, #fff);
+}
+
+.region-name {
+  text-transform: uppercase;
+}
+
+.systems-count {
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}

@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  color: var(--neo-color-page-foreground);
+  background: var(--neo-color-page-background);
+}
+
+.page-body {
+  gap: 12px;
+  padding: 16px 24px 32px;
+  align-items: stretch;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.page-lead {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.85;
+
+  code {
+    font-size: 12px;
+  }
+}
+
+.group-title {
+  margin: 16px 0 4px;
+  text-transform: uppercase;
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 8px 16px;
+}
+
+.swatch-row {
+  gap: 12px;
+  align-items: center;
+  padding: 6px 8px;
+  border: 1px solid var(--neo-color-panel-border);
+  background: var(--neo-color-panel-background);
+}
+
+.swatch {
+  width: 48px;
+  height: 32px;
+  flex: none;
+  border: 1px solid var(--neo-color-panel-white-40);
+  box-sizing: border-box;
+}
+
+.names {
+  gap: 2px;
+  min-width: 0;
+}
+
+.key {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--neo-color-panel-white);
+}
+
+.css-var {
+  font-size: 11px;
+  color: var(--neo-color-panel-lightblue);
+  word-break: break-all;
+}
+
+.hex {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
