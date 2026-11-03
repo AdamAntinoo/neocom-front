@@ -21,6 +21,7 @@ export class SystemLookupNode extends NeoCom {
   }
 
   getBlueprintsCount(): number {
-    return this.blueprintsCount;
+    const fromChildren = this.children.length;
+    return fromChildren > 0 ? fromChildren : this.blueprintsCount;
   }
 }

@@ -21,6 +21,7 @@ export class RegionLookupNode extends NeoCom {
   }
 
   getSystemsCount(): number {
-    return this.systemsCount;
+    const fromChildren = this.children.length;
+    return fromChildren > 0 ? fromChildren : this.systemsCount;
   }
 }
