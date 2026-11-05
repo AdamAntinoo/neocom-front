@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AppInfoPanelComponent } from './app-info-panel/app-info-panel.component';
-import { PageHeaderComponent } from './page-header/page-header.component';
+import { AppPageHeaderComponent } from './app-page-header/app-page-header.component';
 import { ApplicationInfoProvider } from './providers/application-info.provider';
 import { ServerStatusProvider } from './providers/server-status.provider';
 import { ServerInfoPanelComponent } from './server-info-panel/server-info-panel.component';
@@ -18,14 +18,14 @@ import { V1PilotPanelComponent } from './v1-pilot-panel/v1-pilot-panel.component
     ServerInfoPanelComponent,
     V1PilotPanelComponent,
     V1CorporationPanelComponent,
-    PageHeaderComponent,
+    AppPageHeaderComponent,
   ],
   exports: [
     AppInfoPanelComponent,
     ServerInfoPanelComponent,
     V1PilotPanelComponent,
     V1CorporationPanelComponent,
-    PageHeaderComponent,
+    AppPageHeaderComponent,
   ],
   providers: [ApplicationInfoProvider, ServerStatusProvider],
 })

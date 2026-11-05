@@ -14,12 +14,12 @@ export class FeatureCatalogProvider {
       route: '/industry/blueprints-by-location',
       imageRef: '/media/blueprints-feature.jpeg',
     }),
-    FeatureV1Node.from({
-      featureId: 'manufacture',
-      label: 'Manufacture',
-      route: '/industry/manufacture',
-      imageRef: '/media/blueprints-feature.jpeg',
-    }),
+    // FeatureV1Node.from({
+    //   featureId: 'manufacture',
+    //   label: 'Manufacture',
+    //   route: '/industry/manufacture',
+    //   imageRef: '/media/blueprints-feature.jpeg',
+    // }),
   ];
 
   private readonly rootFeatures: FeatureV1Node[] = [

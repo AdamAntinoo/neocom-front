@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
@@ -14,6 +15,7 @@ export class V1ApplicationInfoRenderComponent implements OnInit {
   @Input() node!: ApplicationInfoV1Node;
   @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
 
+  private readonly router = inject(Router);
   private static registered = false;
 
   static ensureRegistered(): void {
@@ -42,6 +44,11 @@ export class V1ApplicationInfoRenderComponent implements OnInit {
 
   getCopyright(): string {
     return this.getNode()?.getCopyright() ?? '';
+  }
+
+  /** UI-AIP-006 — name control only navigates to character selection. */
+  goToCharacterSelection(): void {
+    void this.router.navigateByUrl('/character-selection');
   }
 }
 

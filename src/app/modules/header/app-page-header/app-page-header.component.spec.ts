@@ -1,19 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { of } from 'rxjs';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
 import { ServerStatusV1Node } from '../../innovative-core/domain/nodes/server-status-v1.node';
 import { ApplicationInfoProvider } from '../providers/application-info.provider';
 import { ServerStatusProvider } from '../providers/server-status.provider';
-import { PageHeaderComponent } from './page-header.component';
+import { AppPageHeaderComponent } from './app-page-header.component';
 
-describe('PageHeaderComponent', () => {
-  let fixture: ComponentFixture<PageHeaderComponent>;
+describe('AppPageHeaderComponent', () => {
+  let fixture: ComponentFixture<AppPageHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageHeaderComponent],
+      imports: [AppPageHeaderComponent],
       providers: [
+        provideRouter([]),
+
         {
           provide: ApplicationInfoProvider,
           useValue: {
@@ -43,7 +46,7 @@ describe('PageHeaderComponent', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PageHeaderComponent);
+    fixture = TestBed.createComponent(AppPageHeaderComponent);
   });
 
   it('should provide ApplicationInfo and ServerStatus NeoCom nodes for NeoComVariant.APP', () => {
@@ -51,6 +54,7 @@ describe('PageHeaderComponent', () => {
     fixture.detectChanges();
     const root = fixture.nativeElement as HTMLElement;
     expect(root.querySelector('[cy-section-name="header"]')).toBeTruthy();
+    expect(root.querySelector('.app-page-header')).toBeTruthy();
     expect(root.querySelector('#appinfo-panel')).toBeTruthy();
     expect(root.querySelector('#server-info-panel')).toBeTruthy();
     expect(root.querySelector('v1-application-info-render')).toBeTruthy();

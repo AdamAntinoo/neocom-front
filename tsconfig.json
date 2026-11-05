@@ -13,6 +13,8 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
+    "sourceMap": true,
+    "outDir": "./dist",
     "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {

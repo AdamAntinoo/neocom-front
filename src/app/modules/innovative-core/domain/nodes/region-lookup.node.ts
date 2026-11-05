@@ -3,7 +3,7 @@ import { NeoCom } from '../NeoCom';
 /**
  * Front list node for distinct Regions in a location hierarchy
  * (infinity `LookupRegion` / `jsonClass = LookupRegion`).
- * Used as the first level on the v1-blueprint-by-location page.
+ * Used as the first level on the blueprint-by-location page.
  */
 export class RegionLookupNode extends NeoCom {
   name: string;

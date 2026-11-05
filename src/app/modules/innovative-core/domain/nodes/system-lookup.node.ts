@@ -3,7 +3,7 @@ import { NeoCom } from '../NeoCom';
 /**
  * Front list node for distinct Solar Systems in a location hierarchy
  * (infinity `LookupSolarSystem` / `jsonClass = LookupSolarSystem`).
- * Used as the second level on the v1-blueprint-by-location page.
+ * Used as the second level on the blueprint-by-location page.
  */
 export class SystemLookupNode extends NeoCom {
   name: string;

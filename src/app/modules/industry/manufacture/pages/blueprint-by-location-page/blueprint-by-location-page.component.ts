@@ -6,18 +6,18 @@ import { SessionService } from '../../../../../security/session.service';
 import { BlueprintByLocationPanelComponent } from '../../panels/blueprint-by-location-panel/blueprint-by-location-panel.component';
 
 /**
- * Short name: **v1-blueprint-by-location**.
+ * Short name: **blueprint-by-location** (unversioned page host — UI-VER-004).
  * Pilot blueprints by location — Region → System → Blueprint (IND-BP-030…036).
  * Route `/industry/blueprints-by-location` (auth via Industry module guard).
  */
 @Component({
-  selector: 'v1-blueprint-by-location-page',
+  selector: 'blueprint-by-location-page',
   imports: [HeaderModule, AppBreadcrumbComponent, BlueprintByLocationPanelComponent],
-  templateUrl: './v1-blueprint-by-location-page.component.html',
-  styleUrl: './v1-blueprint-by-location-page.component.scss',
+  templateUrl: './blueprint-by-location-page.component.html',
+  styleUrl: './blueprint-by-location-page.component.scss',
   host: { class: 'neo-page' },
 })
-export class V1BlueprintByLocationPageComponent {
+export class BlueprintByLocationPageComponent {
   private readonly session = inject(SessionService);
 
   protected readonly crumbs = [

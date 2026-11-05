@@ -4,7 +4,7 @@ import { NeoComVariant } from '../../../../innovative-core/domain/NeoComVariant'
 import { V1RegionRenderComponent } from '../../../../renders/v1-region-render/v1-region-render.component';
 
 /**
- * First hierarchy level for v1-blueprint-by-location: distinct Regions where blueprints sit.
+ * First hierarchy level for blueprint-by-location: distinct Regions where blueprints sit.
  */
 @Component({
   selector: 'blueprint-regions-panel',
