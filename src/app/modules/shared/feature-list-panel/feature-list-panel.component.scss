@@ -1,7 +1,16 @@
+@use 'tokens' as *;
+
+/* DEF-IB-009 — even distribution across the band; default panel gap only. */
 .feature-list {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 0.75rem;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  gap: $panel-margin;
+  margin: $panel-margin;
+  padding: $panel-padding;
 }
 
 .feature-slot {
@@ -11,6 +20,7 @@
   margin: 0;
   background: transparent;
   cursor: pointer;
+  flex: 0 0 auto;
 }
 
 .feature-slot:disabled {
