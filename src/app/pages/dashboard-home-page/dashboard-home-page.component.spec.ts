@@ -54,10 +54,11 @@ describe('DashboardHomePageComponent', () => {
 
   it('should render header, pilot & corporation, breadcrumb, and feature list', () => {
     const root = fixture.nativeElement as HTMLElement;
-    expect(root.querySelector('[cy-section-name="header"]')).toBeTruthy();
+    expect(root.querySelector('[cy-section-name="dashboard-home"]')).toBeTruthy();
+    expect(root.querySelector('[cy-section-name="app-page"]')).toBeTruthy();
     expect(root.querySelector('#appinfo-panel')).toBeTruthy();
     expect(root.querySelector('#server-info-panel')).toBeTruthy();
-    expect(root.querySelector('[cy-section-name="pilot-dashboard"]')).toBeTruthy();
+    expect(root.querySelector('[cy-section-name="v1-pilot"]')).toBeTruthy();
     expect(root.querySelector('v1-pilot-panel')).toBeTruthy();
     expect(root.querySelector('v1-corporation-panel')).toBeTruthy();
     expect(root.querySelector('[cy-section-name="breadcrumb"]')).toBeTruthy();

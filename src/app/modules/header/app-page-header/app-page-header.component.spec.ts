@@ -53,7 +53,7 @@ describe('AppPageHeaderComponent', () => {
     fixture.componentInstance.variant = NeoComVariant.APP;
     fixture.detectChanges();
     const root = fixture.nativeElement as HTMLElement;
-    expect(root.querySelector('[cy-section-name="header"]')).toBeTruthy();
+    expect(root.querySelector('[cy-section-name="app-page"]')).toBeTruthy();
     expect(root.querySelector('.app-page-header')).toBeTruthy();
     expect(root.querySelector('#appinfo-panel')).toBeTruthy();
     expect(root.querySelector('#server-info-panel')).toBeTruthy();

@@ -25,6 +25,7 @@ Then('the login page is visible', () => {
 });
 
 Then('the application shell is visible', () => {
-  cy.get('[cy-section-name="header"]').should('be.visible');
-  cy.get('[cy-section-name="pilot-dashboard"]').should('be.visible');
+  cy.get('[cy-section-name="dashboard-home"]').should('be.visible');
+  cy.get('[cy-section-name="app-page"]').should('be.visible');
+  cy.get('[cy-section-name="v1-pilot"]').should('be.visible');
 });

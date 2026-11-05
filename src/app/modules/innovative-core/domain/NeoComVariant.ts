@@ -20,6 +20,8 @@ export enum NeoComVariant {
   PILOT_LIST = '-PILOT-LIST-VARIANT-',
   /** Region / solar-system lookup cards (`v1-region`, …). */
   SOLAR_SYSTEM_LOOKUP = '-SOLAR-SYSTEM-LOOKUP-',
+  /** Blueprint-by-location list panel host (DEF-IB-010). */
+  BLUEPRINT_LIST = '-BLUEPRINT-LIST-',
 }
 
 /** All registered variant values (for validation / catalogs). */

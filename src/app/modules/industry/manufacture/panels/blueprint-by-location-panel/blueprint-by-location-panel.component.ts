@@ -37,7 +37,7 @@ export class BlueprintByLocationPanelComponent
   private sseSub: Subscription | null = null;
 
   ngOnInit(): void {
-    this.setVariant(NeoComVariant.SOLAR_SYSTEM_LOOKUP);
+    this.setVariant(NeoComVariant.BLUEPRINT_LIST);
     this.startDownloading();
     const id = this.pilotId();
 
