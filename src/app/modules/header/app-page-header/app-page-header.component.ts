@@ -10,24 +10,24 @@ import { ApplicationInfoProvider } from '../providers/application-info.provider'
 import { ServerStatusProvider } from '../providers/server-status.provider';
 
 /** Header chrome variants (subset of {@link NeoComVariant}). */
-export type PageHeaderVariant = NeoComVariant.APP | NeoComVariant.AUTH;
+export type AppPageHeaderVariant = NeoComVariant.APP | NeoComVariant.AUTH;
 
 /**
  * Header controller: obtains NeoCom nodes (wrapping domain Records) via providers
- * and injects them into versioned renders (UI-HDR-007…009, UI-VER-*).
+ * and injects them into versioned renders (UI-HDR-007…011, UI-VER-*).
  */
 @Component({
   selector: 'app-page-header',
   imports: [StandaloneNodePanelComponent],
-  templateUrl: './page-header.component.html',
-  styleUrl: './page-header.component.scss',
+  templateUrl: './app-page-header.component.html',
+  styleUrl: './app-page-header.component.scss',
 })
-export class PageHeaderComponent implements OnInit, OnChanges, OnDestroy {
+export class AppPageHeaderComponent implements OnInit, OnChanges, OnDestroy {
   /** Exposed for templates — use {@link NeoComVariant} constants only. */
   protected readonly Variant = NeoComVariant;
 
   /** `-AUTH-` — ApplicationInfo only. `-APP-` — ApplicationInfo + ServerStatus (+ menu later). */
-  @Input() variant: PageHeaderVariant = NeoComVariant.APP;
+  @Input() variant: AppPageHeaderVariant = NeoComVariant.APP;
 
   private readonly applicationInfoProvider = inject(ApplicationInfoProvider);
   private readonly serverStatusProvider = inject(ServerStatusProvider);

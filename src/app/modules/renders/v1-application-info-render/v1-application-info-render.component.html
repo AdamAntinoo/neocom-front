@@ -1,7 +1,14 @@
 <div id="appinfo-panel" cy-section-name="app-info" class="neocom-panel panel-white app-name-panel">
   <div class="row">
     <div class="field">
-      <span cy-field-value="app-name" class="app-name">{{ getName() }}</span>
+      <button
+        type="button"
+        cy-field-value="app-name"
+        class="app-name"
+        (click)="goToCharacterSelection()"
+      >
+        {{ getName() }}
+      </button>
     </div>
     <div class="field app-version-position">
       <span cy-field-value="app-version" class="app-version">{{ getVersion() }}</span>

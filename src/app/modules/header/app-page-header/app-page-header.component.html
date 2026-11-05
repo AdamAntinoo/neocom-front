@@ -1,0 +1,9 @@
+<section cy-section-name="header" class="row section app-page-header" [attr.data-variant]="variant">
+  @if (applicationInfo; as info) {
+    <standalone-node-panel class="app-page-header__app-info" [node]="info" [variant]="Variant.HEADER" />
+  }
+  @if (variant === Variant.APP && serverStatus; as status) {
+    <standalone-node-panel class="app-page-header__server-info" [node]="status" [variant]="Variant.HEADER" />
+  }
+  <!-- Application menu: added when EPIC-006 defines it (UI-HDR-003 / UI-DASH-006). -->
+</section>

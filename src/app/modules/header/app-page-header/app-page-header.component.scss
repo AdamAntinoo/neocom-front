@@ -1,0 +1,45 @@
+@use 'tokens' as *;
+
+/* UI-HDR-011 + UI-GEO-001: full-width first line; app-info grows; server-info content-sized; default panel gap. */
+.app-page-header {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: $panel-margin;
+  margin: $panel-margin;
+  padding: 0;
+}
+
+.app-page-header__app-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.app-page-header__server-info {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+}
+
+.app-page-header[data-variant='-AUTH-'] {
+  .app-page-header__app-info {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-page-header[data-variant='-APP-'] {
+    flex-direction: column;
+
+    .app-page-header__app-info,
+    .app-page-header__server-info {
+      flex: 1 1 auto;
+      width: 100%;
+      max-width: none;
+    }
+  }
+}

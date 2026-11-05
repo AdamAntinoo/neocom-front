@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderModule } from '../../header/header.module';
-import { V1BlueprintByLocationPageComponent } from './pages/v1-blueprint-by-location-page/v1-blueprint-by-location-page.component';
+import { BlueprintByLocationPageComponent } from './pages/blueprint-by-location-page/blueprint-by-location-page.component';
 import { ManufactureHomePageComponent } from './pages/manufacture-home-page/manufacture-home-page.component';
 import { AvailableBlueprintsPanelComponent } from './panels/available-blueprints-panel/available-blueprints-panel.component';
 import { BlueprintByLocationPanelComponent } from './panels/blueprint-by-location-panel/blueprint-by-location-panel.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     HeaderModule,
     ManufactureHomePageComponent,
-    V1BlueprintByLocationPageComponent,
+    BlueprintByLocationPageComponent,
     AvailableBlueprintsPanelComponent,
     BlueprintByLocationPanelComponent,
     BlueprintRegionsPanelComponent,
