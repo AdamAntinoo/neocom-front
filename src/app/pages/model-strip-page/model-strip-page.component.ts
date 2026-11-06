@@ -3,21 +3,20 @@ import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVarian
 import { ApplicationInfoV1Node } from '../../modules/innovative-core/domain/nodes/application-info-v1.node';
 import { BlueprintV1Node } from '../../modules/innovative-core/domain/nodes/blueprint-v1.node';
 import { PublicCorporationV1Node } from '../../modules/innovative-core/domain/nodes/public-corporation-v1.node';
-import { RegionLookupNode } from '../../modules/innovative-core/domain/nodes/region-lookup.node';
+import { RegionV1Node } from '../../modules/innovative-core/domain/nodes/region-v1.node';
 import { ServerStatusV1Node } from '../../modules/innovative-core/domain/nodes/server-status-v1.node';
-import { SystemLookupNode } from '../../modules/innovative-core/domain/nodes/system-lookup.node';
-import { ProcessedBlueprintSummary } from '../../modules/industry/domain/processed-blueprint';
-import { V1FeatureButtonComponent } from '../../modules/renders/legacy-v1-feature-button/legacy-v1-feature-button.component';
+import { SolarSystemV1Node } from '../../modules/innovative-core/domain/nodes/solar-system-v1.node';
+import { V1FeatureButtonComponent } from '@renders/legacy-v1-feature-button/legacy-v1-feature-button.component';
 import {
   FeatureSpecimen,
   LegacyV2FeatureRenderComponent,
-} from '../../modules/renders/legacy-v2-feature-render/legacy-v2-feature-render.component';
-import { V1ApplicationInfoRenderComponent } from '../../modules/renders/v1-application-info-render/v1-application-info-render.component';
-import { V1BlueprintRenderComponent } from '../../modules/renders/v1-blueprint-render/v1-blueprint-render.component';
-import { V1CorporationRenderComponent } from '../../modules/renders/v1-corporation-render/v1-corporation-render.component';
-import { V1RegionRenderComponent } from '../../modules/renders/v1-region-render/v1-region-render.component';
-import { V1ServerStatusRenderComponent } from '../../modules/renders/v1-server-status-render/v1-server-status-render.component';
-import { V1SystemRenderComponent } from '../../modules/renders/v1-system-render/v1-system-render.component';
+} from '@renders/legacy-v2-feature-render/legacy-v2-feature-render.component';
+import { V1ApplicationInfoRenderComponent } from '@renders/v1-application-info-render/v1-application-info-render.component';
+import { V1BlueprintRenderComponent } from '@renders/v1-blueprint-render/v1-blueprint-render.component';
+import { V1CorporationRenderComponent } from '@renders/v1-corporation-render/v1-corporation-render.component';
+import { V1RegionRenderComponent } from '@renders/v1-region-render/v1-region-render.component';
+import { V1ServerStatusRenderComponent } from '@renders/v1-server-status-render/v1-server-status-render.component';
+import { V1SystemRenderComponent } from '@renders/v1-system-render/v1-system-render.component';
 
 /**
  * Visual catalog for EPIC-004 / EPIC-010 model appearances.
@@ -78,17 +77,23 @@ export class ModelStripPageComponent {
       'LSC4-P I - Quafe Company Warehouse >> LSC4-P >> 49A-BZ >> Syndicate',
   });
 
-  /** EPIC-010 — System second-level hierarchy card (`v1-system`). */
-  protected readonly systemSpecimen = new SystemLookupNode({
-    name: 'Amarr',
-    blueprintsCount: 5,
-  });
+  /** EPIC-010 — System second-level hierarchy card (`v1-system`); count = children. */
+  protected readonly systemSpecimen = (() => {
+    const system = new SolarSystemV1Node({ name: 'Amarr' });
+    for (let i = 0; i < 5; i++) {
+      system.addChild(new BlueprintV1Node({ blueprintId: i + 1, blueprintTypeName: `BP${i}` }));
+    }
+    return system;
+  })();
 
-  /** EPIC-010 — Region first-level hierarchy card (`v1-region`). */
-  protected readonly regionSpecimen = new RegionLookupNode({
-    name: 'Domain',
-    systemsCount: 3,
-  });
+  /** EPIC-010 — Region first-level hierarchy card (`v1-region`); count = children. */
+  protected readonly regionSpecimen = (() => {
+    const region = new RegionV1Node({ name: 'Domain' });
+    for (let i = 0; i < 3; i++) {
+      region.addChild(new SolarSystemV1Node({ name: `Sys${i}` }));
+    }
+    return region;
+  })();
 
   /** Candidate A (discarded) — kept on strip for comparison only (IND-BP-011 / 012). */
   protected readonly featureStrip: FeatureSpecimen = {
@@ -140,10 +145,11 @@ export class ModelStripPageComponent {
     maxRuns: 300,
   });
 
-  protected readonly blueprint = new ProcessedBlueprintSummary({
+  protected readonly blueprint = new BlueprintV1Node({
     blueprintId: 31717,
-    name: 'Small EM Shield Reinforcer I Blueprint',
+    blueprintTypeName: 'Small EM Shield Reinforcer I Blueprint',
     manufactureIndex: 199,
+    ready: true,
   });
 
   protected useDefaultPortrait(): void {

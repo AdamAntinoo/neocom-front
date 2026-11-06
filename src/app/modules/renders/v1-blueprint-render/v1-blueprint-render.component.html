@@ -1,4 +1,4 @@
-@if (isBaseIdentity()) {
+@if (!isDetailed()) {
   <div cy-section-name="blueprint-identity" cy-render="v1-blueprint" class="blueprint-identity row">
     <img
       class="neo-icon neo-icon-lg"
@@ -15,14 +15,10 @@
       <span cy-field-value="runs" class="elemental-ff metric">{{ getRunsLabel() }}</span>
     }
   </div>
-} @else if (isDetailed()) {
+} @else {
   <div cy-section-name="blueprint-detailed" class="blueprint-detailed">
     <span cy-field-value="blueprint-name">{{ getName() }}</span>
     <span cy-field-value="blueprint-id">{{ getBlueprintId() }}</span>
     <span cy-field-value="manufacture-index">{{ getManufactureIndexLabel() }}</span>
-  </div>
-} @else {
-  <div cy-section-name="blueprint-short" class="blueprint-short">
-    <span cy-field-value="blueprint-name">{{ getName() }}</span>
   </div>
 }

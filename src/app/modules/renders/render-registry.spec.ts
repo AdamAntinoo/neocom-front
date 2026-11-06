@@ -9,10 +9,8 @@ describe('render registry', () => {
     V1BlueprintRenderComponent.ensureRegistered();
   });
 
-  it('resolves BlueprintV1 and ProcessedBlueprint without ngIf maps', () => {
+  it('resolves BlueprintV1 (jsonClass = render key)', () => {
     expect(lookupRender('BlueprintV1')).toBe(V1BlueprintRenderComponent);
-    expect(lookupRender('ProcessedBlueprint')).toBe(V1BlueprintRenderComponent);
-    expect(lookupRender('ProcessedBlueprintSummary')).toBe(V1BlueprintRenderComponent);
   });
 
   it('allows registering shared renders for multiple jsonClass values', () => {

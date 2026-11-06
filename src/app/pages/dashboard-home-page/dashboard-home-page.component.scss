@@ -9,11 +9,11 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-/* UI-DASH-015 / UI-GEO-001 — default panel gap only (no larger page-local gutters). */
+/* UI-DASH-015 / UI-GEO-001 / DEF-BLP-005 — section gap = $section-padding (= $panel-padding). */
 .pilot-corporation-row {
   flex-wrap: wrap;
-  gap: $panel-margin;
+  gap: $section-padding;
   align-items: flex-start;
   padding: $panel-padding;
-  margin: $panel-margin;
+  margin: 0;
 }

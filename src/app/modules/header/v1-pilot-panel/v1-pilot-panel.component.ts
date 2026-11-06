@@ -3,12 +3,9 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import type { PilotV2, PublicPilotV1 } from 'neocom-domain';
 import { catchError, of, switchMap, tap } from 'rxjs';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
-import {
-  PilotV2Node,
-  type PublicPilotV1Node,
-} from '../../innovative-core/domain/nodes';
-import { V1PublicPilotRenderComponent } from '../../renders/v1-public-pilot-render/v1-public-pilot-render.component';
-import { V2PilotRenderComponent } from '../../renders/v2-pilot-render/v2-pilot-render.component';
+import { PilotV2Node, type PublicPilotV1Node } from '@domain';
+import { V1PublicPilotRenderComponent } from '@renders/v1-public-pilot-render/v1-public-pilot-render.component';
+import { V2PilotRenderComponent } from '@renders/v2-pilot-render/v2-pilot-render.component';
 import { PilotService } from '../../services/pilot.service';
 import { SessionService } from '../../../security/session.service';
 

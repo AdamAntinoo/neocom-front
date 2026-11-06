@@ -1,8 +1,8 @@
 import { NgComponentOutlet } from '@angular/common';
 import { Component, Input, OnChanges, Type } from '@angular/core';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
-import { lookupRender } from '../../renders/render-registry';
-import '../../renders/v1-blueprint-render/v1-blueprint-render.component';
+import { lookupRender } from '@renders/render-registry';
+import '@renders/v1-blueprint-render/v1-blueprint-render.component';
 
 /** Minimal node shape for registry lookup (front NeoCom subclasses wrapping domain Records). */
 export type StandaloneRenderableNode = { getJsonClass(): string };

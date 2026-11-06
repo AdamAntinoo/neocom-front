@@ -1,0 +1,22 @@
+<div cy-section-name="blueprint-by-location" class="hierarchy">
+  <neocom-viewer-panel
+    [nodes2render]="getNodes2Render()"
+    [variant]="getVariant()"
+    [downloader]="this"
+    [selectOnHover]="false"
+  />
+  @if (!isDownloading() && loadFailed()) {
+    <p class="empty-hint" cy-section-name="blueprint-by-location-load-failed">
+      Could not load pilot blueprints. Check NeoCom back / network, then reload.
+    </p>
+  } @else if (!isDownloading() && noLocationChain()) {
+    <p class="empty-hint" cy-section-name="blueprint-by-location-empty">
+      No blueprints with a location chain yet. NeoCom list/SSE must include region and system names
+      for the Region → System → Blueprint tree.
+    </p>
+  } @else if (!isDownloading() && getNodes2Render().length === 0) {
+    <p class="empty-hint" cy-section-name="blueprint-by-location-none">
+      No blueprints returned for this pilot.
+    </p>
+  }
+</div>

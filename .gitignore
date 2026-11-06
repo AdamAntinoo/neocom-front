@@ -6,6 +6,10 @@
 /out-tsc
 /bazel-out
 
+# Local-only: js-debug resolves Vite servePath `/app/` to <project>/app/src/...
+# Symlink `app` → `.` makes those paths real. Do not commit.
+/app
+
 # Node
 /node_modules
 npm-debug.log

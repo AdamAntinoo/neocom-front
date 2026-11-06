@@ -3,6 +3,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@domain": ["src/app/modules/innovative-core/domain/nodes/index.ts"],
+      "@domain/*": ["src/app/modules/innovative-core/domain/nodes/*"],
+      "@renders": ["src/app/modules/renders/index.ts"],
+      "@renders/*": ["src/app/modules/renders/*"]
+    },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,

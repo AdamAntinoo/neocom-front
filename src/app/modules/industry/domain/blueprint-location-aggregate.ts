@@ -1,10 +1,11 @@
-import { BlueprintNodeV1 } from '../../innovative-core/domain/nodes/blueprint-node-v1';
-import { BlueprintV1Node } from '../../innovative-core/domain/nodes/blueprint-v1.node';
-import { RegionLookupNode } from '../../innovative-core/domain/nodes/region-lookup.node';
-import { SystemLookupNode } from '../../innovative-core/domain/nodes/system-lookup.node';
-import type { SpaceLocationNodeV1 } from '../../innovative-core/domain/nodes/space-location-v1.node';
+import {
+  BlueprintV1Node,
+  RegionV1Node,
+  SolarSystemV1Node,
+  type SpaceLocationNodeV1,
+} from '@domain';
 
-/** Location chain fields when NeoCom back / SSE supply them (IND-BP-117). */
+/** Location chain fields when NeoCom back supplies them (IND-BP-117). */
 export type BlueprintLocationChain = {
   regionId?: number;
   regionName?: string;
@@ -13,14 +14,13 @@ export type BlueprintLocationChain = {
 };
 
 type RegionBucket = {
-  region: RegionLookupNode;
-  systems: Map<string, SystemLookupNode>;
+  region: RegionV1Node;
+  systems: Map<string, SolarSystemV1Node>;
 };
 
 /**
- * Aggregate pilot blueprints into Region → System → Blueprint roots (IND-BP-112…115 / BLP-004…006).
- * Blueprints without a resolvable location chain are skipped (no invented regions/systems).
- * Region / System remain NeoCom subclasses ({@link RegionLookupNode}, {@link SystemLookupNode}).
+ * Aggregate pilot blueprints into Region → System → Blueprint via NeoCom children
+ * (DEF-BLP-007 / 012). No Lookup* or Listing subclass.
  */
 export class BlueprintLocationAggregate {
   private readonly buckets = new Map<string, RegionBucket>();
@@ -29,8 +29,8 @@ export class BlueprintLocationAggregate {
     this.buckets.clear();
   }
 
-  /** Replace tree from provider NeoCom blueprints (BLP-004…006). */
-  rebuildFromNodes(blueprints: BlueprintNodeV1[]): RegionLookupNode[] {
+  /** Replace tree from provider NeoCom blueprints. */
+  rebuildFromNodes(blueprints: BlueprintV1Node[]): RegionV1Node[] {
     this.clear();
     for (const bp of blueprints) {
       this.upsertNode(bp);
@@ -38,34 +38,15 @@ export class BlueprintLocationAggregate {
     return this.roots();
   }
 
-  /** @deprecated Prefer {@link rebuildFromNodes}; kept for existing unit tests. */
-  rebuildFrom(
-    blueprints: Array<{ node: BlueprintV1Node; location?: BlueprintLocationChain }>,
-  ): RegionLookupNode[] {
-    this.clear();
-    for (const entry of blueprints) {
-      this.upsert(entry.node, entry.location);
-    }
-    return this.roots();
-  }
-
-  upsertNode(node: BlueprintNodeV1): void {
+  upsertNode(node: BlueprintV1Node): void {
     const chain = chainFromSpace(node.getSpaceLocation()) ?? null;
-    if (!chain) {
-      return;
-    }
-    this.placeLeaf(toBlueprintV1Node(node), chain);
-  }
-
-  upsert(node: BlueprintV1Node, location?: BlueprintLocationChain): void {
-    const chain = normalizeChain(location);
     if (!chain) {
       return;
     }
     this.placeLeaf(node, chain);
   }
 
-  roots(): RegionLookupNode[] {
+  roots(): RegionV1Node[] {
     return [...this.buckets.values()]
       .map((b) => b.region)
       .sort((a, b) => a.getName().localeCompare(b.getName()));
@@ -76,14 +57,16 @@ export class BlueprintLocationAggregate {
     chain: {
       regionKey: string;
       regionName: string;
+      regionId?: number;
       systemKey: string;
       solarSystemName: string;
+      solarSystemId?: number;
     },
   ): void {
     let bucket = this.buckets.get(chain.regionKey);
     if (!bucket) {
       bucket = {
-        region: new RegionLookupNode({ name: chain.regionName, systemsCount: 0 }),
+        region: new RegionV1Node({ name: chain.regionName, regionId: chain.regionId }),
         systems: new Map(),
       };
       this.buckets.set(chain.regionKey, bucket);
@@ -91,7 +74,10 @@ export class BlueprintLocationAggregate {
 
     let system = bucket.systems.get(chain.systemKey);
     if (!system) {
-      system = new SystemLookupNode({ name: chain.solarSystemName, blueprintsCount: 0 });
+      system = new SolarSystemV1Node({
+        name: chain.solarSystemName,
+        solarSystemId: chain.solarSystemId,
+      });
       bucket.systems.set(chain.systemKey, system);
       bucket.region.addChild(system);
     }
@@ -120,15 +106,13 @@ function chainFromSpace(location?: SpaceLocationNodeV1): ReturnType<typeof norma
   });
 }
 
-function toBlueprintV1Node(node: BlueprintNodeV1): BlueprintV1Node {
-  return new BlueprintV1Node(node.toRenderRecord());
-}
-
 function normalizeChain(location?: BlueprintLocationChain): {
   regionKey: string;
   regionName: string;
+  regionId?: number;
   systemKey: string;
   solarSystemName: string;
+  solarSystemId?: number;
 } | null {
   if (!location) {
     return null;
@@ -146,5 +130,12 @@ function normalizeChain(location?: BlueprintLocationChain): {
     location.solarSystemId != null && location.solarSystemId > 0
       ? `s:${location.solarSystemId}`
       : `sn:${solarSystemName.toLowerCase()}`;
-  return { regionKey, regionName, systemKey, solarSystemName };
+  return {
+    regionKey,
+    regionName,
+    regionId: location.regionId,
+    systemKey,
+    solarSystemName,
+    solarSystemId: location.solarSystemId,
+  };
 }

@@ -19,7 +19,7 @@ export type SpaceLocationV1DtoWire = {
 
 /**
  * Front NeoCom for catalog space location (BLP-016 / BLP-017).
- * Tied to {@link BlueprintNodeV1} so aggregation can read region/system ids.
+ * Tied to {@link BlueprintV1Node} so aggregation can read region/system ids.
  */
 export class SpaceLocationNodeV1 extends NeoCom {
   locationId: number;

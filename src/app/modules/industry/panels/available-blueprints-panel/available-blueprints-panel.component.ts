@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit, inject, input } from '@angular/core';
-import { AppPanelComponent } from '../../../../innovative-core/components/app-panel/app-panel.component';
-import { ProcessedBlueprint } from '../../../domain/processed-blueprint';
-import { ViewerPanelComponent } from '../../../../shared/viewer-panel/viewer-panel.component';
-import { NeoComVariant } from '../../../../innovative-core/domain/NeoComVariant';
-import { NodeListAdapterService } from '../../../../services/node-list-adapter.service';
-import { catchError, of, timeout, type Subscription } from 'rxjs';
-
+import { AppPanelComponent } from '../../../innovative-core/components/app-panel/app-panel.component';
+import { ProcessedBlueprint } from '../../domain/processed-blueprint';
+import { ViewerPanelComponent } from '../../../shared/viewer-panel/viewer-panel.component';
+import { NeoComVariant } from '../../../innovative-core/domain/NeoComVariant';
+import { NodeListAdapterService } from '../../../services/node-list-adapter.service';
+import { catchError, of, timeout } from 'rxjs';
 /**
- * Manufacture available-blueprints panel: adapter cache → HTTP → SSE merge (FASSE-001…006).
+ * Manufacture available-blueprints panel: adapter cache → HTTP list.
+ * Front SSE enrichment is parked (DEF-BLP-003) until an SSE PoC re-integrates.
  */
 @Component({
   selector: 'available-blueprints-panel',
@@ -19,14 +19,12 @@ export class AvailableBlueprintsPanelComponent extends AppPanelComponent impleme
   private readonly adapter = inject(NodeListAdapterService);
   readonly pilotId = input(93813310);
 
-  private sseSub: Subscription | null = null;
-
   ngOnInit(): void {
     this.setVariant(NeoComVariant.AVAILABLE_BLUEPRINTS);
     this.startDownloading();
     const id = this.pilotId();
 
-    // Cache-first paint, then HTTP if miss; always open SSE for enrichment.
+    // Cache-first paint, then HTTP if miss (no SSE — DEF-BLP-003).
     const cached = this.adapter.readCache(id);
     if (cached) {
       this.completeDowload(cached);
@@ -41,18 +39,6 @@ export class AvailableBlueprintsPanelComponent extends AppPanelComponent impleme
         )
         .subscribe((nodes) => this.completeDowload(nodes)),
     );
-
-    this.sseSub = this.adapter.openEnrichment(id).subscribe({
-      next: ({ node }) => this.mergeEnrichedRow(node.blueprintId, node),
-      error: () => {
-        /* SSE optional */
-      },
-    });
-  }
-
-  override ngOnDestroy(): void {
-    this.sseSub?.unsubscribe();
-    super.ngOnDestroy();
   }
 
   /**

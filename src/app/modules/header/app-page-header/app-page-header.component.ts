@@ -4,8 +4,8 @@ import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import { ApplicationInfoV1Node } from '../../innovative-core/domain/nodes/application-info-v1.node';
 import { ServerStatusV1Node } from '../../innovative-core/domain/nodes/server-status-v1.node';
 import { StandaloneNodePanelComponent } from '../../shared/standalone-node-panel/standalone-node-panel.component';
-import '../../renders/v1-application-info-render/v1-application-info-render.component';
-import '../../renders/v1-server-status-render/v1-server-status-render.component';
+import '@renders/v1-application-info-render/v1-application-info-render.component';
+import '@renders/v1-server-status-render/v1-server-status-render.component';
 import { ApplicationInfoProvider } from '../providers/application-info.provider';
 import { ServerStatusProvider } from '../providers/server-status.provider';
 
