@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
-import { SystemLookupNode } from '../../innovative-core/domain/nodes/system-lookup.node';
+import { SolarSystemV1Node } from '@domain';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
 
 /**
- * System lookup card — same visual language as `v1-region-render`.
- * Variant `-SOLAR-SYSTEM-LOOKUP-` (orange panel). Short name: **v1-system**.
+ * Solar system card — jsonClass `SolarSystemV1` (DEF-BLP-008 / 011).
+ * Paints for `-SOLAR-SYSTEM-LOOKUP-` and the list host `-BLUEPRINT-LIST-` (orange panel).
+ * Short name: **v1-system**.
  */
 @Component({
   selector: 'v1-system-render',
@@ -15,16 +16,16 @@ import { registerRender } from '../render-registry';
 })
 export class V1SystemRenderComponent implements OnInit {
   @Input() container: IViewer | null = null;
-  @Input() node!: SystemLookupNode;
+  @Input() node!: SolarSystemV1Node;
   @Input() variant: NeoComVariant | string = NeoComVariant.SOLAR_SYSTEM_LOOKUP;
 
-  private static registered = false;
+  static registered = false;
 
   static ensureRegistered(): void {
     if (V1SystemRenderComponent.registered) {
       return;
     }
-    registerRender('LookupSolarSystem', V1SystemRenderComponent);
+    registerRender('SolarSystemV1', V1SystemRenderComponent);
     V1SystemRenderComponent.registered = true;
   }
 
@@ -36,6 +37,15 @@ export class V1SystemRenderComponent implements OnInit {
     return String(this.variant);
   }
 
+  /** Lookup specimens and the blueprint-by-location list both paint this card. */
+  showsCard(): boolean {
+    const variant = this.getVariant();
+    return (
+      variant === NeoComVariant.SOLAR_SYSTEM_LOOKUP ||
+      variant === NeoComVariant.BLUEPRINT_LIST
+    );
+  }
+
   getName(): string {
     return this.node?.getName() ?? '-';
   }
@@ -44,3 +54,5 @@ export class V1SystemRenderComponent implements OnInit {
     return this.node?.getBlueprintsCount() ?? 0;
   }
 }
+
+V1SystemRenderComponent.ensureRegistered();

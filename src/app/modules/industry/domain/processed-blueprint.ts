@@ -1,45 +1,28 @@
-import { NeoComDelayed } from '../../innovative-core/domain/NeoComDelayed';
+import { BlueprintV1Node, SpaceLocationNodeV1, type BlueprintV1DtoWire } from '@domain';
 import type { BlueprintLocationChain } from './blueprint-location-aggregate';
 
-/** Processed blueprint node for manufacture list renders (NODE-005, NODE-017). */
-export class ProcessedBlueprint extends NeoComDelayed {
-  public blueprintId: number;
-  public name: string;
-  public manufactureIndex: number | null;
-  /** Optional location chain from NeoCom list/SSE (IND-BP-117). */
-  public location?: BlueprintLocationChain;
+/**
+ * @deprecated Prefer {@link BlueprintV1Node}. Thin alias for manufacture-list migration (DEF-BLP-010).
+ * jsonClass stays `BlueprintV1` so render registration matches the canonical node.
+ */
+export class ProcessedBlueprint extends BlueprintV1Node {
+  /** Optional legacy location chain field (IND-BP-117). Prefer spaceLocation on BlueprintV1Node. */
+  // public location?: BlueprintLocationChain;
 
-  constructor(values: object = {}) {
-    super(values);
-    this.jsonClass = 'ProcessedBlueprint';
-    const v = values as Partial<ProcessedBlueprint>;
-    this.blueprintId = v.blueprintId ?? 0;
-    this.name = v.name ?? '-';
-    this.manufactureIndex = v.manufactureIndex ?? null;
-    this.location = v.location;
+  constructor(values: BlueprintV1DtoWire & { location?: BlueprintLocationChain } | object = {}) {
+    const v = values as BlueprintV1DtoWire & { name?: string; location?: BlueprintLocationChain };
+    super({
+      ...v,
+      blueprintTypeName: v.blueprintTypeName ?? v.name,
+    });
+    this.jsonClass = 'BlueprintV1';
   }
 
-  getName(): string {
-    return this.name;
-  }
-
-  getBlueprintId(): number {
-    return this.blueprintId;
-  }
-
-  getManufactureIndex(): number | null {
-    return this.manufactureIndex;
-  }
-
-  getLocation(): BlueprintLocationChain | undefined {
-    return this.location;
+  /** Legacy accessor name used by manufacture-list adapters. */
+  getLocation(): SpaceLocationNodeV1 | undefined {
+    return this.getSpaceLocation();
   }
 }
 
-/** Summary twin registered to the same render (NODE-017). */
-export class ProcessedBlueprintSummary extends ProcessedBlueprint {
-  constructor(values: object = {}) {
-    super(values);
-    this.jsonClass = 'ProcessedBlueprintSummary';
-  }
-}
+/** @deprecated Same render as {@link BlueprintV1Node}. */
+export class ProcessedBlueprintSummary extends ProcessedBlueprint {}

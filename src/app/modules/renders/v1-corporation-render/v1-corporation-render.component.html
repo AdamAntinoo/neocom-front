@@ -11,23 +11,25 @@
       alt=""
       [src]="getCorporationIcon()"
     />
-    <div class="column">
-      <div class="row name-line">
-        <span cy-field-value="corporation-name" class="elemental-ff name">{{
-          getName()
-        }}</span>
-        <span cy-field-value="corporation-ticker" class="elemental-ff name">{{
-          getTickerDisplay()
-        }}</span>
-      </div>
-      <div cy-field-value="corporation-members" class="opensans-ff meta">
-        {{ getMemberCount() }} MEMBERS
-      </div>
-      @if (getTaxRatePercent()) {
-        <div cy-field-value="corporation-tax" class="opensans-ff meta">
-          TAX {{ getTaxRatePercent() }}
+    <div class="column corp-body">
+      <div class="row corp-main-line">
+        @if (getTaxRatePercent()) {
+          <div cy-field-value="corporation-tax" class="opensans-ff meta corp-col corp-col-3">
+            TAX {{ getTaxRatePercent() }}
+          </div>
+        }
+        <div cy-field-value="corporation-members" class="opensans-ff meta corp-col corp-col-2">
+          {{ getMemberCount() }} MEMBERS
         </div>
-      }
+        <div class="row name-line corp-col corp-col-1">
+          <span cy-field-value="corporation-name" class="elemental-ff name">{{
+            getName()
+          }}</span>
+          <span cy-field-value="corporation-ticker" class="elemental-ff name">{{
+            getTickerDisplay()
+          }}</span>
+        </div>
+      </div>
       @if (hasAlliance()) {
         <div cy-field-value="alliance-name" class="opensans-ff meta">
           {{ getAllianceName() }}

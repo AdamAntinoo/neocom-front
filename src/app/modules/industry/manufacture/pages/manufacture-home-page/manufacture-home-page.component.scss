@@ -1,9 +1,0 @@
-@use 'palette' as *;
-
-// Geometry (.section / .row / .column) comes from global styles/geometry.scss.
-:host {
-  min-height: 100vh;
-  background: var(--neo-color-page-background, #{$page-background});
-  color: var(--neo-color-page-foreground, #{$page-foreground});
-  font-family: 'Open Sans', sans-serif;
-}

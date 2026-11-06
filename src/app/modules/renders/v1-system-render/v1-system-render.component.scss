@@ -1,5 +1,11 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
 .system-card {
-  width: max-content;
+  width: 100%;
   min-width: 160px;
 }
 

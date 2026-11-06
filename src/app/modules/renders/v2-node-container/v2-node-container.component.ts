@@ -7,6 +7,8 @@ import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { lookupRender } from '../render-registry';
 import '../v1-blueprint-render/v1-blueprint-render.component';
+import '../v1-region-render/v1-region-render.component';
+import '../v1-system-render/v1-system-render.component';
 
 @Component({
   selector: 'v2-node-container',

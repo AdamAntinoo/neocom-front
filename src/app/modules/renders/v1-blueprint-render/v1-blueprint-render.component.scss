@@ -1,11 +1,13 @@
 :host {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 .blueprint-identity {
   gap: 12px;
   align-items: center;
-  width: max-content;
+  width: 100%;
 
   .identity {
     gap: 0;

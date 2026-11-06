@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { BackgroundEnabledComponent } from '../background-enabled/background-enabled.component';
 import type { ICollaboration } from '../../domain/interfaces/ICollaboration.interface';
 import type { ISelectable } from '../../domain/interfaces/ISelectable.interface';
@@ -8,6 +8,7 @@ import { SingleSelectionManager } from '../../domain/SingleSelectionManager';
 
 /**
  * Feature panels extend this: own dataModelRoot, render list, download flag, variant (NODE-006, NODE-015).
+ * Download / render-list state is signal-backed so zoneless CD refreshes after async feeds.
  */
 @Component({
   selector: 'app-panel',
@@ -16,9 +17,9 @@ import { SingleSelectionManager } from '../../domain/SingleSelectionManager';
 export class AppPanelComponent extends BackgroundEnabledComponent implements IViewer {
   readonly variantInput = input<NeoComVariant | string>(NeoComVariant.DEFAULT, { alias: 'variant' });
 
-  protected downloading = true;
+  private readonly downloading = signal(true);
   protected dataModelRoot: ICollaboration[] = [];
-  private renderNodeList: ICollaboration[] = [];
+  private readonly renderNodeList = signal<ICollaboration[]>([]);
   protected variant: NeoComVariant | string = NeoComVariant.DEFAULT;
   protected selectionManager = new SingleSelectionManager();
 
@@ -31,22 +32,22 @@ export class AppPanelComponent extends BackgroundEnabledComponent implements IVi
   }
 
   isDownloading(): boolean {
-    return this.downloading;
+    return this.downloading();
   }
 
   getNodes2Render(): ICollaboration[] {
-    return this.renderNodeList;
+    return this.renderNodeList();
   }
 
   startDownloading(): void {
-    this.downloading = true;
+    this.downloading.set(true);
   }
 
   /** Spelling preserved from infinity (completeDowload). */
   completeDowload(nodes: ICollaboration[]): void {
     this.dataModelRoot = nodes;
     this.notifyDataChanged();
-    this.downloading = false;
+    this.downloading.set(false);
   }
 
   enterSelected(_node: ICollaboration): void {}
@@ -70,7 +71,7 @@ export class AppPanelComponent extends BackgroundEnabledComponent implements IVi
         copyList.push(...nodes);
       }
     }
-    this.renderNodeList = copyList;
+    this.renderNodeList.set(copyList);
   }
 
   applyPolicies(entries: ICollaboration[]): ICollaboration[] {

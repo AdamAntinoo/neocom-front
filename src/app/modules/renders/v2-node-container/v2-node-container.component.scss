@@ -1,15 +1,24 @@
 :host {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 .node-row {
   align-items: flex-start;
   gap: 0.25rem;
+  width: 100%;
 }
 
 .expand-toggle {
+  box-sizing: border-box;
   flex: 0 0 auto;
-  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--neo-icon-md) + 0.25rem);
+  height: calc(var(--neo-icon-md) + 0.25rem);
+  margin: 0;
   padding: 0;
   border: 0;
   background: transparent;
@@ -18,8 +27,9 @@
 }
 
 .node-body {
-  flex: 1 1 auto;
+  flex: 1 1 0;
   min-width: 0;
+  width: 100%;
 }
 
 .not-ready {

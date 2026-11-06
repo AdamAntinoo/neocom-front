@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { RegionLookupNode } from '../../../../innovative-core/domain/nodes/region-lookup.node';
-import { NeoComVariant } from '../../../../innovative-core/domain/NeoComVariant';
-import { V1RegionRenderComponent } from '../../../../renders/v1-region-render/v1-region-render.component';
+import { RegionV1Node } from '@domain';
+import { NeoComVariant } from '../../../innovative-core/domain/NeoComVariant';
+import { V1RegionRenderComponent } from '@renders/v1-region-render/v1-region-render.component';
 
 /**
  * First hierarchy level for blueprint-by-location: distinct Regions where blueprints sit.
@@ -13,7 +13,7 @@ import { V1RegionRenderComponent } from '../../../../renders/v1-region-render/v1
   styleUrl: './blueprint-regions-panel.component.scss',
 })
 export class BlueprintRegionsPanelComponent {
-  @Input() regions: RegionLookupNode[] = [];
+  @Input() regions: RegionV1Node[] = [];
 
   protected readonly lookupVariant = NeoComVariant.SOLAR_SYSTEM_LOOKUP;
 }

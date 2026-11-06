@@ -14,6 +14,8 @@ $label-size: 9px; // field labels: Open Sans · orange (see fonts.scss `.label`)
 
 // Panel chrome
 $panel-padding: 2px;
+/// Default gap between page `.section` / `.row` bands (DEF-BLP-005) — equals panel padding.
+$section-padding: $panel-padding;
 $panel-margin: 2px;
 $panel-extramargin: 5px;
 $panel-border-thickness: 1px;

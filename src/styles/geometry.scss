@@ -1,12 +1,15 @@
 /// Page geometry — common layout primitives for every page.
 ///
-/// Hierarchy (zero margin / padding / border / gap unless a modifier is added):
+/// Hierarchy:
 ///   .neo-page
 ///     └── .section          (vertical stack of rows / columns)
 ///           ├── .row        (horizontal)
 ///           └── .column     (vertical; may contain .row children)
 ///
-/// Use these class names project-wide. Panel colour frames stay in panel-styles.
+/// Default section/row gap uses `$section-padding` (= `$panel-padding`, DEF-BLP-005).
+/// Panel colour frames stay in panel-styles.
+
+@use 'tokens' as *;
 
 // --- Page root ---------------------------------------------------------------
 // Angular pages: `host: { class: 'neo-page' }` so this global class applies to the host.
@@ -20,7 +23,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  gap: 0;
+  gap: $section-padding;
 }
 
 // --- Section (page band; no chrome) ------------------------------------------
@@ -37,7 +40,7 @@
   padding: 0;
   border: 0;
   border-style: none;
-  gap: 0;
+  gap: $section-padding;
 }
 
 // --- Column (vertical; holds rows) -------------------------------------------
@@ -54,7 +57,7 @@
   padding: 0;
   border: 0;
   border-style: none;
-  gap: 0;
+  gap: $section-padding;
 }
 
 // --- Row (horizontal) --------------------------------------------------------
@@ -73,7 +76,7 @@
   padding: 0;
   border: 0;
   border-style: none;
-  gap: 0;
+  gap: $section-padding;
 }
 
 // --- Optional modifiers (explicit opt-in; default geometry stays flush) ------

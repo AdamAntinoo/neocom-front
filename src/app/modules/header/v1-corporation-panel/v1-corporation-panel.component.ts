@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { of, switchMap } from 'rxjs';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
-import { V1CorporationRenderComponent } from '../../renders/v1-corporation-render/v1-corporation-render.component';
+import { V1CorporationRenderComponent } from '@renders/v1-corporation-render/v1-corporation-render.component';
 import { PublicCorporationService } from '../../services/public-corporation.service';
 
 /**

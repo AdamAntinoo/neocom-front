@@ -1,15 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ProcessedBlueprint } from '../../industry/domain/processed-blueprint';
 import { NeoCom } from '../../innovative-core/domain/NeoCom';
 import { NeoComVariant } from '../../innovative-core/domain/NeoComVariant';
-import { BlueprintV1Node } from '../../innovative-core/domain/nodes/blueprint-v1.node';
+import { BlueprintV1Node } from '@domain';
 import type { IViewer } from '../../innovative-core/domain/interfaces/IViewer.interface';
 import { registerRender } from '../render-registry';
 
 /**
- * Base identity card `v1-blueprint` for BlueprintV1Node (EPIC-010 §08 / DOM-BP-003).
- * Layout: icon lg · BLUEPRINT NAME + Open Sans bold · ME/TE Elemental · runs/maxRuns if copy.
- * Also paints ProcessedBlueprint* list variants (still to review on L1).
+ * Base identity card `v1-blueprint` for BlueprintV1Node.
+ * Render registration name = jsonClass `BlueprintV1` (DEF-BLP-011).
  */
 @Component({
   selector: 'v1-blueprint-render',
@@ -28,8 +26,6 @@ export class V1BlueprintRenderComponent implements OnInit {
       return;
     }
     registerRender('BlueprintV1', V1BlueprintRenderComponent);
-    registerRender('ProcessedBlueprint', V1BlueprintRenderComponent);
-    registerRender('ProcessedBlueprintSummary', V1BlueprintRenderComponent);
     V1BlueprintRenderComponent.registered = true;
   }
 
@@ -37,38 +33,20 @@ export class V1BlueprintRenderComponent implements OnInit {
     V1BlueprintRenderComponent.ensureRegistered();
   }
 
-  isBaseIdentity(): boolean {
-    return this.node?.getJsonClass?.() === 'BlueprintV1';
-  }
-
   getBlueprintV1(): BlueprintV1Node | undefined {
-    return this.isBaseIdentity() && this.node instanceof BlueprintV1Node
-      ? this.node
-      : undefined;
-  }
-
-  getProcessed(): ProcessedBlueprint | undefined {
-    return this.isBaseIdentity() ? undefined : (this.node as ProcessedBlueprint);
+    return this.node instanceof BlueprintV1Node ? this.node : undefined;
   }
 
   isDetailed(): boolean {
-    return !this.isBaseIdentity() && this.variant === NeoComVariant.AVAILABLE_BLUEPRINTS;
+    return this.variant === NeoComVariant.AVAILABLE_BLUEPRINTS;
   }
 
   getName(): string {
-    const base = this.getBlueprintV1();
-    if (base) {
-      return base.getBlueprintTypeName() || '-';
-    }
-    return this.getProcessed()?.getName() ?? '-';
+    return this.getBlueprintV1()?.getBlueprintTypeName() || '-';
   }
 
   getBlueprintId(): number {
-    const base = this.getBlueprintV1();
-    if (base) {
-      return base.getBlueprintId();
-    }
-    return this.getProcessed()?.getBlueprintId() ?? 0;
+    return this.getBlueprintV1()?.getBlueprintId() ?? 0;
   }
 
   getBlueprintTypeIconURL(): string {
@@ -113,16 +91,15 @@ export class V1BlueprintRenderComponent implements OnInit {
   }
 
   getManufactureIndexLabel(): string {
-    const processed = this.getProcessed();
-    const index = processed?.getManufactureIndex();
+    const bp = this.getBlueprintV1();
+    const index = bp?.getManufactureIndex();
     if (index == null) {
-      return processed?.isReady() ? '—' : '…';
+      return bp?.isReady() ? '—' : '…';
     }
     return String(index);
   }
 }
 
-// Eager registration so the registry is ready before first paint.
 V1BlueprintRenderComponent.ensureRegistered();
 
 /** @deprecated Use {@link NeoComVariant.AVAILABLE_BLUEPRINTS} */

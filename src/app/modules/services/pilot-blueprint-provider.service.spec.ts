@@ -1,8 +1,6 @@
 import { provideHttpClient } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { of } from 'rxjs';
-import { AuthenticatedSseClient } from './authenticated-sse.client';
 import { PilotBlueprintProviderService } from './pilot-blueprint-provider.service';
 
 describe('PilotBlueprintProviderService', () => {
@@ -11,14 +9,7 @@ describe('PilotBlueprintProviderService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        provideHttpClient(),
-        provideHttpClientTesting(),
-        {
-          provide: AuthenticatedSseClient,
-          useValue: { open: () => of() },
-        },
-      ],
+      providers: [provideHttpClient(), provideHttpClientTesting()],
     });
     provider = TestBed.inject(PilotBlueprintProviderService);
     http = TestBed.inject(HttpTestingController);
@@ -28,7 +19,7 @@ describe('PilotBlueprintProviderService', () => {
     http.verify();
   });
 
-  it('loads blueprints as NeoCom nodes and caches by pilot', () => {
+  it('loads blueprints as NeoCom nodes via HTTP and caches by pilot (no SSE)', () => {
     let snap: unknown;
     provider.observeBlueprints(42).subscribe((n) => {
       snap = n;
@@ -51,7 +42,7 @@ describe('PilotBlueprintProviderService', () => {
 
     const nodes = snap as ReturnType<PilotBlueprintProviderService['readCache']>;
     expect(nodes).toHaveLength(1);
-    expect(nodes![0].getJsonClass()).toBe('BlueprintNodeV1');
+    expect(nodes![0].getJsonClass()).toBe('BlueprintV1');
     expect(nodes![0].getSpaceLocation()?.getRegionName()).toBe('Domain');
     expect(provider.readCache(42)).toHaveLength(1);
     expect(provider.readCache(99)).toBeNull();
