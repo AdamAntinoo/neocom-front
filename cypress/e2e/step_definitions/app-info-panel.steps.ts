@@ -1,7 +1,8 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 
-When('I open the dashboard', () => {
-  cy.visit('/app/');
+When('I open the login page', () => {
+  cy.clearCookie('neocom_access');
+  cy.visit('/app/login');
 });
 
 Then('the app info panel has {int} fields', (count: number) => {

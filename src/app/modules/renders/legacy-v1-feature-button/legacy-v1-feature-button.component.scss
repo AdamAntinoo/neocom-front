@@ -1,0 +1,29 @@
+@use 'palette' as *;
+
+.feature-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.neocom-icon {
+  width: 200px;
+  height: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  /* DEF-IB-009 — fine white icon border */
+  border: 1px solid var(--neo-color-panel-white, #{$panel-white});
+  box-sizing: border-box;
+}
+
+.feature-label {
+  text-align: center;
+  margin-top: 4px;
+  font-family: 'Elemental', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--neo-color-panel-white, #{$panel-white});
+}

@@ -1,0 +1,32 @@
+# Continuous deployment. package.json is written by version:sync (MajorMinorPatch only).
+# On main, each commit increments the minor component.
+next-version: 0.1.0
+assembly-informational-format: '{FullSemVer}'
+mode: ContinuousDeployment
+branches:
+  main:
+    regex: ^main$
+    mode: ContinuousDeployment
+    increment: Minor
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: false
+  develop:
+    regex: ^develop$
+    mode: ContinuousDeployment
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    track-merge-target: true
+  pull-request:
+    mode: ContinuousDelivery
+    tag: PullRequest
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+    tag-number-pattern: '[/-](?<number>\d+)[-/]'
+    track-merge-target: false
+    regex: (pull|pull\-requests|pr|[0-9]+)[/-]
+    tracks-release-branches: false
+    is-release-branch: false
+ignore:
+  sha: []
+merge-message-formats: {}
+assembly-file-versioning-format: '{Major}.{Minor}.{Patch}-{CommitsSinceVersionSource}'

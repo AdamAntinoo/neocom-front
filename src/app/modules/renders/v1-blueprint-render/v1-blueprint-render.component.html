@@ -1,0 +1,24 @@
+@if (!isDetailed()) {
+  <div cy-section-name="blueprint-identity" cy-render="v1-blueprint" class="blueprint-identity row">
+    <img
+      class="neo-icon neo-icon-lg"
+      alt=""
+      cy-field-value="blueprint-type-icon"
+      [src]="getBlueprintTypeIconURL()"
+    />
+    <div class="column identity">
+      <span cy-field-label="blueprint-name" class="opensans-ff label">BLUEPRINT NAME</span>
+      <span cy-field-value="blueprint-name" class="opensans-ff blueprint-name">{{ getName() }}</span>
+    </div>
+    <span cy-field-value="efficiency" class="elemental-ff metric">{{ getEfficiencyLabel() }}</span>
+    @if (!isMaster()) {
+      <span cy-field-value="runs" class="elemental-ff metric">{{ getRunsLabel() }}</span>
+    }
+  </div>
+} @else {
+  <div cy-section-name="blueprint-detailed" class="blueprint-detailed">
+    <span cy-field-value="blueprint-name">{{ getName() }}</span>
+    <span cy-field-value="blueprint-id">{{ getBlueprintId() }}</span>
+    <span cy-field-value="manufacture-index">{{ getManufactureIndexLabel() }}</span>
+  </div>
+}

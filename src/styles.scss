@@ -1,4 +1,8 @@
-// Application style sources
-@use './styles/neocom';
-@use './styles/panel-styles';
-@use './styles/fonts';
+// Global styles entry (Angular application builder).
+// Sass modules only — @use / @forward (INFRA-040). No @import in app styles.
+@use 'styles/theme';
+@use 'styles/geometry';
+@use 'styles/neocom';
+@use 'styles/panel-styles';
+@use 'styles/icons';
+@use 'styles/fonts';

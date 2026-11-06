@@ -1,0 +1,78 @@
+:host {
+  display: block;
+  width: auto;
+  max-width: 100%;
+}
+
+.server-info-panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  width: 100%;
+  /* Match v1-application-info-render panel height */
+  min-height: 50px;
+  padding: 6px 8px;
+}
+
+.line {
+  gap: 8px;
+  align-items: baseline;
+  width: 100%;
+}
+
+.name-line {
+  justify-content: space-between;
+}
+
+.server-name,
+.server-online {
+  font-size: 14px;
+  line-height: 1.1;
+  color: var(--neo-color-panel-white, #fff);
+}
+
+.server-online {
+  margin-left: auto;
+  text-transform: uppercase;
+}
+
+.metric-line {
+  justify-content: space-between;
+}
+
+.values {
+  display: flex;
+  flex-direction: row;
+  flex: 0 0 auto;
+  width: auto;
+  gap: 12px;
+  align-items: baseline;
+  margin-left: auto;
+  justify-content: flex-end;
+}
+
+/* Programme field label: Open Sans 9px + label orange #ffa500 (not panel-red / #ff3300). */
+.server-info-panel .label {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 9px;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffa500;
+  flex-shrink: 0;
+}
+
+.value {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  line-height: 1.15;
+  color: var(--neo-color-panel-white, #fff);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.metric-line > .value {
+  margin-left: auto;
+}

@@ -1,10 +1,11 @@
 {
   "name": "neocom-front",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh ng serve",
     "start:dev": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh ng serve --configuration development",
+    "wiremock": "bash scripts/start-wiremock.sh",
     "start:node": "bash scripts/with-neocom-node.sh node server.js",
     "start:server": "bash scripts/with-neocom-node.sh node server.js",
     "start:prod": "NG_BUILD_SASS_EMBEDDED=0 bash scripts/with-neocom-node.sh bash -c 'ng build && node server.js'",
@@ -13,7 +14,10 @@
     "test": "NG_BUILD_SASS_EMBEDDED=0 ng test",
     "test:pilot": "node --test test/pilot-character.test.mjs",
     "e2e": "cypress run",
-    "e2e:open": "cypress open"
+    "e2e:open": "cypress open",
+    "banner": "bash scripts/with-neocom-node.sh node scripts/generate-banner.mjs",
+    "version:sync": "bash scripts/with-neocom-node.sh node scripts/sync-version.mjs",
+    "prepare": "git config core.hooksPath .githooks"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
@@ -31,7 +35,7 @@
     "dotenv": "^17.4.2",
     "express": "^5.3.0",
     "http-proxy-middleware": "^3.0.7",
-    "neocom-domain": "^0.29.2",
+    "neocom-domain": "0.29.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -43,6 +47,7 @@
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "cypress": "^16.1.1",
     "esbuild": "^0.28.2",
+    "figlet": "^1.12.0",
     "jsdom": "^30.0.0",
     "prettier": "^3.8.1",
     "typescript": "~6.0.2",

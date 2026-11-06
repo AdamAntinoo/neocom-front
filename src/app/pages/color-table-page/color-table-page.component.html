@@ -1,0 +1,27 @@
+<app-page-header />
+<section cy-section-name="color-table" class="section column page-body">
+  <h1 class="page-title elemental-ff">Colour table</h1>
+  <p class="page-lead opensans-ff">
+    Palette keys from <code>_palette.scss</code> · CSS vars <code>--neo-color-*</code>
+  </p>
+
+  @for (group of groups(); track group) {
+    <h2 class="group-title opensans-ff label">{{ group }}</h2>
+    <div class="swatch-grid">
+      @for (entry of coloursIn(group); track entry.key) {
+        <article class="swatch-row row" [attr.data-palette-key]="entry.key">
+          <div
+            class="swatch"
+            [style.background]="'var(' + entry.cssVar + ')'"
+            [attr.title]="entry.hex"
+          ></div>
+          <div class="column names">
+            <span class="opensans-ff key">{{ entry.key }}</span>
+            <span class="opensans-ff css-var">{{ entry.cssVar }}</span>
+            <span class="opensans-ff hex">{{ entry.hex }}</span>
+          </div>
+        </article>
+      }
+    </div>
+  }
+</section>

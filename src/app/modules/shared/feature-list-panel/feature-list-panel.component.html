@@ -1,0 +1,20 @@
+<section cy-section-name="feature-list" class="section row feature-list">
+  @for (feature of features(); track feature.getFeatureId()) {
+    <button
+      type="button"
+      class="feature-slot"
+      [disabled]="!feature.isEnabled()"
+      (click)="onSelect(feature.getRoute())"
+    >
+      <v1-feature-button
+        [feature]="{
+          label: feature.getLabel(),
+          route: feature.getRoute(),
+          imageRef: feature.getImageRef(),
+          enabled: feature.isEnabled(),
+          interaction: 'PAGEROUTE',
+        }"
+      />
+    </button>
+  }
+</section>

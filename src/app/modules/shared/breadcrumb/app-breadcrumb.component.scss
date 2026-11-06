@@ -1,0 +1,39 @@
+@use 'tokens' as *;
+@use 'palette' as *;
+
+/* DEF-IB-008 — Elemental small in full-width white panel; flush to neighbours (UI-GEO gap only). */
+:host {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb {
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+  gap: $panel-margin;
+  margin: $panel-margin;
+  padding: $panel-padding 0.5rem;
+  font-family: 'Elemental', sans-serif;
+  font-size: 12px;
+}
+
+.crumb.link {
+  color: #ffa500;
+  text-decoration: none;
+}
+
+.crumb.link:hover {
+  text-decoration: underline;
+}
+
+.crumb.current {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.sep {
+  opacity: 0.5;
+}

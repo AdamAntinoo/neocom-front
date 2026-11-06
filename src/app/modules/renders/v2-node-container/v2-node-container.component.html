@@ -1,0 +1,32 @@
+<div
+  class="node-row row"
+  [class.not-ready]="!isReady()"
+  (mouseenter)="mouseEnter()"
+>
+  @if (node?.isExpandable()) {
+    <button
+      type="button"
+      class="expand-toggle"
+      cy-action="expand-toggle"
+      [attr.aria-expanded]="node.isExpanded()"
+      (click)="toggleExpanded(); $event.stopPropagation()"
+    >
+      <img
+        class="neo-icon neo-icon-md"
+        alt=""
+        [src]="
+          node.isExpanded()
+            ? '/res-ui/drawable/arrowdownred.png'
+            : '/res-ui/drawable/arrowright.png'
+        "
+      />
+    </button>
+  }
+  <div class="neocom-panel node-body" (click)="onClick()">
+    @if (getRenderType(); as type) {
+      <ng-container *ngComponentOutlet="type; inputs: renderInputs()" />
+    } @else {
+      <span class="unknown-render">Unknown jsonClass: {{ node?.getJsonClass() }}</span>
+    }
+  </div>
+</div>

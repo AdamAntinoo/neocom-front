@@ -24,6 +24,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "baseHref": "/app/",
             "assets": [
               {
                 "glob": "**/*",
@@ -32,6 +33,7 @@
             ],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"],
               "sass": {
                 "silenceDeprecations": ["import"]
               }
@@ -70,7 +72,9 @@
         "serve": {
           "builder": "@angular/build:dev-server",
           "options": {
-            "host": "127.0.0.1",
+            "host": "localhost",
+            "port": 6001,
+            "servePath": "/app/",
             "proxyConfig": "proxy.conf.js"
           },
           "configurations": {

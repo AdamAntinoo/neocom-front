@@ -1,0 +1,81 @@
+$feature-color: white;
+$feature-background-color: black;
+
+.feature {
+  position: relative;
+  white-space: nowrap;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: $feature-background-color;
+  width: 150px;
+  border: 1px solid $feature-color;
+  cursor: pointer;
+  margin-right: 4px;
+}
+
+.feature:hover {
+  font-weight: bold;
+  background-color: #172e47;
+}
+
+.feature-label {
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Electrolize, sans-serif;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 2px white,
+    0 0 2px white;
+  color: white;
+  padding-left: 8px;
+}
+
+.active {
+  background-color: #193319;
+}
+
+.disabled {
+  background-color: #632e0b;
+}
+
+.corner-border {
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  width: 16px;
+}
+
+.corner-clear {
+  position: absolute;
+  bottom: -10px;
+  right: -1px;
+  width: 15px;
+}
+
+.corner-mark {
+  position: absolute;
+  bottom: -9px;
+  right: -1px;
+  width: 10px;
+}
+
+.corner-aligment {
+  position: relative;
+  align-self: inherit;
+  margin-left: auto;
+}
+
+.corner-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12px;
+}
+
+.blue-mark {
+  fill: #1e90ff;
+}
+
+.blueviolet-mark {
+  fill: blueviolet;
+}

@@ -1,0 +1,33 @@
+/// Non-colour design tokens (spacing, type, panel chrome metrics).
+
+// Typography scale
+$neocom-line-height: 1;
+$bold-weight: 800;
+$semibold-weight: 600;
+$regular-weight: 400;
+$thin-weight: 200;
+$classname-size: 11px;
+$classname-bold: 500;
+$default-text-size: 14px;
+$selected-text-size: 16px;
+$label-size: 9px; // field labels: Open Sans · orange (see fonts.scss `.label`)
+
+// Panel chrome
+$panel-padding: 2px;
+/// Default gap between page `.section` / `.row` bands (DEF-BLP-005) — equals panel padding.
+$section-padding: $panel-padding;
+$panel-margin: 2px;
+$panel-extramargin: 5px;
+$panel-border-thickness: 1px;
+$panel-default-opacity: 0.8;
+$panel-hover-opacity: 1;
+$panel-opacity: $panel-default-opacity;
+$panel-corner-marker-size: 6px;
+$panel-corner-height: $panel-corner-marker-size;
+$panel-corner-width: $panel-corner-marker-size;
+$panel-corner-marker-thickness: 1px;
+$panel-corner-marker-displacement: -1px;
+$panel-repositioning: $panel-corner-marker-displacement;
+$panel-default-font: 'Din-1451';
+$panel-change-time: 0.5s;
+$change-time: $panel-change-time;

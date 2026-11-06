@@ -1,0 +1,13 @@
+@if (isDownloading()) {
+  <div cy-section-name="viewer-downloading">Downloading…</div>
+} @else {
+  @for (node of getNodes2Render(); track $index) {
+    <v2-node-container
+      [container]="$any(downloader)"
+      [node]="$any(node)"
+      [variant]="getVariant()"
+      [index]="$index + 1"
+      [selectOnHover]="selectOnHover"
+    />
+  }
+}

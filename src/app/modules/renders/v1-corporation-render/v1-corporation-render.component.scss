@@ -1,0 +1,70 @@
+@use 'tokens' as *;
+
+:host {
+  display: block;
+}
+
+.corporation-card {
+  width: max-content;
+  max-width: 720px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-left: $panel-padding;
+  min-width: 0;
+  gap: $section-padding;
+}
+
+.pad {
+  padding: $panel-padding;
+  gap: $panel-padding;
+}
+
+.logo {
+  width: 64px;
+  height: 64px;
+  flex: none;
+}
+
+/* DEF-BLP-004 — single flex row order 3 → 2 → 1; gap = 2× common column gap */
+.corp-main-line {
+  align-items: baseline;
+  flex-wrap: nowrap;
+  width: auto;
+  gap: calc(#{$panel-padding} * 2);
+}
+
+.corp-col {
+  flex: 0 0 auto;
+}
+
+.name-line {
+  gap: calc(#{$panel-padding} * 2);
+  width: auto;
+  align-items: baseline;
+}
+
+.name {
+  color: var(--neo-color-panel-white, #fff);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+}
+
+.meta {
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--neo-color-panel-white, #fff);
+  white-space: nowrap;
+}
+
+.home {
+  white-space: normal;
+  max-width: 420px;
+}

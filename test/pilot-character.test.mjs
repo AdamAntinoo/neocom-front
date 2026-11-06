@@ -3,29 +3,54 @@ import { spawn } from 'node:child_process';
 import path from 'node:path';
 import test from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { GameCredential, Pilot } from '../../neocom-domain/dist/index.js';
+import {
+  GameCredential,
+  Pilot,
+  PILOT_FIXTURE_CHARACTER_ID,
+  PublicPilotV1,
+} from '../../neocom-domain/dist/index.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const wiremockRoot = path.resolve(here, '../support/wiremock');
 const port = 18080;
 
-test('WireMock character 93813310 builds a Pilot and stays within the credential limit', async () => {
+/**
+ * Map ESI GetCharactersDetail JSON into the published PublicPilotV1 field model (PILOT-007).
+ * Race / ancestry / bloodline names stay for front-universe enrichment.
+ */
+function publicPilotFromEsiCharacter(characterId, body) {
+  return new PublicPilotV1({
+    pilotId: characterId,
+    name: body.name,
+    birthday: body.birthday,
+    gender: body.gender,
+    securityStatus: body.security_status,
+    description: body.description ?? '',
+    corporation: { corporationId: body.corporation_id },
+  });
+}
+
+test('WireMock character 93813310 builds PublicPilotV1 and stays within the credential limit', async () => {
   const stop = await startWireMock(wiremockRoot, port);
   try {
-    const response = await fetch(`http://127.0.0.1:${port}/characters/93813310`);
+    const response = await fetch(`http://127.0.0.1:${port}/characters/${PILOT_FIXTURE_CHARACTER_ID}`);
     assert.equal(response.status, 200);
     const body = await response.json();
-    const pilot = Pilot.fromCharacter(93813310, body);
+    const publicPilot = publicPilotFromEsiCharacter(PILOT_FIXTURE_CHARACTER_ID, body);
 
-    assert.equal(pilot.characterId, 93813310);
-    assert.equal(pilot.name, 'Perico Tuerto');
+    assert.equal(publicPilot.getJsonClass(), 'PublicPilotV1');
+    assert.equal(publicPilot.getPilotId(), PILOT_FIXTURE_CHARACTER_ID);
+    assert.equal(publicPilot.getName(), 'Perico Tuerto');
+    assert.equal(publicPilot.getGender(), 'male');
+    assert.equal(publicPilot.getCorporationId(), 1000077);
+    assert.equal(publicPilot.getGenderDisplay(), 'MALE');
+
+    // Credential cardinality (PILOT-002) still uses the ESI-shaped Pilot builder.
+    const pilot = Pilot.fromCharacter(PILOT_FIXTURE_CHARACTER_ID, body);
     assert.equal(pilot.birthday, '2013-09-09T19:40:09Z');
     assert.equal(pilot.bloodlineId, 6);
-    assert.equal(pilot.corporationId, 1000077);
-    assert.equal(pilot.gender, 'male');
     assert.equal(pilot.raceId, 4);
     assert.equal(pilot.achievementScore, 0);
-    assert.equal(pilot.description, '');
     assert.equal(pilot.securityStatus, 0);
 
     const credential = new GameCredential();

@@ -6,6 +6,10 @@
 /out-tsc
 /bazel-out
 
+# Local-only: js-debug resolves Vite servePath `/app/` to <project>/app/src/...
+# Symlink `app` → `.` makes those paths real. Do not commit.
+/app
+
 # Node
 /node_modules
 npm-debug.log
@@ -30,6 +34,10 @@ yarn-error.log
 !.vscode/extensions.json
 !.vscode/mcp.json
 .history/*
+
+# macOS Finder / sync conflict copies ("Name 2.ext") — never commit
+* 2.*
+* 2
 
 # Miscellaneous
 /.angular/cache

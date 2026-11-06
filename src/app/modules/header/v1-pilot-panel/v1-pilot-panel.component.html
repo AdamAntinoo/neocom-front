@@ -1,0 +1,35 @@
+<div
+  cy-section-name="v1-pilot"
+  cy-element-name="pilot"
+  cy-element-type="panel"
+  [attr.data-neocom-variant]="variantCode()"
+  class="neocom-panel panel-white pilot"
+  [class.pilot-list-active]="listActive()"
+>
+  @if (loadError(); as message) {
+    <div class="field">
+      <span cy-field-label="pilot-error" class="label">Error</span>
+      <span cy-field-value="pilot-error">{{ message }}</span>
+    </div>
+  } @else if (showList()) {
+    @if (pilot(); as node) {
+      <div class="field pilot-list-row">
+        <img class="portrait" alt="" [src]="node.getPilotIcon()" />
+        <div class="column">
+          <div class="field">
+            <span cy-field-label="pilotName" class="label">Name</span>
+            <span cy-field-value="pilotName">{{ node.getName() }}</span>
+          </div>
+          <div class="field">
+            <span cy-field-label="pilotIdentifier" class="label">Id</span>
+            <span cy-field-value="pilotIdentifier">{{ node.getPilotId() }}</span>
+          </div>
+        </div>
+      </div>
+    }
+  } @else if (privateRecord(); as node) {
+    <v2-pilot-render [node]="node" [variant]="variantCode()"></v2-pilot-render>
+  } @else if (publicRecord(); as node) {
+    <v1-public-pilot-render [node]="node" [variant]="variantCode()"></v1-public-pilot-render>
+  }
+</div>

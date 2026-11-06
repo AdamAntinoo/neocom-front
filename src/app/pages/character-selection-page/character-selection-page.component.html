@@ -1,0 +1,20 @@
+<app-page-header [variant]="Variant.AUTH" />
+<section cy-section-name="character-selection" class="section column character-selection">
+  <h1 class="title">Select character</h1>
+  <p class="hint">Choose a stored pilot to continue to the Dashboard.</p>
+  <div class="row character-list">
+    @for (character of characters(); track character.characterId) {
+      <button
+        type="button"
+        class="character-card"
+        (click)="select(character)"
+      >
+        <v1-pilot-panel
+          [identifier]="character.characterId"
+          variant="list"
+          [active]="character.characterId === activeId()"
+        />
+      </button>
+    }
+  </div>
+</section>

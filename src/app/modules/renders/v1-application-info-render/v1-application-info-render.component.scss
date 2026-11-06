@@ -1,0 +1,61 @@
+@use 'palette' as *;
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.app-name-panel,
+.app-version {
+  font-family: 'Elemental', sans-serif;
+}
+
+.app-name-panel {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
+  padding: 8px;
+}
+
+.app-name {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 30px;
+  color: var(--neo-color-panel-white, #{$panel-white});
+  text-shadow: 0 0 6px var(--neo-color-panel-white, #{$panel-white});
+  text-align: left;
+}
+
+.app-name:focus-visible {
+  outline: 1px solid var(--neo-color-panel-yellow, #{$panel-yellow});
+  outline-offset: 2px;
+}
+
+.app-version-position {
+  margin-top: 4px;
+  margin-left: 8px;
+}
+
+.app-version {
+  font-size: 16px;
+  color: var(--neo-color-panel-yellow, #{$panel-yellow});
+}
+
+.app-copyright {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 10px;
+  margin-left: auto;
+  align-self: center;
+  color: var(--neo-color-panel-white, #{$panel-white});
+}

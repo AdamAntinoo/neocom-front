@@ -1,0 +1,24 @@
+@use 'palette' as *;
+
+// Geometry (.section / .row / .column) comes from global styles/geometry.scss.
+:host {
+  min-height: 100vh;
+  background: var(--neo-color-page-background, #{$page-background});
+  color: var(--neo-color-page-foreground, #{$page-foreground});
+  font-family: 'Open Sans', sans-serif;
+}
+
+.neocom-panel {
+  margin: 1rem;
+}
+
+.progress-label,
+.exception-label {
+  display: block;
+}
+
+.progress-code,
+.exception-message {
+  display: block;
+  margin-top: 0.5rem;
+}
