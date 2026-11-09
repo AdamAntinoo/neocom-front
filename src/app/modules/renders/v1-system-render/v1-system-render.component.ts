@@ -18,6 +18,9 @@ export class V1SystemRenderComponent implements OnInit {
   @Input() container: IViewer | null = null;
   @Input() node!: SolarSystemV1Node;
   @Input() variant: NeoComVariant | string = NeoComVariant.SOLAR_SYSTEM_LOOKUP;
+  /** Bound by `v2-node-container` via NgComponentOutlet (unused here). */
+  @Input() index = 1;
+  @Input() selectOnHover = false;
 
   static registered = false;
 

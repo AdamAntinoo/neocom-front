@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
 import { ApplicationInfoV1Node } from '../../modules/innovative-core/domain/nodes/application-info-v1.node';
 import { BlueprintV1Node } from '../../modules/innovative-core/domain/nodes/blueprint-v1.node';
+import { EveAssetV1Node } from '../../modules/innovative-core/domain/nodes/eve-asset-v1.node';
 import { PublicCorporationV1Node } from '../../modules/innovative-core/domain/nodes/public-corporation-v1.node';
 import { RegionV1Node } from '../../modules/innovative-core/domain/nodes/region-v1.node';
 import { ServerStatusV1Node } from '../../modules/innovative-core/domain/nodes/server-status-v1.node';
@@ -12,6 +13,7 @@ import {
   LegacyV2FeatureRenderComponent,
 } from '@renders/legacy-v2-feature-render/legacy-v2-feature-render.component';
 import { V1ApplicationInfoRenderComponent } from '@renders/v1-application-info-render/v1-application-info-render.component';
+import { V1AssetRenderComponent } from '@renders/v1-asset-render/v1-asset-render.component';
 import { V1BlueprintRenderComponent } from '@renders/v1-blueprint-render/v1-blueprint-render.component';
 import { V1CorporationRenderComponent } from '@renders/v1-corporation-render/v1-corporation-render.component';
 import { V1RegionRenderComponent } from '@renders/v1-region-render/v1-region-render.component';
@@ -29,6 +31,7 @@ import { V1SystemRenderComponent } from '@renders/v1-system-render/v1-system-ren
     V1FeatureButtonComponent,
     LegacyV2FeatureRenderComponent,
     V1ApplicationInfoRenderComponent,
+    V1AssetRenderComponent,
     V1BlueprintRenderComponent,
     V1CorporationRenderComponent,
     V1RegionRenderComponent,
@@ -59,6 +62,30 @@ export class ModelStripPageComponent {
   protected isValidated(id: string): boolean {
     return this.validated.has(id);
   }
+
+  /**
+   * EPIC-015 — base asset leaf (`v1-asset-render`).
+   * Layout source: neocom-infinity `neocom-asset` / `asset.component.html`.
+   */
+  protected readonly assetSpecimen = new EveAssetV1Node({
+    itemId: 1015046089001,
+    typeId: 9832,
+    quantity: 1250,
+    locationId: 60003760,
+    locationType: 'station',
+    locationFlag: 'Hangar',
+    isSingleton: false,
+    name: 'Coolant',
+    ownerPilotId: 93813310,
+    item: {
+      typeId: 9832,
+      name: 'Coolant',
+      categoryName: 'Planetary Commodities',
+      groupName: 'Refined Commodities',
+      volume: 0.38,
+      sellPrice: 4125.5,
+    },
+  });
 
   /**
    * EPIC-006 — Corporation HEADER card (`v1-corporation-render`).

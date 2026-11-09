@@ -1,0 +1,41 @@
+<div
+  cy-section-name="asset"
+  cy-render="v1-asset"
+  class="neocom-panel panel-blue asset-card"
+  [attr.data-neocom-variant]="variant"
+>
+  <div class="row pad align">
+    <img
+      class="neo-icon neo-icon-xl"
+      alt=""
+      cy-field-value="type-icon"
+      [src]="getTypeIconUrl()"
+    />
+    <div class="column identity grow">
+      <div class="row name-line">
+        <span cy-field-value="asset-name" class="opensans-ff asset-name">{{ getName() }}</span>
+        <span cy-field-value="asset-id" class="opensans-ff asset-id">[{{ getItemIdLabel() }}]</span>
+      </div>
+      <span cy-field-value="asset-taxonomy" class="opensans-ff meta">{{ getTaxonomyLine() }}</span>
+      <div class="row values-line">
+        <span cy-field-value="item-value" class="elemental-ff metric">{{ getItemValueLabel() }}</span>
+        <span cy-field-value="total-value" class="elemental-ff metric right">{{
+          getTotalValueLabel()
+        }}</span>
+      </div>
+      <div class="lined-bottomline" aria-hidden="true"></div>
+      <div class="row labels-line">
+        <span class="opensans-ff label">ITEM VALUE</span>
+        <span class="opensans-ff label right">TOTAL VALUE</span>
+      </div>
+    </div>
+    <div class="column stats">
+      <span cy-field-value="quantity" class="elemental-ff stack-counter">{{
+        getQuantityLabel()
+      }}</span>
+      <span class="opensans-ff label right">NO. ITEMS</span>
+      <span cy-field-value="volume" class="elemental-ff metric right">{{ getVolumeLabel() }}</span>
+      <span class="opensans-ff label right">VOLUME</span>
+    </div>
+  </div>
+</div>

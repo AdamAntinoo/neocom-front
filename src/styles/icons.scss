@@ -6,6 +6,7 @@
 /// | `neo-icon-sm` | 16px | Inline / dense chrome |
 /// | `neo-icon-md` | 24px | Cards beside label+name stacks (e.g. Region) |
 /// | `neo-icon-lg` | 32px | Type / media tiles in list rows |
+/// | `neo-icon-xl` | 64px | Asset / ship identity tiles (infinity asset base) |
 ///
 /// Region rule: icon ≤ sum of REGION label height + region name height
 /// (label 10px + name 16px → prefer `md` 24px, never larger than that stack).
@@ -13,11 +14,13 @@
 $neo-icon-sm: 16px;
 $neo-icon-md: 24px;
 $neo-icon-lg: 32px;
+$neo-icon-xl: 64px;
 
 :root {
   --neo-icon-sm: #{$neo-icon-sm};
   --neo-icon-md: #{$neo-icon-md};
   --neo-icon-lg: #{$neo-icon-lg};
+  --neo-icon-xl: #{$neo-icon-xl};
 }
 
 .neo-icon {
@@ -39,4 +42,9 @@ $neo-icon-lg: 32px;
 .neo-icon-lg {
   width: var(--neo-icon-lg);
   height: var(--neo-icon-lg);
+}
+
+.neo-icon-xl {
+  width: var(--neo-icon-xl);
+  height: var(--neo-icon-xl);
 }

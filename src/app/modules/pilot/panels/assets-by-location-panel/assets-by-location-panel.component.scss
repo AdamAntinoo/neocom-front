@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.hierarchy {
+  width: 100%;
+}
+
+.empty-hint {
+  margin: 12px 0 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: var(--neo-color-panel-white, #ccc);
+  opacity: 0.85;
+}
