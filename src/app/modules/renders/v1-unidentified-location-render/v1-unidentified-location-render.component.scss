@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.unidentified-card {
+  width: 100%;
+  min-width: 160px;
+}
+
+.insets {
+  padding: 8px;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon-spacer {
+  flex: none;
+  width: var(--neo-icon-md, 24px);
+  height: var(--neo-icon-md, 24px);
+}
+
+.identity {
+  gap: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.label {
+  text-transform: uppercase;
+}
+
+.name-line {
+  gap: 12px;
+  align-items: baseline;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.place-name,
+.asset-count {
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: var(--neo-color-panel-white, #fff);
+}
+
+.asset-count {
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}

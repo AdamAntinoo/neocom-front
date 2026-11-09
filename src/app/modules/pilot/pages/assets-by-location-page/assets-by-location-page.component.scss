@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.page-title {
+  margin: 0 0 12px;
+  font-family: 'Elemental', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--neo-color-panel-white, #fff);
+}
+
+.panel {
+  display: block;
+  width: 100%;
+}

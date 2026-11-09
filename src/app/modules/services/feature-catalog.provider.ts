@@ -15,6 +15,12 @@ export class FeatureCatalogProvider {
       imageRef: '/media/blueprints-feature.jpeg',
     }),
     FeatureV1Node.from({
+      featureId: 'assets-by-location',
+      label: 'Assets by Location',
+      route: '/pilot/assets-by-location',
+      imageRef: '/media/blueprints-feature.jpeg',
+    }),
+    FeatureV1Node.from({
       featureId: 'model-strip',
       label: 'Model strip',
       route: '/model-strip',

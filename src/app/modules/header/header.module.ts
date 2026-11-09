@@ -4,29 +4,15 @@ import { AppPageHeaderComponent } from './app-page-header/app-page-header.compon
 import { ApplicationInfoProvider } from './providers/application-info.provider';
 import { ServerStatusProvider } from './providers/server-status.provider';
 import { ServerInfoPanelComponent } from './server-info-panel/server-info-panel.component';
-import { V1CorporationPanelComponent } from './v1-corporation-panel/v1-corporation-panel.component';
-import { V1PilotPanelComponent } from './v1-pilot-panel/v1-pilot-panel.component';
 
 /**
  * Shared page header controller and transitional panels.
- * Pages insert `app-page-header`; providers + renders supply ApplicationInfo / ServerStatus.
+ * Pilot / corporation panels live in {@link PilotModule} (FAL-015).
  * Not an application section — no root `loadChildren` route.
  */
 @NgModule({
-  imports: [
-    AppInfoPanelComponent,
-    ServerInfoPanelComponent,
-    V1PilotPanelComponent,
-    V1CorporationPanelComponent,
-    AppPageHeaderComponent,
-  ],
-  exports: [
-    AppInfoPanelComponent,
-    ServerInfoPanelComponent,
-    V1PilotPanelComponent,
-    V1CorporationPanelComponent,
-    AppPageHeaderComponent,
-  ],
+  imports: [AppInfoPanelComponent, ServerInfoPanelComponent, AppPageHeaderComponent],
+  exports: [AppInfoPanelComponent, ServerInfoPanelComponent, AppPageHeaderComponent],
   providers: [ApplicationInfoProvider, ServerStatusProvider],
 })
 export class HeaderModule {}

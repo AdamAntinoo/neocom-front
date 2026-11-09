@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { HeaderModule } from '../../modules/header/header.module';
-import { V1CorporationPanelComponent } from '../../modules/header/v1-corporation-panel/v1-corporation-panel.component';
+import { V1CorporationPanelComponent } from '../../modules/pilot/v1-corporation-panel/v1-corporation-panel.component';
+import { V1PilotPanelComponent } from '../../modules/pilot/v1-pilot-panel/v1-pilot-panel.component';
 import { AppBreadcrumbComponent } from '../../modules/shared/breadcrumb/app-breadcrumb.component';
 import { FeatureListPanelComponent } from '../../modules/shared/feature-list-panel/feature-list-panel.component';
 import { PilotService } from '../../modules/services/pilot.service';
@@ -16,6 +17,7 @@ import { SessionService } from '../../security/session.service';
   selector: 'dashboard-home-page',
   imports: [
     HeaderModule,
+    V1PilotPanelComponent,
     V1CorporationPanelComponent,
     AppBreadcrumbComponent,
     FeatureListPanelComponent,

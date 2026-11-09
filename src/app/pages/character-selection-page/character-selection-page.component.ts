@@ -2,7 +2,7 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 import { HeaderModule } from '../../modules/header/header.module';
 import { NeoComVariant } from '../../modules/innovative-core/domain/NeoComVariant';
-import { V1PilotPanelComponent } from '../../modules/header/v1-pilot-panel/v1-pilot-panel.component';
+import { V1PilotPanelComponent } from '../../modules/pilot/v1-pilot-panel/v1-pilot-panel.component';
 import {
   StoredCharacter,
   listStoredCharacters,

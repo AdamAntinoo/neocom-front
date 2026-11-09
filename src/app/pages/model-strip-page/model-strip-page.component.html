@@ -16,6 +16,18 @@
   </div>
 
   <div class="strip-item">
+    <article data-specimen="v1-asset" class="specimen asset">
+      <v1-asset-render [node]="assetSpecimen"></v1-asset-render>
+    </article>
+    <div class="strip-meta column">
+      <span class="render-ref">v1-asset-render</span>
+      <span class="style-ref"
+        >EveAssetV1 · neo-icon-xl 64 · name+[id] · group/category · unit/total ISK · qty + volume · panel-blue</span
+      >
+    </div>
+  </div>
+
+  <div class="strip-item">
     <article data-specimen="v1-corporation-render" class="specimen corporation" [class.validated]="isValidated('v1-corporation-render')">
       @if (isValidated('v1-corporation-render')) {
         <span class="validated-mark" aria-label="validated">✓</span>

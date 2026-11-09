@@ -1,6 +1,11 @@
 export { ApplicationInfoV1Node } from './application-info-v1.node';
 export { BlueprintV1Node } from './blueprint-v1.node';
 export type { BlueprintV1DtoWire } from './blueprint-v1.node';
+export { EveAssetV1Node } from './eve-asset-v1.node';
+export type { EveAssetItemWire, EveAssetV1DtoWire } from './eve-asset-v1.node';
+export { LocatedAssetContainerV1Node } from './located-asset-container-v1.node';
+export type { LocatedAssetContainerV1DtoWire } from './located-asset-container-v1.node';
+export { UnidentifiedLocationV1Node } from './unidentified-location-v1.node';
 export { FeatureV1Node } from './feature-v1.node';
 export type { FeatureV1Wire } from './feature-v1.node';
 export { PilotV2Node } from './pilot-v2.node';

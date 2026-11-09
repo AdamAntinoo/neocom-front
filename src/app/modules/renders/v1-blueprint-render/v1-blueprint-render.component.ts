@@ -18,6 +18,9 @@ export class V1BlueprintRenderComponent implements OnInit {
   @Input() container!: IViewer;
   @Input() node!: NeoCom;
   @Input() variant: NeoComVariant | string = NeoComVariant.DEFAULT;
+  /** Bound by `v2-node-container` via NgComponentOutlet (unused here). */
+  @Input() index = 1;
+  @Input() selectOnHover = false;
 
   static registered = false;
 
