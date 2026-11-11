@@ -1,18 +1,21 @@
-# Front CI — production compile (L2 INFRA-030 Node pin, INFRA-033 build, INFRA-035 no live back, INFRA-038 in-repo workflow).
-# The job is the remote workflow in neocom-meta. This file only decides when it runs.
+# Front CI caller (CICD-F-076). Reusable stages live in neocom-meta @feature/cicd.
 name: Build
 
 on:
   push:
     branches:
       - main
+      - develop
       - feature/**
       - feat/**
       - fix/**
       - release/**
+    tags:
+      - '*'
   pull_request:
     branches:
       - main
+      - develop
       - feature/**
       - feat/**
       - fix/**
@@ -22,8 +25,18 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: write
+  packages: write
+  pull-requests: write
+  checks: write
+
 jobs:
-  compile:
-    uses: AdamAntinoo/neocom-meta/.github/workflows/front-build.yml@feature/cicd
+  ci:
+    uses: AdamAntinoo/neocom-meta/.github/workflows/front-ci.yml@feature/cicd
     with:
       node-version: 24.21.0
+      artifact-name: neocom-front
+      sonar-project-key: AdamAntinoo_neocom-front
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

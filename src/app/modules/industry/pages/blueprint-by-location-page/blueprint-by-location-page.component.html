@@ -1,4 +1,8 @@
 <app-page-header />
+<div class="row section pilot-corporation-row">
+  <v1-pilot-panel class="panel" [identifier]="getPilotId()" />
+  <v1-corporation-panel [corporationId]="corporationId()" />
+</div>
 <app-breadcrumb [crumbs]="crumbs" />
 <section cy-section-name="blueprint-by-location" class="section column">
   <h1 class="page-title">Blueprint Availability</h1>

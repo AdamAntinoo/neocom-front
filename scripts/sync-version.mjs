@@ -47,11 +47,16 @@ replaceInFile(
   `LOADING NEOCOM APPLICATION ${version}...`,
 );
 
-replaceInFile(
-  'cypress/e2e/features/app-info-panel.feature',
-  /the app info field "app-version" shows "\d+\.\d+\.\d+"/,
-  `the app info field "app-version" shows "${version}"`,
-);
+for (const feature of [
+  'cypress/e2e/features/login.feature',
+  'cypress/e2e/features/industry-blueprints-by-location.feature',
+]) {
+  replaceInFile(
+    feature,
+    /the app info field "app-version" shows "\d+\.\d+\.\d+"/,
+    `the app info field "app-version" shows "${version}"`,
+  );
+}
 
 execFileSync(process.execPath, [path.join(root, 'scripts/generate-banner.mjs')], {
   cwd: root,

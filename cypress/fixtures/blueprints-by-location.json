@@ -1,0 +1,50 @@
+[
+  {
+    "jsonClass": "BlueprintV1",
+    "blueprintId": 1001,
+    "blueprintTypeId": 31717,
+    "blueprintTypeName": "Small EM Shield Reinforcer I Blueprint",
+    "blueprintTypeIconURL": "/assets/media/eve-sso-login-white-large.png",
+    "outputTypeId": 31716,
+    "outputTypeName": "Small EM Shield Reinforcer I",
+    "runs": 300,
+    "maxRuns": 300,
+    "materialEfficiency": 10,
+    "timeEfficiency": 20,
+    "ready": true,
+    "location": {
+      "jsonClass": "SpaceLocationV1Dto",
+      "locationType": "Station",
+      "locationId": 60008494,
+      "regionId": 10000043,
+      "regionName": "Domain",
+      "solarSystemId": 30002187,
+      "solarSystemName": "Amarr",
+      "stationId": 60008494,
+      "stationName": "Amarr VIII (Oris) - Emperor Family Academy"
+    }
+  },
+  {
+    "jsonClass": "BlueprintV1",
+    "blueprintId": 1002,
+    "blueprintTypeId": 11489,
+    "blueprintTypeName": "Jita Market Sample Blueprint",
+    "blueprintTypeIconURL": "/assets/media/eve-sso-login-white-large.png",
+    "runs": -1,
+    "maxRuns": 0,
+    "materialEfficiency": 0,
+    "timeEfficiency": 0,
+    "ready": true,
+    "location": {
+      "jsonClass": "SpaceLocationV1Dto",
+      "locationType": "Station",
+      "locationId": 60003760,
+      "regionId": 10000002,
+      "regionName": "The Forge",
+      "solarSystemId": 30000142,
+      "solarSystemName": "Jita",
+      "stationId": 60003760,
+      "stationName": "Jita IV - Moon 4 - Caldari Navy Assembly Plant"
+    }
+  }
+]

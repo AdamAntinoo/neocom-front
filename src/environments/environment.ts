@@ -12,6 +12,11 @@ export const environment = {
   apiPrefix: '/api',
   /** Authenticated SSE base (INFRA-054 / FASSE-009). Same-origin, proxied to Nest. */
   sseBasePath: '/v1',
+  /** Programme logging (CICD-F-114 / F-120): production sections default to NONE. */
+  logging: {
+    defaultLevel: 'NONE' as const,
+    sections: {} as Record<string, 'DEBUG' | 'INFO' | 'PRODUCTION' | 'NONE'>,
+  },
   loginLinkData: {
     authorizeHost: 'https://login.eveonline.com/v2/oauth/authorize/',
     responseType: 'code',

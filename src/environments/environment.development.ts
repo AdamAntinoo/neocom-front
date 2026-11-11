@@ -12,6 +12,11 @@ export const environment = {
   apiPrefix: '/api',
   /** Authenticated SSE base (INFRA-054 / FASSE-009). Same-origin, proxied to Nest. */
   sseBasePath: '/v1',
+  /** Programme logging (CICD-F-114): development default DEBUG. */
+  logging: {
+    defaultLevel: 'DEBUG' as const,
+    sections: {} as Record<string, 'DEBUG' | 'INFO' | 'PRODUCTION' | 'NONE'>,
+  },
   /** Development registration: New Neocom Infinity (LOGIN-002). Secret is a local placeholder only. */
   loginLinkData: {
     authorizeHost: 'https://login.eveonline.com/v2/oauth/authorize/',

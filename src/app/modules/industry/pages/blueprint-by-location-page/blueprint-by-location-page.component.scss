@@ -1,5 +1,15 @@
+@use 'tokens' as *;
+
 :host {
   display: block;
+}
+
+.pilot-corporation-row {
+  flex-wrap: wrap;
+  gap: $section-padding;
+  align-items: flex-start;
+  padding: $panel-padding;
+  margin: 0;
 }
 
 .page-title {
