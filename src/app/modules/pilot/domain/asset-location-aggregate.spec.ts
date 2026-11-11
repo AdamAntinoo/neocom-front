@@ -51,7 +51,9 @@ describe('AssetLocationAggregate', () => {
   it('places assets under UnidentifiedLocation when resolve fails or has no chain', async () => {
     const locations = {
       resolve: (id: number) =>
-        id === 1 ? throwError(() => new Error('missing')) : of(new SpaceLocationNodeV1({ locationId: id })),
+        id === 1
+          ? throwError(() => new Error('missing'))
+          : of(new SpaceLocationNodeV1({ locationId: id })),
     } as Pick<SpaceLocationService, 'resolve'>;
 
     const agg = new AssetLocationAggregate();
@@ -78,4 +80,3 @@ describe('AssetLocationAggregate', () => {
     expect(roots[0].getJsonClass()).toBe('UnidentifiedLocationV1');
   });
 });
-
