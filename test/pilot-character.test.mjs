@@ -33,7 +33,7 @@ function publicPilotFromEsiCharacter(characterId, body) {
 test('WireMock character 93813310 builds PublicPilotV1 and stays within the credential limit', async () => {
   const stop = await startWireMock(wiremockRoot, port);
   try {
-    const response = await fetch(`http://127.0.0.1:${port}/characters/${PILOT_FIXTURE_CHARACTER_ID}`);
+    const response = await fetch(`http://localhost:${port}/characters/${PILOT_FIXTURE_CHARACTER_ID}`);
     assert.equal(response.status, 200);
     const body = await response.json();
     const publicPilot = publicPilotFromEsiCharacter(PILOT_FIXTURE_CHARACTER_ID, body);
@@ -111,7 +111,7 @@ async function waitForAdmin(listenPort) {
   let lastError = 'WireMock did not become ready';
   while (Date.now() < deadline) {
     try {
-      const response = await fetch(`http://127.0.0.1:${listenPort}/__admin/mappings`);
+      const response = await fetch(`http://localhost:${listenPort}/__admin/mappings`);
       if (response.ok) {
         return;
       }
