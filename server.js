@@ -81,26 +81,12 @@ const staticOptions = {
 // Angular baseHref is /app/ — serve the build under that path (SSO callback too).
 app.use('/app', express.static(staticDir, staticOptions));
 
-app.get('/app', (_req, res) => {
-  res.redirect(302, '/app/');
-});
+function spaIndexPath() {
+  return path.join(staticDir, 'index.html');
+}
 
-// HEAD for /app/ (health / wait-on) — static index:false would otherwise 404 HEAD.
-app.head(['/app', '/app/'], (_req, res) => {
-  const indexHtml = path.join(staticDir, 'index.html');
-  if (!fs.existsSync(indexHtml)) {
-    res.sendStatus(503);
-    return;
-  }
-  res.sendStatus(200);
-});
-
-app.get(/^\/app(?:\/.*)?$/, (req, res, next) => {
-  if (path.extname(req.path)) {
-    next();
-    return;
-  }
-  const indexHtml = path.join(staticDir, 'index.html');
+function sendSpaIndex(res) {
+  const indexHtml = spaIndexPath();
   if (!fs.existsSync(indexHtml)) {
     res
       .status(503)
@@ -110,6 +96,31 @@ app.get(/^\/app(?:\/.*)?$/, (req, res, next) => {
     return;
   }
   res.sendFile(indexHtml);
+}
+
+function sendSpaHead(res) {
+  if (!fs.existsSync(spaIndexPath())) {
+    res.sendStatus(503);
+    return;
+  }
+  res.sendStatus(200);
+}
+
+// Express matches /app and /app/ the same unless strict routing — never redirect
+// /app/ → /app/ (that loop makes wait-on and browsers fail readiness).
+app.get(['/app', '/app/'], (_req, res) => {
+  sendSpaIndex(res);
+});
+app.head(['/app', '/app/'], (_req, res) => {
+  sendSpaHead(res);
+});
+
+app.get(/^\/app\/.+$/, (req, res, next) => {
+  if (path.extname(req.path)) {
+    next();
+    return;
+  }
+  sendSpaIndex(res);
 });
 
 app.get('/', (_req, res) => {
