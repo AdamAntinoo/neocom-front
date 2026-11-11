@@ -85,6 +85,16 @@ app.get('/app', (_req, res) => {
   res.redirect(302, '/app/');
 });
 
+// HEAD for /app/ (health / wait-on) — static index:false would otherwise 404 HEAD.
+app.head(['/app', '/app/'], (_req, res) => {
+  const indexHtml = path.join(staticDir, 'index.html');
+  if (!fs.existsSync(indexHtml)) {
+    res.sendStatus(503);
+    return;
+  }
+  res.sendStatus(200);
+});
+
 app.get(/^\/app(?:\/.*)?$/, (req, res, next) => {
   if (path.extname(req.path)) {
     next();
