@@ -84,7 +84,8 @@ export class BlueprintLocationAggregate {
 
     const children = system.getChildren();
     const idx = children.findIndex(
-      (child) => child instanceof BlueprintV1Node && child.getBlueprintId() === node.getBlueprintId(),
+      (child) =>
+        child instanceof BlueprintV1Node && child.getBlueprintId() === node.getBlueprintId(),
     );
     if (idx >= 0) {
       children[idx] = node;

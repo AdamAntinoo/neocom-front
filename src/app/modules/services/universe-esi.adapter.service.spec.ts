@@ -47,9 +47,9 @@ describe('UniverseEsiAdapterService', () => {
 
   it('serves a second ancestries read from the client cache (UNIV-003)', () => {
     service.getAncestries().subscribe();
-    http.expectOne('/esi/v1/universe/ancestries/').flush([
-      { id: 11, name: 'Merchandisers', bloodline_id: 1, description: 'Trade-focused' },
-    ]);
+    http
+      .expectOne('/esi/v1/universe/ancestries/')
+      .flush([{ id: 11, name: 'Merchandisers', bloodline_id: 1, description: 'Trade-focused' }]);
 
     const second: UniverseAncestry[][] = [];
     service.getAncestries().subscribe((rows) => second.push(rows));
@@ -63,9 +63,9 @@ describe('UniverseEsiAdapterService', () => {
       resolved.push(row);
     });
 
-    http.expectOne('/esi/v1/universe/ancestries/').flush([
-      { id: 11, name: 'Merchandisers', bloodline_id: 1, description: 'Trade-focused' },
-    ]);
+    http
+      .expectOne('/esi/v1/universe/ancestries/')
+      .flush([{ id: 11, name: 'Merchandisers', bloodline_id: 1, description: 'Trade-focused' }]);
     http.expectOne('/esi/v1/universe/bloodlines/').flush([
       {
         bloodline_id: 1,

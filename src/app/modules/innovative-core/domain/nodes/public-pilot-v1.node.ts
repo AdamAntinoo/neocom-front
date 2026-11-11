@@ -1,8 +1,4 @@
-import {
-  PublicPilotV1,
-  type PilotNameSummary,
-  type PublicCorporationSummary,
-} from 'neocom-domain';
+import { PublicPilotV1, type PilotNameSummary, type PublicCorporationSummary } from 'neocom-domain';
 import { NeoCom } from '../NeoCom';
 
 type PilotWire = {

@@ -20,9 +20,7 @@ export class PublicCorporationService {
       return of(PublicCorporationV1Node.from({ corporationId: 1, name: 'Unknown', ticker: 'UNK' }));
     }
     return this.http
-      .get<PublicCorporationWire>(
-        `${environment.apiBaseUrl}/v1/corporations/${corporationId}`,
-      )
+      .get<PublicCorporationWire>(`${environment.apiBaseUrl}/v1/corporations/${corporationId}`)
       .pipe(
         map((wire) =>
           PublicCorporationV1Node.from({
@@ -45,7 +43,8 @@ export class PublicCorporationService {
       allianceId: 99003214,
       allianceName: 'Pan-Intergalactic Business Community',
       homeStationId: 60003760,
-      homeLocationPath: 'Jita IV - Moon 4 - Caldari Navy Assembly Plant >> Jita >> Kimotoro >> The Forge',
+      homeLocationPath:
+        'Jita IV - Moon 4 - Caldari Navy Assembly Plant >> Jita >> Kimotoro >> The Forge',
     });
   }
 }

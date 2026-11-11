@@ -37,7 +37,11 @@ const authenticated = new PilotV2Node({
 describe('V1PilotPanelComponent', () => {
   async function setup(
     node: PublicPilotV1Node | PilotV2Node,
-    options: { token?: string; variant?: 'auto' | 'public' | 'private' | 'list'; active?: boolean } = {},
+    options: {
+      token?: string;
+      variant?: 'auto' | 'public' | 'private' | 'list';
+      active?: boolean;
+    } = {},
   ): Promise<ComponentFixture<V1PilotPanelComponent>> {
     await TestBed.configureTestingModule({
       imports: [V1PilotPanelComponent],
@@ -51,7 +55,11 @@ describe('V1PilotPanelComponent', () => {
           useValue: {
             getAccess: () =>
               options.token
-                ? { accessToken: options.token, characterId: 93813310, characterName: 'Perico Tuerto' }
+                ? {
+                    accessToken: options.token,
+                    characterId: 93813310,
+                    characterName: 'Perico Tuerto',
+                  }
                 : null,
           },
         },
@@ -75,7 +83,9 @@ describe('V1PilotPanelComponent', () => {
     const fixture = await setup(pericoTuerto);
     expect(fixture.componentInstance).toBeTruthy();
     expect(fixture.componentInstance.identifier()).toBe(93813310);
-    const root = fixture.nativeElement.querySelector('[cy-element-name="pilot"][cy-element-type="panel"]');
+    const root = fixture.nativeElement.querySelector(
+      '[cy-element-name="pilot"][cy-element-type="panel"]',
+    );
     expect(root).toBeTruthy();
     expect(root.getAttribute('data-neocom-variant')).toBe(NeoComVariant.PILOT_PUBLIC);
   });
@@ -85,7 +95,9 @@ describe('V1PilotPanelComponent', () => {
     const root = fixture.nativeElement as HTMLElement;
     expect(root.querySelector('[cy-render="v1-public-pilot"]')).toBeTruthy();
     expect(root.querySelector('[cy-field-value="pilotName"]')?.textContent).toBe('Perico Tuerto');
-    expect(root.querySelector('[cy-field-value="pilotIdentifier"]')?.textContent).toContain('93813310');
+    expect(root.querySelector('[cy-field-value="pilotIdentifier"]')?.textContent).toContain(
+      '93813310',
+    );
     expect(root.querySelector('[cy-field-value="pilotAncestry"]')?.textContent).toBe(
       'Caldari - Merchandisers - Deteis',
     );
@@ -110,7 +122,9 @@ describe('V1PilotPanelComponent', () => {
     expect(root.querySelector('[cy-render="v2-pilot"]')).toBeTruthy();
     expect(root.querySelector('[cy-field-value="pilotName"]')?.textContent).toBe('Perico Tuerto');
     expect(root.querySelector('[cy-field-value="totalSkillPoints"]')?.textContent).toContain('8');
-    expect(root.querySelector('[cy-field-value="pilotWalletBalance"]')?.textContent).toContain('B ISK');
+    expect(root.querySelector('[cy-field-value="pilotWalletBalance"]')?.textContent).toContain(
+      'B ISK',
+    );
     expect(root.querySelector('[cy-field-value="currentShip"]')?.textContent).toBe(
       "Zach Zender's Velator",
     );

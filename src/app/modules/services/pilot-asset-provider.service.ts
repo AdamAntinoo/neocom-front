@@ -1,16 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import {
-  Observable,
-  defer,
-  of,
-  finalize,
-  map,
-  shareReplay,
-  tap,
-} from 'rxjs';
+import { Observable, defer, of, finalize, map, shareReplay, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { EveAssetV1Node, type EveAssetV1DtoWire } from '../innovative-core/domain/nodes/eve-asset-v1.node';
+import {
+  EveAssetV1Node,
+  type EveAssetV1DtoWire,
+} from '../innovative-core/domain/nodes/eve-asset-v1.node';
 import {
   LocatedAssetContainerV1Node,
   type LocatedAssetContainerV1DtoWire,

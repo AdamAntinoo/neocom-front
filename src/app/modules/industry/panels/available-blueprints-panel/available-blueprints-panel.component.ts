@@ -15,7 +15,10 @@ import { catchError, of, timeout } from 'rxjs';
   templateUrl: './available-blueprints-panel.component.html',
   styleUrl: './available-blueprints-panel.component.scss',
 })
-export class AvailableBlueprintsPanelComponent extends AppPanelComponent implements OnInit, OnDestroy {
+export class AvailableBlueprintsPanelComponent
+  extends AppPanelComponent
+  implements OnInit, OnDestroy
+{
   private readonly adapter = inject(NodeListAdapterService);
   readonly pilotId = input(93813310);
 

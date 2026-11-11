@@ -3,18 +3,9 @@
  * Browser loads `images.evetech.net` directly — NeoCom back must not proxy image bytes.
  */
 
-export type EveImageCategory =
-  | 'characters'
-  | 'corporations'
-  | 'alliances'
-  | 'types';
+export type EveImageCategory = 'characters' | 'corporations' | 'alliances' | 'types';
 
-export type EveImageVariation =
-  | 'portrait'
-  | 'logo'
-  | 'icon'
-  | 'render'
-  | 'bp';
+export type EveImageVariation = 'portrait' | 'logo' | 'icon' | 'render' | 'bp';
 
 export type EveImageOptions = {
   category: EveImageCategory;

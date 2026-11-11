@@ -12,10 +12,7 @@ import {
 export class PilotService {
   private readonly http = inject(HttpClient);
 
-  getPilot(
-    pilotId: number,
-    authorization?: string,
-  ): Observable<PublicPilotV1Node | PilotV2Node> {
+  getPilot(pilotId: number, authorization?: string): Observable<PublicPilotV1Node | PilotV2Node> {
     const headers =
       authorization !== undefined && authorization.trim().length > 0
         ? new HttpHeaders({ Authorization: authorization })

@@ -29,8 +29,14 @@ describe('AppInfoPanelComponent', () => {
   it('should catalog the name, version, and copyright', () => {
     const root = fixture.nativeElement as HTMLElement;
     expect(root.querySelector('[cy-section-name="app-info"]')).toBeTruthy();
-    expect(root.querySelector('[cy-field-value="app-name"]')?.textContent).toBe(component.getName());
-    expect(root.querySelector('[cy-field-value="app-version"]')?.textContent).toBe(component.getVersion());
-    expect(root.querySelector('[cy-field-value="app-copyright"]')?.textContent).toBe(component.getCopyright());
+    expect(root.querySelector('[cy-field-value="app-name"]')?.textContent).toBe(
+      component.getName(),
+    );
+    expect(root.querySelector('[cy-field-value="app-version"]')?.textContent).toBe(
+      component.getVersion(),
+    );
+    expect(root.querySelector('[cy-field-value="app-copyright"]')?.textContent).toBe(
+      component.getCopyright(),
+    );
   });
 });

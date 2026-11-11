@@ -4,11 +4,7 @@
   <p class="hint">Choose a stored pilot to continue to the Dashboard.</p>
   <div class="row character-list">
     @for (character of characters(); track character.characterId) {
-      <button
-        type="button"
-        class="character-card"
-        (click)="select(character)"
-      >
+      <button type="button" class="character-card" (click)="select(character)">
         <v1-pilot-panel
           [identifier]="character.characterId"
           variant="list"

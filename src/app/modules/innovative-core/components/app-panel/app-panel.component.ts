@@ -15,7 +15,9 @@ import { SingleSelectionManager } from '../../domain/SingleSelectionManager';
   template: '',
 })
 export class AppPanelComponent extends BackgroundEnabledComponent implements IViewer {
-  readonly variantInput = input<NeoComVariant | string>(NeoComVariant.DEFAULT, { alias: 'variant' });
+  readonly variantInput = input<NeoComVariant | string>(NeoComVariant.DEFAULT, {
+    alias: 'variant',
+  });
 
   private readonly downloading = signal(true);
   protected dataModelRoot: ICollaboration[] = [];

@@ -5,12 +5,7 @@
   [attr.data-neocom-variant]="variant"
 >
   <div class="row pad">
-    <img
-      cy-field-value="corporation-icon"
-      class="logo"
-      alt=""
-      [src]="getCorporationIcon()"
-    />
+    <img cy-field-value="corporation-icon" class="logo" alt="" [src]="getCorporationIcon()" />
     <div class="column corp-body">
       <div class="row corp-main-line">
         @if (getTaxRatePercent()) {
@@ -22,9 +17,7 @@
           {{ getMemberCount() }} MEMBERS
         </div>
         <div class="row name-line corp-col corp-col-1">
-          <span cy-field-value="corporation-name" class="elemental-ff name">{{
-            getName()
-          }}</span>
+          <span cy-field-value="corporation-name" class="elemental-ff name">{{ getName() }}</span>
           <span cy-field-value="corporation-ticker" class="elemental-ff name">{{
             getTickerDisplay()
           }}</span>

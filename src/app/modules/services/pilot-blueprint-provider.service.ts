@@ -1,14 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import {
-  Observable,
-  defer,
-  of,
-  finalize,
-  map,
-  shareReplay,
-  tap,
-} from 'rxjs';
+import { Observable, defer, of, finalize, map, shareReplay, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { BlueprintV1Node, type BlueprintV1DtoWire } from '@domain';
 
@@ -74,9 +66,7 @@ export class PilotBlueprintProviderService {
     if (cached) {
       return of(cached);
     }
-    return this.fetchList(pilotId).pipe(
-      tap((nodes) => this.writeCache(pilotId, nodes)),
-    );
+    return this.fetchList(pilotId).pipe(tap((nodes) => this.writeCache(pilotId, nodes)));
   }
 
   private writeCache(pilotId: number, nodes: BlueprintV1Node[]): void {

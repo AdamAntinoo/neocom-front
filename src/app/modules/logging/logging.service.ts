@@ -34,7 +34,12 @@ export class LoggingService {
     this.emit('PRODUCTION', section, message, params);
   }
 
-  log(level: Exclude<LogLevel, 'NONE'>, section: LogSection, message: string, ...params: unknown[]): void {
+  log(
+    level: Exclude<LogLevel, 'NONE'>,
+    section: LogSection,
+    message: string,
+    ...params: unknown[]
+  ): void {
     this.emit(level, section, message, params);
   }
 

@@ -20,7 +20,11 @@ export function readCookie(name: string): string | null {
   return decodeURIComponent(found.slice(prefix.length));
 }
 
-export function writeCookie(name: string, value: string, maxAgeSeconds: number = COOKIE_MAX_AGE_20_MIN): void {
+export function writeCookie(
+  name: string,
+  value: string,
+  maxAgeSeconds: number = COOKIE_MAX_AGE_20_MIN,
+): void {
   document.cookie = `${name}=${encodeURIComponent(value)}; Path=/; SameSite=Lax; Max-Age=${maxAgeSeconds}`;
 }
 

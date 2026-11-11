@@ -1,8 +1,4 @@
-<div
-  class="node-row row"
-  [class.not-ready]="!isReady()"
-  (mouseenter)="mouseEnter()"
->
+<div class="node-row row" [class.not-ready]="!isReady()" (mouseenter)="mouseEnter()">
   @if (node?.isExpandable()) {
     <button
       type="button"

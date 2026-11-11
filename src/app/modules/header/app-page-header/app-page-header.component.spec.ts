@@ -59,8 +59,12 @@ describe('AppPageHeaderComponent', () => {
     expect(root.querySelector('#server-info-panel')).toBeTruthy();
     expect(root.querySelector('v1-application-info-render')).toBeTruthy();
     expect(root.querySelector('v1-server-status-render')).toBeTruthy();
-    expect(root.querySelector('[cy-field-value="app-name"]')?.textContent?.trim()).toBe('NEOCOM-FRONT');
-    expect(root.querySelector('[cy-field-value="server-name"]')?.textContent?.trim()).toBe('Tranquility');
+    expect(root.querySelector('[cy-field-value="app-name"]')?.textContent?.trim()).toBe(
+      'NEOCOM-FRONT',
+    );
+    expect(root.querySelector('[cy-field-value="server-name"]')?.textContent?.trim()).toBe(
+      'Tranquility',
+    );
   });
 
   it('should provide only ApplicationInfo for NeoComVariant.AUTH', () => {

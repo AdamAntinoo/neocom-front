@@ -1,6 +1,10 @@
 <section class="section strip">
   <div class="strip-item">
-    <article data-specimen="font-reference" class="specimen font-reference column" [class.validated]="isValidated('font-reference')">
+    <article
+      data-specimen="font-reference"
+      class="specimen font-reference column"
+      [class.validated]="isValidated('font-reference')"
+    >
       @if (isValidated('font-reference')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
@@ -9,9 +13,7 @@
     </article>
     <div class="strip-meta column">
       <span class="render-ref">font reference</span>
-      <span class="style-ref"
-        >primary faces: Elemental + Open Sans · 14px sizing baseline</span
-      >
+      <span class="style-ref">primary faces: Elemental + Open Sans · 14px sizing baseline</span>
     </div>
   </div>
 
@@ -22,13 +24,18 @@
     <div class="strip-meta column">
       <span class="render-ref">v1-asset-render</span>
       <span class="style-ref"
-        >EveAssetV1 · neo-icon-xl 64 · name+[id] · group/category · unit/total ISK · qty + volume · panel-blue</span
+        >EveAssetV1 · neo-icon-xl 64 · name+[id] · group/category · unit/total ISK · qty + volume ·
+        panel-blue</span
       >
     </div>
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-corporation-render" class="specimen corporation" [class.validated]="isValidated('v1-corporation-render')">
+    <article
+      data-specimen="v1-corporation-render"
+      class="specimen corporation"
+      [class.validated]="isValidated('v1-corporation-render')"
+    >
       @if (isValidated('v1-corporation-render')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
@@ -40,20 +47,22 @@
     <div class="strip-meta column">
       <span class="render-ref">v1-corporation-render</span>
       <span class="style-ref"
-        >pilot-like HEADER · logo 64 · name [ticker] · members · tax% · alliance · home path · panel-orange</span
+        >pilot-like HEADER · logo 64 · name [ticker] · members · tax% · alliance · home path ·
+        panel-orange</span
       >
     </div>
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-system" class="specimen system" [class.validated]="isValidated('v1-system')">
+    <article
+      data-specimen="v1-system"
+      class="specimen system"
+      [class.validated]="isValidated('v1-system')"
+    >
       @if (isValidated('v1-system')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
-      <v1-system-render
-        [node]="systemSpecimen"
-        [variant]="regionLookupVariant"
-      ></v1-system-render>
+      <v1-system-render [node]="systemSpecimen" [variant]="regionLookupVariant"></v1-system-render>
     </article>
     <div class="strip-meta column">
       <span class="render-ref">v1-system-render</span>
@@ -64,14 +73,15 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-region" class="specimen region" [class.validated]="isValidated('v1-region')">
+    <article
+      data-specimen="v1-region"
+      class="specimen region"
+      [class.validated]="isValidated('v1-region')"
+    >
       @if (isValidated('v1-region')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
-      <v1-region-render
-        [node]="regionSpecimen"
-        [variant]="regionLookupVariant"
-      ></v1-region-render>
+      <v1-region-render [node]="regionSpecimen" [variant]="regionLookupVariant"></v1-region-render>
     </article>
     <div class="strip-meta column">
       <span class="render-ref">v1-region-render</span>
@@ -89,7 +99,11 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-feature-button" class="specimen feature-button" [class.validated]="isValidated('v1-feature-button')">
+    <article
+      data-specimen="v1-feature-button"
+      class="specimen feature-button"
+      [class.validated]="isValidated('v1-feature-button')"
+    >
       @if (isValidated('v1-feature-button')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
@@ -141,7 +155,11 @@
   </div>
 
   <div class="strip-item">
-    <article data-specimen="v1-blueprint" class="specimen blueprint" [class.validated]="isValidated('v1-blueprint')">
+    <article
+      data-specimen="v1-blueprint"
+      class="specimen blueprint"
+      [class.validated]="isValidated('v1-blueprint')"
+    >
       @if (isValidated('v1-blueprint')) {
         <span class="validated-mark" aria-label="validated">✓</span>
       }
@@ -150,7 +168,8 @@
     <div class="strip-meta column">
       <span class="render-ref">v1-blueprint-render</span>
       <span class="style-ref"
-        >icon lg 32px · label Open Sans 9px orange · name Open Sans bold · ME/TE + runs Elemental</span
+        >icon lg 32px · label Open Sans 9px orange · name Open Sans bold · ME/TE + runs
+        Elemental</span
       >
     </div>
   </div>
@@ -271,7 +290,8 @@
     <div class="strip-meta column">
       <span class="render-ref">v1-server-status-render</span>
       <span class="style-ref"
-        >name+status Elemental 14px · CAPSULEERS=SDE+count · NEXT DT · Open Sans · label orange</span
+        >name+status Elemental 14px · CAPSULEERS=SDE+count · NEXT DT · Open Sans · label
+        orange</span
       >
     </div>
   </div>

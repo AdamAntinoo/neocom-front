@@ -44,8 +44,7 @@ export class V1SystemRenderComponent implements OnInit {
   showsCard(): boolean {
     const variant = this.getVariant();
     return (
-      variant === NeoComVariant.SOLAR_SYSTEM_LOOKUP ||
-      variant === NeoComVariant.BLUEPRINT_LIST
+      variant === NeoComVariant.SOLAR_SYSTEM_LOOKUP || variant === NeoComVariant.BLUEPRINT_LIST
     );
   }
 

@@ -22,13 +22,11 @@ export const routes: Routes = [
   {
     path: 'industry',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./modules/industry/industry.module').then((m) => m.IndustryModule),
+    loadChildren: () => import('./modules/industry/industry.module').then((m) => m.IndustryModule),
   },
   {
     path: 'pilot',
     canActivate: [authGuard],
-    loadChildren: () =>
-      import('./modules/pilot/pilot.module').then((m) => m.PilotModule),
+    loadChildren: () => import('./modules/pilot/pilot.module').then((m) => m.PilotModule),
   },
 ];

@@ -3,14 +3,7 @@ export type LogLevel = 'DEBUG' | 'INFO' | 'PRODUCTION' | 'NONE';
 
 /** Stable section identifiers for front programme logs (CICD-F-115). */
 export type LogSection =
-  | 'app'
-  | 'auth'
-  | 'pilot'
-  | 'industry'
-  | 'assets'
-  | 'http'
-  | 'sse'
-  | 'universe';
+  'app' | 'auth' | 'pilot' | 'industry' | 'assets' | 'http' | 'sse' | 'universe';
 
 export const LOG_LEVEL_RANK: Record<Exclude<LogLevel, 'NONE'>, number> = {
   DEBUG: 10,

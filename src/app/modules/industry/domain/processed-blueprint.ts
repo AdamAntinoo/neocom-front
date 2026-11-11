@@ -9,7 +9,7 @@ export class ProcessedBlueprint extends BlueprintV1Node {
   /** Optional legacy location chain field (IND-BP-117). Prefer spaceLocation on BlueprintV1Node. */
   // public location?: BlueprintLocationChain;
 
-  constructor(values: BlueprintV1DtoWire & { location?: BlueprintLocationChain } | object = {}) {
+  constructor(values: (BlueprintV1DtoWire & { location?: BlueprintLocationChain }) | object = {}) {
     const v = values as BlueprintV1DtoWire & { name?: string; location?: BlueprintLocationChain };
     super({
       ...v,

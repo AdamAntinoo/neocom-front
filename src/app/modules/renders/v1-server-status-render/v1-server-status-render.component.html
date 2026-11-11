@@ -1,7 +1,13 @@
-<div id="server-info-panel" cy-section-name="server-info" class="neocom-panel panel-blue server-info-panel">
+<div
+  id="server-info-panel"
+  cy-section-name="server-info"
+  class="neocom-panel panel-blue server-info-panel"
+>
   <div class="row line name-line">
     <span cy-field-value="server-name" class="elemental-ff server-name">{{ getServerName() }}</span>
-    <span cy-field-value="server-online" class="elemental-ff server-online">{{ getOnlineLabel() }}</span>
+    <span cy-field-value="server-online" class="elemental-ff server-online">{{
+      getOnlineLabel()
+    }}</span>
   </div>
   <div class="row line metric-line">
     <span class="opensans-ff label">CAPSULEERS</span>

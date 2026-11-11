@@ -100,8 +100,7 @@ export class ModelStripPageComponent {
     allianceId: 99000739,
     allianceName: 'Of Sound Mind',
     homeStationId: 60009940,
-    homeLocationPath:
-      'LSC4-P I - Quafe Company Warehouse >> LSC4-P >> 49A-BZ >> Syndicate',
+    homeLocationPath: 'LSC4-P I - Quafe Company Warehouse >> LSC4-P >> 49A-BZ >> Syndicate',
   });
 
   /** EPIC-010 — System second-level hierarchy card (`v1-system`); count = children. */
@@ -142,8 +141,7 @@ export class ModelStripPageComponent {
     imageRef: '/media/blueprints-feature.jpeg',
   };
 
-  protected portrait =
-    'https://images.evetech.net/characters/93813310/portrait?size=64';
+  protected portrait = 'https://images.evetech.net/characters/93813310/portrait?size=64';
 
   protected readonly appInfo = new ApplicationInfoV1Node({
     name: 'NeoCom-Infinity',

@@ -32,9 +32,10 @@ export class OAuthEnabledComponent {
       redirect_uri: data.redirectUri,
       scope: data.scope,
     });
-    const base = data.authorizeHost.endsWith('?') || data.authorizeHost.endsWith('/')
-      ? data.authorizeHost.replace(/\?$/, '')
-      : data.authorizeHost;
+    const base =
+      data.authorizeHost.endsWith('?') || data.authorizeHost.endsWith('/')
+        ? data.authorizeHost.replace(/\?$/, '')
+        : data.authorizeHost;
     const separator = base.includes('?') ? '&' : '?';
     return `${base}${separator}${params.toString()}`;
   }

@@ -29,10 +29,7 @@ export class AssetLocationAggregate {
    * Resolve places for unique locationIds, then build hierarchy roots.
    * Nullifies nested location use by never reading asset.location — only locationId.
    */
-  async rebuild(
-    assets: PilotAssetNode[],
-    locations: SpaceLocationService,
-  ): Promise<NeoCom[]> {
+  async rebuild(assets: PilotAssetNode[], locations: SpaceLocationService): Promise<NeoCom[]> {
     this.clear();
     const ids = new Set<number>();
     for (const asset of assets) {

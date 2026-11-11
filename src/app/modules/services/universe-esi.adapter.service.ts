@@ -95,14 +95,10 @@ export class UniverseEsiAdapterService {
         factionId != null && factionId > 0 ? this.getFactions() : of([] as UniverseFaction[]),
     }).pipe(
       map(({ ancestries, bloodlines, factions }) => ({
-        ancestry:
-          ancestryId != null ? ancestries.find((a) => a.id === ancestryId) : undefined,
+        ancestry: ancestryId != null ? ancestries.find((a) => a.id === ancestryId) : undefined,
         bloodline:
-          bloodlineId != null
-            ? bloodlines.find((b) => b.bloodline_id === bloodlineId)
-            : undefined,
-        faction:
-          factionId != null ? factions.find((f) => f.faction_id === factionId) : undefined,
+          bloodlineId != null ? bloodlines.find((b) => b.bloodline_id === bloodlineId) : undefined,
+        faction: factionId != null ? factions.find((f) => f.faction_id === factionId) : undefined,
       })),
     );
   }

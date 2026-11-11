@@ -13,7 +13,9 @@
       <span cy-field-label="pilotGender" class="label invisible">GENERO</span>
       <span cy-field-value="pilotGender" class="meta">{{ getGenderDisplay() }}</span>
       <span cy-field-label="totalSkillPoints" class="label invisible">SKILL POINTS</span>
-      <span cy-field-value="totalSkillPoints" class="meta right">{{ getTotalSkillpoints() | number: '1.0-0' }}</span>
+      <span cy-field-value="totalSkillPoints" class="meta right">{{
+        getTotalSkillpoints() | number: '1.0-0'
+      }}</span>
     </div>
     <div cy-field-label="pilotWalletBalance" class="label invisible">BALANCE</div>
     <div cy-field-value="pilotWalletBalance" class="meta right isk">{{ getWalletLabel() }}</div>

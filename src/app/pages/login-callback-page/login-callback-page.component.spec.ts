@@ -60,7 +60,9 @@ describe('LoginCallbackPageComponent', () => {
     expect(root.querySelector('[cy-field-value="progress-label"]')?.textContent).toContain(
       'Waiting for code authentication...',
     );
-    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain('-AWAITING-CODE-');
+    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain(
+      '-AWAITING-CODE-',
+    );
     expect(root.querySelector('[cy-field-value="exceptionMessage"]')?.textContent).toContain(
       'The request does not have a mandatory query parameter.',
     );
@@ -69,7 +71,9 @@ describe('LoginCallbackPageComponent', () => {
   it('should reject a state that does not match the cookie', () => {
     const fixture = setup({ code: 'auth-code', state: 'other' }, 'expected-state');
     const root = fixture.nativeElement as HTMLElement;
-    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain('auth-code');
+    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain(
+      'auth-code',
+    );
     expect(root.querySelector('[cy-field-value="exceptionMessage"]')?.textContent).toContain(
       'The request state does not match. Caller not verified.',
     );
@@ -78,7 +82,9 @@ describe('LoginCallbackPageComponent', () => {
   it('should accept a code whose state matches the cookie', () => {
     const fixture = setup({ code: 'auth-code', state: 'expected-state' }, 'expected-state');
     const root = fixture.nativeElement as HTMLElement;
-    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain('auth-code');
+    expect(root.querySelector('[cy-field-value="progress-code"]')?.textContent).toContain(
+      'auth-code',
+    );
     expect(root.querySelector('[cy-section-name="exception"]')).toBeNull();
   });
 
@@ -105,4 +111,3 @@ describe('LoginCallbackPageComponent', () => {
     );
   });
 });
-

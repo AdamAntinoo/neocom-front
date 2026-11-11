@@ -23,9 +23,7 @@ export class V1CorporationPanelComponent {
 
   readonly node = toSignal(
     toObservable(this.corporationId).pipe(
-      switchMap((id) =>
-        id > 0 ? this.corporations.getPublicCorporation(id) : of(undefined),
-      ),
+      switchMap((id) => (id > 0 ? this.corporations.getPublicCorporation(id) : of(undefined))),
     ),
   );
 

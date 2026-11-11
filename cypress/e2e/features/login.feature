@@ -4,7 +4,6 @@ Feature: Login page
   So that I can start authentication
 
   # model-strip and color-table are intentionally excluded from acceptance
-
   Scenario: Unauthenticated home redirects to the login page
     When I open the application home page without a session
     Then the login page is visible

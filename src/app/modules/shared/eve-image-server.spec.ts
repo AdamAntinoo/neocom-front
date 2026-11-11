@@ -1,4 +1,9 @@
-import { buildEveImageUrl, characterPortraitUrl, corporationLogoUrl, resolveEveImageId } from './eve-image-server';
+import {
+  buildEveImageUrl,
+  characterPortraitUrl,
+  corporationLogoUrl,
+  resolveEveImageId,
+} from './eve-image-server';
 
 describe('eve-image-server', () => {
   it('builds corporation logo URLs with size', () => {
@@ -15,9 +20,9 @@ describe('eve-image-server', () => {
   });
 
   it('omits size when not supplied', () => {
-    expect(
-      buildEveImageUrl({ category: 'types', id: 25601, variation: 'icon' }),
-    ).toBe('https://images.evetech.net/types/25601/icon');
+    expect(buildEveImageUrl({ category: 'types', id: 25601, variation: 'icon' })).toBe(
+      'https://images.evetech.net/types/25601/icon',
+    );
   });
 
   it('rejects non power-of-two sizes outside the table', () => {

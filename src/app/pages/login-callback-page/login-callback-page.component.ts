@@ -101,7 +101,10 @@ export class LoginCallbackPageComponent implements OnInit {
     };
   }
 
-  private validate(code: string | null, state: string | null): { title: string; message: string } | null {
+  private validate(
+    code: string | null,
+    state: string | null,
+  ): { title: string; message: string } | null {
     if (code == null || code === '') {
       return {
         title: 'EXCEPTION',

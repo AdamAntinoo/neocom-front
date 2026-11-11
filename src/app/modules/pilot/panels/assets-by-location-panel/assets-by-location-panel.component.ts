@@ -20,10 +20,7 @@ import '@renders/v1-unidentified-location-render/v1-unidentified-location-render
   templateUrl: './assets-by-location-panel.component.html',
   styleUrl: './assets-by-location-panel.component.scss',
 })
-export class AssetsByLocationPanelComponent
-  extends AppPanelComponent
-  implements OnInit, OnDestroy
-{
+export class AssetsByLocationPanelComponent extends AppPanelComponent implements OnInit, OnDestroy {
   private readonly provider = inject(PilotAssetProviderService);
   private readonly locations = inject(SpaceLocationService);
   private readonly tree = new AssetLocationAggregate();

@@ -8,7 +8,9 @@
     />
     <div class="column identity">
       <span cy-field-label="blueprint-name" class="opensans-ff label">BLUEPRINT NAME</span>
-      <span cy-field-value="blueprint-name" class="opensans-ff blueprint-name">{{ getName() }}</span>
+      <span cy-field-value="blueprint-name" class="opensans-ff blueprint-name">{{
+        getName()
+      }}</span>
     </div>
     <span cy-field-value="efficiency" class="elemental-ff metric">{{ getEfficiencyLabel() }}</span>
     @if (!isMaster()) {
