@@ -15,7 +15,9 @@ if (!/^\d+\.\d+\.\d+$/.test(version)) {
   process.exit(1);
 }
 
-execFileSync('npm', ['pkg', 'set', `version=${version}`], { cwd: root, stdio: 'inherit' });
+// package.json "version" stays at 0.0.0 forever — SemVer lives in env/index/banner/features
+// and in GitVersion commitTag/imageTag. Leaving package.json untouched keeps the CI
+// node_modules cache key (hash of package.json + lockfile) stable across version bumps.
 
 function replaceInFile(relativePath, pattern, replacement) {
   const filePath = path.join(root, relativePath);

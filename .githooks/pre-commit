@@ -11,8 +11,9 @@
 #   2. Exit early if `gitversion` is not on PATH (CI will sync later)
 #   3. Run `npm run version:sync`, which:
 #        - reads GitVersion MajorMinorPatch (X.Y.Z only)
-#        - writes that into package.json, environment appVersion fields,
-#          index.html loading text, Cypress app-info expectation, and banner
+#        - writes that into environment appVersion fields, index.html loading text,
+#          Cypress app-version expectations, and banner
+#        - does NOT rewrite package.json (stays 0.0.0 for CI node_modules cache)
 #   4. `git add` those version artefacts so the bump is included in this commit
 #
 # Do not hand-edit SemVer or invent a chore(version) commit — this hook owns it.
@@ -32,13 +33,13 @@ cd "$root"
 
 npm run version:sync
 
-# Stage version artefacts so they land in this commit.
+# Stage version artefacts so they land in this commit (never package.json).
 for path in \
-  package.json \
   src/environments/environment.ts \
   src/environments/environment.development.ts \
   src/index.html \
-  cypress/e2e/features/app-info-panel.feature \
+  cypress/e2e/features/login.feature \
+  cypress/e2e/features/industry-blueprints-by-location.feature \
   .app-banner.txt
 do
   if [[ -f "$path" ]]; then
