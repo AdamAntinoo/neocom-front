@@ -6,7 +6,8 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=6001
 COPY package.json package-lock.json ./
-RUN npm ci --omit=dev
+# prepare runs `git config core.hooksPath` — no git in alpine runtime image.
+RUN npm ci --omit=dev --ignore-scripts
 COPY config ./config
 COPY dist/neocom-front ./dist/neocom-front
 COPY server.js ./
