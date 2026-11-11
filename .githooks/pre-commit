@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
-# Sync package/app version from GitVersion MajorMinorPatch into the same commit.
+# pre-commit — keep app SemVer aligned with GitVersion on every local commit.
+#
+# When this runs
+#   - Installed by `npm prepare` → `git config core.hooksPath .githooks`
+#   - Git invokes this hook automatically before creating a commit (any branch)
+#   - CI also syncs on push via `.github/workflows/version-sync.yml` (safety net)
+#
+# What it does
+#   1. Exit early if SKIP_VERSION_SYNC=1 (escape hatch for rare local skips)
+#   2. Exit early if `gitversion` is not on PATH (CI will sync later)
+#   3. Run `npm run version:sync`, which:
+#        - reads GitVersion MajorMinorPatch (X.Y.Z only)
+#        - writes that into package.json, environment appVersion fields,
+#          index.html loading text, Cypress app-info expectation, and banner
+#   4. `git add` those version artefacts so the bump is included in this commit
+#
+# Do not hand-edit SemVer or invent a chore(version) commit — this hook owns it.
 set -euo pipefail
 
 if [[ "${SKIP_VERSION_SYNC:-}" == "1" ]]; then

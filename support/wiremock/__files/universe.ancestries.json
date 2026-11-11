@@ -1,0 +1,18 @@
+[
+  {
+    "id": 11,
+    "name": "Merchandisers",
+    "bloodline_id": 1,
+    "description": "Trade and commerce focused Caldari ancestry.",
+    "short_description": "Merchants",
+    "icon_id": 1641
+  },
+  {
+    "id": 12,
+    "name": "Scientists",
+    "bloodline_id": 1,
+    "description": "Research focused Caldari ancestry.",
+    "short_description": "Scientists",
+    "icon_id": 1642
+  }
+]

@@ -1,0 +1,132 @@
+{
+  "mappings": [
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/ancestries/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.ancestries.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/bloodlines/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.bloodlines.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/factions/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.factions.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/graphics/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.graphics.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/groups/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.groups.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/esi/v1/universe/groups/{groupId}/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.group.6.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPath": "/esi/v1/universe/categories/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.categories.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    },
+    {
+      "priority": 10,
+      "request": {
+        "method": "GET",
+        "urlPathTemplate": "/esi/v1/universe/categories/{categoryId}/"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "universe.category.6.json",
+        "headers": {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "cache-control": "public"
+        }
+      }
+    }
+  ]
+}

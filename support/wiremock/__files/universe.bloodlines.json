@@ -1,0 +1,28 @@
+[
+  {
+    "bloodline_id": 1,
+    "name": "Deteis",
+    "race_id": 1,
+    "description": "The Deteis are considered the civic leaders of the Caldari.",
+    "corporation_id": 1000035,
+    "ship_type_id": 606,
+    "charisma": 3,
+    "intelligence": 6,
+    "memory": 7,
+    "perception": 7,
+    "willpower": 5
+  },
+  {
+    "bloodline_id": 2,
+    "name": "Civire",
+    "race_id": 1,
+    "description": "The Civire are the industrial backbone of the Caldari State.",
+    "corporation_id": 1000036,
+    "ship_type_id": 607,
+    "charisma": 4,
+    "intelligence": 5,
+    "memory": 6,
+    "perception": 8,
+    "willpower": 5
+  }
+]

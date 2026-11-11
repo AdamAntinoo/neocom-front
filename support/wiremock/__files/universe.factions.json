@@ -1,0 +1,14 @@
+[
+  {
+    "faction_id": 500001,
+    "name": "Caldari State",
+    "description": "The Caldari State is an authoritarian corporate state.",
+    "is_unique": true,
+    "size_factor": 5,
+    "station_count": 1500,
+    "station_system_count": 500,
+    "corporation_id": 1000035,
+    "militia_corporation_id": 1000180,
+    "solar_system_id": 30000142
+  }
+]
